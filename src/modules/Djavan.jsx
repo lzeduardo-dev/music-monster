@@ -1,0 +1,113 @@
+import ArtistPage from '../components/ArtistPage.jsx'
+
+const DATA = {
+  id: 'djavan',
+  name: 'Djavan',
+  fullName: 'Djavan Caetano Viana',
+  born: '1949 · Maceió, AL',
+  era: '1976 – presente',
+  category: 'MPB',
+  bio: 'Compositor, cantor e violonista que redefiniu a MPB ao casar a harmonia jazzística com a sensibilidade melódica brasileira. Suas canções são lições vivas de campo harmônico expandido, troca modal e voicings sofisticados — tudo soando natural.',
+  genres: ['MPB', 'Samba-canção', 'Jazz Brasileiro', 'Pop sofisticado'],
+  images: [
+    { src: '/images/djavan.jpg',  label: 'Era Luz (anos 80)' },
+    { src: '/images/djavan2.jpg', label: 'Voz em estúdio' },
+    { src: '/images/djavan3.jpg', label: 'Era contemporânea' },
+  ],
+  color: '#a78bfa',
+  bgFrom: '#312e81',
+  bgTo: '#1e1b4b',
+  trademarks: [
+    'Uso constante de acordes com 7ª, 9ª, 11ª e 13ª',
+    'Troca modal (empréstimos do menor para o maior)',
+    'Reharmonização sobre o ciclo de quintas',
+    'Melodia "sinuosa" que evita as notas óbvias do acorde',
+  ],
+  songs: [
+    {
+      id: 'oceano', title: 'Oceano', year: 1989, album: 'Puzzle of Hearts / Oceano',
+      key: 'Bm', accent: '#60a5fa',
+      description: 'A jóia harmônica mais conhecida de Djavan. Construída sobre a tríade menor em Si, mas com tensões constantes — quase nenhum acorde sem 7ª ou 9ª.',
+      composition: 'A canção nasceu durante uma viagem de Djavan ao Caribe — daí o título. Compositoramente, ele usa o recurso de "tônicas suspensas": o Bm9 não é tocado como bloco fechado, mas com a 9ª (Dó#) na corda mais aguda, criando sensação de oceano-sem-fim. O contraste entre versos densos e ponte respirada simula o vai-e-vem das ondas. Gravada por Maria Bethânia (1990), Caetano Veloso, Sandy & Junior e Erasmo Carlos — virou padrão do Brasil. Apostila estrutural: ABACABA com modulações sutis dentro de cada A.',
+      sections: [
+        { name: 'Intro / Verso', progression: ['Bm9', 'Em9', 'F#7', 'Bm9'],
+          analysis: 'i9 – iv9 – V7 – i9. Cadência menor clássica enriquecida com nonas. A sensação aquosa vem das tensões empilhadas.' },
+        { name: 'Pré-refrão', progression: ['Em9', 'F#7b9', 'Bm9', 'F#7'],
+          analysis: 'O F#7b9 cria tensão dominante máxima — a b9 (G natural) "pinta" o acorde com a cor frígia dominante antes de resolver.' },
+        { name: 'Ponte', progression: ['Cmaj7', 'Bm7', 'Am7', 'D7'],
+          analysis: 'Movimento descendente diatônico (bIIM7 – i7 – VIIm7 – III7). O Cmaj7 é um empréstimo modal (bII do dó menor), recurso característico de Djavan.' },
+      ],
+      chords: [
+        { root: 'B',  key: 'min9', label: 'Bm9',   role: 'i9 — tônica menor' },
+        { root: 'E',  key: 'min9', label: 'Em9',   role: 'iv9 — subdominante menor' },
+        { root: 'F#', key: '7',    label: 'F#7',   role: 'V7 — dominante' },
+        { root: 'F#', key: '7b9',  label: 'F#7b9', role: 'V7b9 — dominante com tensão' },
+        { root: 'C',  key: 'maj7', label: 'Cmaj7', role: 'bIIM7 — empréstimo modal' },
+        { root: 'B',  key: 'min7', label: 'Bm7',   role: 'i7' },
+        { root: 'A',  key: 'min7', label: 'Am7',   role: 'VIIm7' },
+        { root: 'D',  key: '7',    label: 'D7',    role: 'III7 — dominante secundário' },
+      ],
+    },
+    {
+      id: 'samurai', title: 'Samurai', year: 1982, album: 'Luz',
+      key: 'Am', accent: '#a78bfa',
+      description: 'Parceria com Stevie Wonder no álbum Luz. Mostra Djavan navegando entre o campo harmônico de Lá menor e empréstimos do paralelo maior — tudo sustentando uma melodia que parece improvisada.',
+      composition: 'Stevie Wonder tocou gaita e voz no álbum (1982). A música foi composta no piano por Djavan e revestida por Wonder com arranjos de cordas que sublimam a harmonia menor. O motivo melódico do refrão (Lá-Sol-Mi-Ré) é uma "voz cantada" no idioma jazzístico — cada nota cai em uma extensão diferente do acorde. Curiosidade: o título "Samurai" vem do código de honra — a letra fala de um amor que cumpre seu destino mesmo sabendo do final. A forma é AABA expandida com ponte modulante.',
+      sections: [
+        { name: 'Verso', progression: ['Am7', 'Dm7', 'G7', 'Cmaj7'],
+          analysis: 'ii–V–I em dó maior tocado como i–iv–VII–bIII no contexto de lá menor. A famosa "ii–V–I em sonata" mas reinterpretada.' },
+        { name: 'Frase B', progression: ['Fmaj7', 'Bm7b5', 'E7b9', 'Am7'],
+          analysis: 'IV–vii°–V7b9–i. O Bm7b5 é o ii do campo harmônico de Lá menor — clássica cadência ii–V–i menor com sétimas sofisticadas.' },
+        { name: 'Refrão', progression: ['Am7', 'Fmaj7', 'Cmaj7', 'E7'],
+          analysis: 'i7–VI7M–III7M–V7. A sucessão de maj7 sobre estrutura menor é Djavan puro — soa luminosa apesar do modo menor.' },
+      ],
+      chords: [
+        { root: 'A',  key: 'min7', label: 'Am7',    role: 'i7 — tônica' },
+        { root: 'D',  key: 'min7', label: 'Dm7',    role: 'iv7' },
+        { root: 'G',  key: '7',    label: 'G7',     role: 'VII7' },
+        { root: 'C',  key: 'maj7', label: 'Cmaj7',  role: 'bIIIM7 — relativo maior' },
+        { root: 'F',  key: 'maj7', label: 'Fmaj7',  role: 'bVIM7' },
+        { root: 'B',  key: 'm7b5', label: 'Bm7b5',  role: 'ii°7 — meio-diminuto' },
+        { root: 'E',  key: '7b9',  label: 'E7b9',   role: 'V7b9 — dominante de Am' },
+        { root: 'E',  key: '7',    label: 'E7',     role: 'V7' },
+      ],
+    },
+    {
+      id: 'nem-um-dia', title: 'Nem Um Dia', year: 1995, album: 'Malásia',
+      key: 'Em', accent: '#f472b6',
+      description: 'Balada com progressão aparentemente simples que esconde um trabalho de voicing magistral. A tônica menor (Em) flutua entre o eólio e o dórico ao longo da canção.',
+      composition: 'Composta no auge da maturidade de Djavan — disco "Malásia" (1995) foi o seu retorno após uma pausa de quase 4 anos. A música usa o recurso da "tônica camuflada": embora a tonalidade seja claramente Mi menor, o Cmaj7 (bVI) aparece tantas vezes nos versos que ele "rouba" a função de tônica momentaneamente. Esse recurso é típico do jazz pós-bop (Chick Corea, Pat Metheny). A linha de baixo descendente do refrão (C-B-A-B) é uma "viagem cromática" que evita o óbvio.',
+      sections: [
+        { name: 'Intro', progression: ['Em9', 'Cmaj7', 'Am7', 'B7'],
+          analysis: 'i9 – bVI7M – iv7 – V7. O Cmaj7 (bVIM7) é a "cama" harmônica favorita de Djavan: tônica suspensa em colcheias enquanto a melodia respira.' },
+        { name: 'Verso', progression: ['Em7', 'Am7', 'D7', 'Gmaj7'],
+          analysis: 'i7 – iv7 – bVII7 – bIIIM7. Modulação efêmera ao relativo maior (Sol) — quando ela acontece, soa como "respirar fundo".' },
+        { name: 'Refrão', progression: ['Cmaj7', 'Bm7', 'Am7', 'B7b9'],
+          analysis: 'bVIM7 – v7 – iv7 – V7b9. Linha de baixo descendente (C–B–A–B). O B7b9 final detona toda a tensão antes do retorno ao Em.' },
+      ],
+      chords: [
+        { root: 'E',  key: 'min9', label: 'Em9',    role: 'i9 — tônica' },
+        { root: 'E',  key: 'min7', label: 'Em7',    role: 'i7' },
+        { root: 'C',  key: 'maj7', label: 'Cmaj7',  role: 'bVIM7 — modal/cor' },
+        { root: 'A',  key: 'min7', label: 'Am7',    role: 'iv7' },
+        { root: 'B',  key: '7',    label: 'B7',     role: 'V7' },
+        { root: 'B',  key: '7b9',  label: 'B7b9',   role: 'V7b9' },
+        { root: 'B',  key: 'min7', label: 'Bm7',    role: 'v7 — modal' },
+        { root: 'D',  key: '7',    label: 'D7',     role: 'bVII7' },
+        { root: 'G',  key: 'maj7', label: 'Gmaj7',  role: 'bIIIM7 — relativo maior' },
+      ],
+    },
+  ],
+  lessons: [
+    { title: 'Tensões são a regra, não a exceção',
+      text: 'Em Djavan, raramente um acorde é "puro" (só tríade). A 7ª, a 9ª e a 11ª aparecem como cor padrão — mesmo na tônica.' },
+    { title: 'Empréstimo modal constante',
+      text: 'O bIIM7, bIIIM7, bVIM7 e bVII7 do paralelo maior aparecem em quase toda música menor. É o que dá o "ar arejado" mesmo em harmonias menores.' },
+    { title: 'Melodia que dança nas tensões',
+      text: 'Onde outros compositores pousariam na tônica, Djavan pousa na 9ª. Onde pousariam na 5ª, ele pousa na 13ª. É essa fuga das notas óbvias que torna a melodia inconfundível.' },
+  ],
+}
+
+export default function Djavan() {
+  return <ArtistPage data={DATA} />
+}
