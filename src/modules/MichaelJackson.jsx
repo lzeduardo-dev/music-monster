@@ -1,0 +1,111 @@
+import ArtistPage from '../components/ArtistPage.jsx'
+
+const DATA = {
+  id: 'michael-jackson',
+  name: 'Michael Jackson',
+  fullName: 'Michael Joseph Jackson',
+  born: '1958–2009 · Gary, IN',
+  era: '1964–2009',
+  category: 'R&B / Pop',
+  bio: 'O Rei do Pop. Refinou o R&B/Soul de Motown e o transformou no pop global dos anos 80/90, com Quincy Jones produzindo os 3 álbuns que mudaram a história ("Off the Wall", "Thriller", "Bad"). Vocalmente: dinâmica explosiva. Harmonicamente: progressões pop simples decoradas com jazz secreto.',
+  genres: ['Pop', 'R&B', 'Soul', 'Funk', 'Disco'],
+  images: [
+    { src: '/images/michaelJackson.jpg',  label: 'Era Off the Wall' },
+    { src: '/images/michaelJackson2.jpg', label: 'Era Thriller (1982)' },
+    { src: '/images/michaelJackson3.webp', label: 'Tour mundial Bad/Dangerous' },
+  ],
+  color: '#ec4899',
+  bgFrom: '#831843',
+  bgTo: '#500724',
+  trademarks: [
+    'Bridges modulantes em terça ascendente (recurso Motown)',
+    'Vocal stack — duplicação de voz em 5ª/3ª paralelas',
+    'Acordes maj7 e min9 disfarçados como pop simples',
+    'Linhas de baixo "walking" no funk (Off the Wall, Billie Jean)',
+  ],
+  songs: [
+    {
+      id: 'billie-jean', title: 'Billie Jean', year: 1982, album: 'Thriller',
+      key: 'Fá# menor (F#m)', accent: '#ec4899',
+      description: 'O groove mais reconhecível do pop. Linha de baixo de 4 compassos repetida ad infinitum, vocais empilhados, e a melodia mais lírica já gravada sobre um ostinato.',
+      composition: 'MJ compôs a melodia inteira em um único dia, sem instrumento — só cantando para o gravador. Quincy Jones queria cortar a intro de 30 segundos (achava longa demais) — Michael recusou: "é essa intro que vai fazer as pessoas dançarem". Tinha razão. O recurso composicional mais brilhante: a linha de baixo NUNCA muda em toda a canção — é um VAMP de 4 compassos (F#m-Bm7-D-F#m) que se repete 50+ vezes. Toda a variação vem da MELODIA por cima e dos NAIPES vocais. Forma: AABA com ponte que estoura a tonalidade.',
+      sections: [
+        { name: 'Verso (vamp eterno)', progression: ['F#m7', 'G#m7', 'A', 'Bm7'],
+          analysis: 'i7 – ii7 – bIII – iv7. O groove que define a música. Não há resolução clássica — o "ciclo" é o objetivo.' },
+        { name: 'Pré-refrão', progression: ['Dmaj7', 'C#m7', 'Bm7', 'F#m7'],
+          analysis: 'bVIM7 – v7 – iv7 – i7. Descida diatônica preparando o refrão — recurso clássico do soul.' },
+        { name: 'Bridge ("People Always Told Me...")', progression: ['A', 'Dmaj7', 'C#m', 'F#m'],
+          analysis: 'bIII – bVIM7 – v – i. A bridge MODULA temporariamente para Lá maior, criando "luz" antes da escuridão paranoica do refrão final.' },
+      ],
+      chords: [
+        { root: 'F#', key: 'min7', label: 'F#m7',  role: 'i7 — tônica' },
+        { root: 'G#', key: 'min7', label: 'G#m7',  role: 'ii7' },
+        { root: 'A',  key: 'maj',  label: 'A',     role: 'bIII — relativo' },
+        { root: 'B',  key: 'min7', label: 'Bm7',   role: 'iv7' },
+        { root: 'D',  key: 'maj7', label: 'Dmaj7', role: 'bVIM7' },
+        { root: 'C#', key: 'min7', label: 'C#m7',  role: 'v7' },
+        { root: 'C#', key: 'min',  label: 'C#m',   role: 'v' },
+        { root: 'F#', key: 'min',  label: 'F#m',   role: 'i' },
+      ],
+    },
+    {
+      id: 'human-nature', title: 'Human Nature', year: 1982, album: 'Thriller',
+      key: 'Mi maior (E)', accent: '#f472b6',
+      description: 'A balada mais sofisticada do Thriller. Composta por Steve Porcaro (Toto), virou um padrão jazz nos anos 90 — versões de Miles Davis, John Mayer, Jacob Collier.',
+      composition: 'Steve Porcaro (do Toto) escreveu a música no piano em uma única tarde, gravou em fita cassete e mandou pra Quincy Jones — sem letra. Quincy ouviu, pediu pra David Paich (também do Toto) acrescentar uma letra, e tocou pra Michael, que aceitou imediatamente. Compositoramente é um exemplo raro de jazz harmônico no pop: cada acorde é maj7 ou min9. O recurso decisivo é a "modulação fantasma" — a música DÁ A IMPRESSÃO de modular várias vezes, mas na verdade sempre volta para mi maior. Miles Davis gravou versão instrumental em "You\'re Under Arrest" (1985).',
+      sections: [
+        { name: 'Verso', progression: ['Emaj7', 'F#m7', 'A', 'B'],
+          analysis: 'IM7 – ii7 – IV – V. O Emaj7 (com 7ª maior na voz superior) é a "cama" jazz. Cada acorde respira por 2 compassos.' },
+        { name: 'Pré-refrão', progression: ['C#m7', 'F#m7', 'Bsus4', 'B'],
+          analysis: 'vi7 – ii7 – Vsus – V. O sus4 que resolve para o V é o "atraso" tonal — sensação de hesitação antes do refrão.' },
+        { name: 'Refrão', progression: ['Emaj7', 'A', 'C#m9', 'F#m7'],
+          analysis: 'IM7 – IV – vi9 – ii7. O C#m9 (com 9ª no topo) é o ponto mais "luminoso" da canção — cor jazz instantânea.' },
+      ],
+      chords: [
+        { root: 'E',  key: 'maj7', label: 'Emaj7',  role: 'IM7 — tônica' },
+        { root: 'F#', key: 'min7', label: 'F#m7',   role: 'ii7' },
+        { root: 'A',  key: 'maj',  label: 'A',      role: 'IV' },
+        { root: 'B',  key: 'maj',  label: 'B',      role: 'V' },
+        { root: 'B',  key: 'sus4', label: 'Bsus4',  role: 'Vsus' },
+        { root: 'C#', key: 'min7', label: 'C#m7',   role: 'vi7' },
+        { root: 'C#', key: 'min9', label: 'C#m9',   role: 'vi9 — cor jazz' },
+      ],
+    },
+    {
+      id: 'man-in-the-mirror', title: 'Man in the Mirror', year: 1988, album: 'Bad',
+      key: 'Sol maior (G)', accent: '#f9a8d4',
+      description: 'Balada gospel-pop com modulação ascendente épica no final. Composta por Glen Ballard e Siedah Garrett. Coro Andraé Crouch nos backing vocals.',
+      composition: 'Glen Ballard compôs a base musical em uma noite, e Siedah Garrett (que viraria backing vocalist de MJ) acrescentou a letra em outra. Quando Michael ouviu, decidiu gravar com 35 vozes ao vivo no estúdio — o Andraé Crouch Choir entrou no último refrão. Recurso composicional: TRÊS modulações ascendentes ao longo da canção (Sol → Lá → Si → Dó#). Cada modulação representa um "nível" emocional. O último refrão (em Dó# maior, 1.5 tom acima do original) é onde Michael solta o gospel mais visceral — e onde o coro entra. Pura engenharia emocional.',
+      sections: [
+        { name: 'Verso', progression: ['G', 'D/F#', 'Em', 'D'],
+          analysis: 'I – V/3 – vi – V. O baixo cromático (G-F#-E-D) é uma "ladeira para baixo" — Michael caminhando sozinho na frase introspectiva.' },
+        { name: 'Refrão', progression: ['C', 'G', 'D', 'Em'],
+          analysis: 'IV – I – V – vi. A "Axis Progression" pop universal. Simples, eficaz, cantarolável por qualquer um.' },
+        { name: 'Refrão final (modulado +1.5 tom)', progression: ['F#', 'C#', 'G#', 'A#m'],
+          analysis: 'I – V – II – iii (em Dó#). A modulação por terças ascendentes é o "fim do mundo" emocional. Coro gospel entra. Pele arrepia.' },
+      ],
+      chords: [
+        { root: 'G',  key: 'maj',  label: 'G',     role: 'I — tônica' },
+        { root: 'D',  key: 'maj',  label: 'D',     role: 'V' },
+        { root: 'C',  key: 'maj',  label: 'C',     role: 'IV' },
+        { root: 'E',  key: 'min',  label: 'Em',    role: 'vi — relativo menor' },
+        { root: 'F#', key: 'maj',  label: 'F#',    role: 'I (modulado)' },
+        { root: 'C#', key: 'maj',  label: 'C#',    role: 'V (modulado)' },
+        { root: 'G#', key: 'maj',  label: 'G#',    role: 'II (modulado)' },
+        { root: 'A#', key: 'min',  label: 'A#m',   role: 'iii (modulado)' },
+      ],
+    },
+  ],
+  lessons: [
+    { title: 'Vamps eternos no funk/R&B',
+      text: 'Billie Jean repete a MESMA progressão de 4 compassos quase 60 vezes. A genialidade está em DECORAR esse vamp com vocais, naipes e percussão — não em mudar harmonia.' },
+    { title: 'Modulação ascendente é o golpe emocional',
+      text: 'Man in the Mirror modula 3 vezes pra cima. Cada modulação é mais ALTA — força o ouvinte a sentir crescimento. Sting, Whitney Houston, Celine Dion usam o mesmo truque.' },
+    { title: 'Jazz escondido no pop',
+      text: 'Human Nature é jazz puro disfarçado de balada pop. Quincy Jones (produtor) era jazzman antes de virar produtor pop — sempre escondeu acordes jazz nas progressões de MJ.' },
+  ],
+}
+
+export default function MichaelJackson() {
+  return <ArtistPage data={DATA} />
+}
