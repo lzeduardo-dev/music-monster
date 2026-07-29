@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+server/node_modules/
+
+# Build output
+dist/
+
+# Environment secrets
+server/.env
+
+# Logs and DB
+server/data/*.json
+*.log
+
+# OS
+.DS_Store
