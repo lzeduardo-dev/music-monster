@@ -15,7 +15,7 @@ export default function CompleteToggle({
       aria-label={done ? `Desmarcar ${label}` : `Marcar como ${label}`}
       title={
         done
-          ? `${cap} — clique para desmarcar`
+          ? `${cap}: clique para desmarcar`
           : `Marcar como ${label}`
       }
       className="grid place-items-center rounded-full transition-transform hover:scale-110 active:scale-95"

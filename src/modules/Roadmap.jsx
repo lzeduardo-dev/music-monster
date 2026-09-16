@@ -84,7 +84,7 @@ const AREAS = [
     color: "#14b8a6",
     moduleId: "harmonia_funcional",
     lessons: [
-      { id: "tsdf",         title: "T · S · D — Funções Harmônicas" },
+      { id: "tsdf",         title: "T · S · D: Funções Harmônicas" },
       { id: "progressions", title: "Progressões Clichê" },
       { id: "ii_v_i",       title: "ii–V–I e Jazz" },
     ],
@@ -436,7 +436,7 @@ function Hero({ total }) {
         className="text-[14px] md:text-[15px] mt-2"
         style={{ color: "var(--text-muted)" }}
       >
-        {total} lições em sequência, cobrindo todas as áreas do MusicMonster —
+        {total} lições em sequência, cobrindo todas as áreas do MusicMonster:
         dos fundamentos ao improviso.
       </p>
     </div>
@@ -707,7 +707,7 @@ function AreasSection({ areas, classified }) {
           className="text-[13.5px] mt-1"
           style={{ color: "var(--text-muted)" }}
         >
-          Cada assunto do caminho pertence a uma destas áreas — clique para
+          Cada assunto do caminho pertence a uma destas áreas: clique para
           abrir o módulo completo.
         </p>
       </div>

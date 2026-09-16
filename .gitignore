@@ -6,6 +6,9 @@ server/node_modules/
 dist/
 
 # Environment secrets
+.env
+.env.local
+.env.*.local
 server/.env
 
 # Logs and DB

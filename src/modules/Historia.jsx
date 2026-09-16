@@ -4,27 +4,27 @@ import { PageHeader, Section, TheoryBlock } from '../components/Common.jsx'
 const ERAS = [
   {
     decade: '1900s–1930s',
-    title: 'Delta Blues — As origens',
-    color: '#c084fc',
-    desc: 'Nascido no Delta do Mississippi, o blues surgiu das comunidades negras do sul dos EUA a partir de cantos de trabalho, hollers e spirituals. Era música de um homem e um violão — cru, visceral e profundamente expressivo.',
+    title: 'Delta Blues: As origens',
+    color: '#eab308',
+    desc: 'Nascido no Delta do Mississippi, o blues surgiu das comunidades negras do sul dos EUA a partir de cantos de trabalho, hollers e spirituals. Era música de um homem e um violão: cru, visceral e profundamente expressivo.',
     artists: [
       {
         name: 'Robert Johnson',
         life: '1911–1938',
         origin: 'Mississippi, EUA',
         badge: 'Lenda fundadora',
-        bio: 'O mais mitológico dos bluesmens. Suas 29 gravações feitas entre 1936 e 1937 influenciaram Clapton, Richards, Page e praticamente todo músico de rock. A lenda da encruzilhada — onde teria vendido sua alma ao diabo em troca do talento — acompanha sua breve e misteriosa vida.',
+        bio: 'O mais mitológico dos bluesmens. Suas 29 gravações feitas entre 1936 e 1937 influenciaram Clapton, Richards, Page e praticamente todo músico de rock. A lenda da encruzilhada: onde teria vendido sua alma ao diabo em troca do talento: acompanha sua breve e misteriosa vida.',
         albums: ['Complete Recordings (1936–37)'],
         songs: ['Cross Road Blues', 'Love in Vain', 'Sweet Home Chicago', 'Hellhound on My Trail'],
         guitar: 'Gibson L-1 (acústico)',
-        legacy: 'A guitarra slide, os baixos ambulantes, as progressões I-IV-V — Johnson codificou o vocabulário do blues que todos usariam depois.'
+        legacy: 'A guitarra slide, os baixos ambulantes, as progressões I-IV-V: Johnson codificou o vocabulário do blues que todos usariam depois.'
       },
       {
         name: 'Charlie Patton',
         life: '1891–1934',
         origin: 'Mississippi, EUA',
         badge: 'Pai do Delta Blues',
-        bio: 'Considerado o fundador do Delta Blues, Patton era famoso por sua voz poderosa e por usar o violão como instrumento percussivo — batucando no corpo enquanto tocava. Influenciou diretamente Robert Johnson e Howlin\' Wolf.',
+        bio: 'Considerado o fundador do Delta Blues, Patton era famoso por sua voz poderosa e por usar o violão como instrumento percussivo: batucando no corpo enquanto tocava. Influenciou diretamente Robert Johnson e Howlin\' Wolf.',
         albums: ['Founder of the Delta Blues'],
         songs: ['Pony Blues', 'High Water Everywhere'],
         guitar: 'Stella (acústico)',
@@ -34,8 +34,8 @@ const ERAS = [
   },
   {
     decade: '1940s–1950s',
-    title: 'Chicago Blues — O blues vai para a cidade',
-    color: '#f472b6',
+    title: 'Chicago Blues: O blues vai para a cidade',
+    color: '#eab308',
     desc: 'A Grande Migração levou os negros do sul para as cidades industriais do norte. Em Chicago, o blues ganhou eletricidade, banda completa e volume. Mudou para sempre.',
     artists: [
       {
@@ -54,7 +54,7 @@ const ERAS = [
         life: '1925–2015',
         origin: 'Mississippi → Las Vegas',
         badge: 'Rei do Blues',
-        bio: 'Riley B. King revolucionou a técnica de guitarra no blues. Sem usar slide, criou um vibrato de pulso inimitável que simulava a expressividade do canto. Sua abordagem de três mãos — frases em single notes, vibrato e muting — é estudada até hoje. Seu violão "Lucille" se tornou um ícone.',
+        bio: 'Riley B. King revolucionou a técnica de guitarra no blues. Sem usar slide, criou um vibrato de pulso inimitável que simulava a expressividade do canto. Sua abordagem de três mãos: frases em single notes, vibrato e muting: é estudada até hoje. Seu violão "Lucille" se tornou um ícone.',
         albums: ['Live at the Regal', 'Completely Well', 'Live in Cook County Jail'],
         songs: ['The Thrill Is Gone', 'Every Day I Have the Blues', 'Three O\'Clock Blues', 'Why I Sing the Blues'],
         guitar: 'Gibson ES-355 "Lucille"',
@@ -75,8 +75,8 @@ const ERAS = [
   },
   {
     decade: '1950s–1960s',
-    title: 'Blues Rock & Chicago — Segunda geração',
-    color: '#818cf8',
+    title: 'Blues Rock & Chicago: Segunda geração',
+    color: '#2563eb',
     desc: 'O blues se funde com o rock and roll. Artistas como Chuck Berry popularizam o blues para audiências jovens e brancas. Em Chicago, Buddy Guy e Otis Rush levam a guitarra a novos extremos expressivos.',
     artists: [
       {
@@ -95,7 +95,7 @@ const ERAS = [
         life: '1910–1976',
         origin: 'Mississippi → Chicago',
         badge: 'O Lobo Uivante',
-        bio: 'Chester Burnett — o Howlin\' Wolf — tinha uma voz como nenhuma outra: cavernosa, ameaçadora e primitiva. Com o guitarrista Hubert Sumlin, criou um som que influenciou Led Zeppelin, Rolling Stones e toda a cena de blues britânico dos anos 60.',
+        bio: 'Chester Burnett: o Howlin\' Wolf: tinha uma voz como nenhuma outra: cavernosa, ameaçadora e primitiva. Com o guitarrista Hubert Sumlin, criou um som que influenciou Led Zeppelin, Rolling Stones e toda a cena de blues britânico dos anos 60.',
         albums: ['Moanin\' in the Moonshine', 'Howlin\' Wolf (Chess LP)'],
         songs: ['Smokestack Lightning', 'Back Door Man', 'Spoonful', 'Killing Floor'],
         guitar: 'Gibson ES-335',
@@ -105,16 +105,16 @@ const ERAS = [
   },
   {
     decade: '1960s–1970s',
-    title: 'Blues Rock — A explosão britânica',
+    title: 'Blues Rock: A explosão britânica',
     color: '#60a5fa',
-    desc: 'Músicos britânicos descobrem o blues americano e o devolvem para o mundo amplificado e transformado. Eric Clapton, Jimmy Page e Jeff Beck criam o blues rock — e Jimi Hendrix redefine tudo novamente.',
+    desc: 'Músicos britânicos descobrem o blues americano e o devolvem para o mundo amplificado e transformado. Eric Clapton, Jimmy Page e Jeff Beck criam o blues rock: e Jimi Hendrix redefine tudo novamente.',
     artists: [
       {
         name: 'Eric Clapton',
         life: '1945–presente',
         origin: 'Surrey, Inglaterra',
         badge: 'Slowhand',
-        bio: '"Slowhand" — o apelido vem da lentidão metódica com que trocava as cordas ao vivo, enquanto a plateia batia palmas devagar. Clapton tocou no Yardbirds, Cream, Blind Faith e Derek and the Dominos antes de solo. Sua interpretação de "Crossroads" (Cream, 1968) é considerada uma das melhores performances de blues rock da história.',
+        bio: '"Slowhand": o apelido vem da lentidão metódica com que trocava as cordas ao vivo, enquanto a plateia batia palmas devagar. Clapton tocou no Yardbirds, Cream, Blind Faith e Derek and the Dominos antes de solo. Sua interpretação de "Crossroads" (Cream, 1968) é considerada uma das melhores performances de blues rock da história.',
         albums: ['Fresh Cream', 'Disraeli Gears', 'Layla (Derek & Dominos)', '461 Ocean Boulevard', 'Unplugged'],
         songs: ['Crossroads', 'Layla', 'Wonderful Tonight', 'Tears in Heaven', 'Cocaine', 'White Room'],
         guitar: 'Gibson SG, Fender Stratocaster "Blackie", ES-335',
@@ -136,7 +136,7 @@ const ERAS = [
   {
     decade: '1970s–1980s',
     title: 'Texas Blues Revival & Hard Blues',
-    color: '#c084fc',
+    color: '#eab308',
     desc: 'Após a morte de Hendrix, o blues encontra novos porta-vozes: de Albert King ao jovem Stevie Ray Vaughan, o Texas Blues ressurge com força total.',
     artists: [
       {
@@ -144,7 +144,7 @@ const ERAS = [
         life: '1923–1992',
         origin: 'Mississippi → St. Louis',
         badge: 'O mestre do bend',
-        bio: 'Um dos três "Kings" do blues (BB, Freddie e Albert). Canhoto que tocava guitarra destra sem inverter as cordas — resultado: bendia as cordas puxando para baixo, criando um timbre completamente único. Stevie Ray Vaughan ouvia Albert King obsessivamente na adolescência.',
+        bio: 'Um dos três "Kings" do blues (BB, Freddie e Albert). Canhoto que tocava guitarra destra sem inverter as cordas: resultado: bendia as cordas puxando para baixo, criando um timbre completamente único. Stevie Ray Vaughan ouvia Albert King obsessivamente na adolescência.',
         albums: ['Born Under a Bad Sign', 'Live Wire / Blues Power'],
         songs: ['Born Under a Bad Sign', 'Crosscut Saw', 'As the Years Go Passing By'],
         guitar: 'Gibson Flying V',
@@ -165,8 +165,8 @@ const ERAS = [
   },
   {
     decade: '1990s–2000s',
-    title: 'Blues Contemporâneo — Nova geração',
-    color: '#f472b6',
+    title: 'Blues Contemporâneo: Nova geração',
+    color: '#eab308',
     desc: 'O blues vive. Joe Bonamassa, John Mayer, Gary Clark Jr. e outros provam que a tradição continua evoluindo, conectando o passado ao presente.',
     artists: [
       {
@@ -174,7 +174,7 @@ const ERAS = [
         life: '1977–presente',
         origin: 'Bridgeport, Connecticut',
         badge: 'Blues do século XXI',
-        bio: 'John Mayer começou como cantor pop e surpreendeu o mundo em 2006 com "Continuum" — um álbum de blues e soul impecável. Seu álbum "Born and Raised" e o projeto John Mayer Trio mostram um guitarrista que estudou profundamente SRV, BB King e Buddy Guy.',
+        bio: 'John Mayer começou como cantor pop e surpreendeu o mundo em 2006 com "Continuum": um álbum de blues e soul impecável. Seu álbum "Born and Raised" e o projeto John Mayer Trio mostram um guitarrista que estudou profundamente SRV, BB King e Buddy Guy.',
         albums: ['Continuum', 'Born and Raised', 'The Search for Everything', 'Sob Rock'],
         songs: ['Slow Dancing in a Burning Room', 'Gravity', 'Vultures', 'Waiting on the World to Change', 'Who Did You Think I Was (JM Trio)'],
         guitar: 'Fender Stratocaster "Black One", PRS Silver Sky',
@@ -200,7 +200,7 @@ const ERAS = [
         albums: ['Blak and Blu', 'The Story of Sonny Boy Slim', 'This Land'],
         songs: ['Bright Lights', 'Numb', 'When My Train Pulls In', 'This Land'],
         guitar: 'Gibson ES-335, Fender Stratocaster',
-        legacy: 'Representa a evolução do blues para além das fronteiras do gênero — uma visão do que vem a seguir.'
+        legacy: 'Representa a evolução do blues para além das fronteiras do gênero: uma visão do que vem a seguir.'
       }
     ]
   }
@@ -285,13 +285,13 @@ export default function Historia() {
       <div className="card p-5 mb-8">
         <div className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
           <p className="mb-3">
-            O blues não é apenas um gênero musical — é uma <b>linguagem emocional</b>. Nascido da dor da escravidão
+            O blues não é apenas um gênero musical: é uma <b>linguagem emocional</b>. Nascido da dor da escravidão
             e da opressão, tornou-se a raiz de praticamente toda a música popular do século XX:
             rock, jazz, soul, R&B, funk e pop.
           </p>
           <p>
             Entender a história do blues é entender de onde vem o vocabulário que você usa quando improvisa.
-            Cada técnica — o bend, o vibrato, o slide — tem uma origem, um criador, uma história.
+            Cada técnica: o bend, o vibrato, o slide: tem uma origem, um criador, uma história.
             Clique nos artistas para explorar seu legado.
           </p>
         </div>
@@ -330,8 +330,8 @@ export default function Historia() {
           </p>
           <p>
             <b>Charlie Parker</b> (1920–1955) pegou o blues de 12 compassos e reharmonizou com velocidades
-            e complexidades que ninguém havia imaginado — nasceu o bebop.
-            <b> Miles Davis</b> (1926–1991) com "Kind of Blue" (1959) — o álbum mais vendido da história do jazz —
+            e complexidades que ninguém havia imaginado: nasceu o bebop.
+            <b> Miles Davis</b> (1926–1991) com "Kind of Blue" (1959): o álbum mais vendido da história do jazz:
             introduziu o conceito modal que libertou os músicos das progressões de acordes rígidas.
           </p>
           <p>
@@ -340,7 +340,7 @@ export default function Historia() {
             são copiados por guitarristas até hoje.
           </p>
           <p>
-            A fusão blues-jazz produz o <b>jazz blues</b> — onde a progressão de 12 compassos encontra
+            A fusão blues-jazz produz o <b>jazz blues</b>: onde a progressão de 12 compassos encontra
             as substituições harmônicas do bebop. É o que você ouve em Charlie Parker tocando "Now's the Time"
             ou em Grant Green em "Idle Moments".
           </p>

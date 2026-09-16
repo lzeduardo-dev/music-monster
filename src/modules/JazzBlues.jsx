@@ -59,7 +59,7 @@ const PROGRESSIONS = {
       'V7(b9)','IVm7','Im7','V7(b9)'
     ],
     scaleKey: 'pentatonicMinor',
-    theory: 'O Blues Menor usa a progressão em acorde menor ao longo de todo o chorus. O V7(b9) no compasso 9 cria tensão extra — a b9 adiciona dissonância antes da resolução. A escala menor melódica e a pentatônica menor funcionam bem aqui. Artistas como Gary Moore usavam o V7(b9) com vibrato dramático para criar tensão máxima antes do retorno ao Im.'
+    theory: 'O Blues Menor usa a progressão em acorde menor ao longo de todo o chorus. O V7(b9) no compasso 9 cria tensão extra: a b9 adiciona dissonância antes da resolução. A escala menor melódica e a pentatônica menor funcionam bem aqui. Artistas como Gary Moore usavam o V7(b9) com vibrato dramático para criar tensão máxima antes do retorno ao Im.'
   },
   jazzBlues: {
     label: 'Jazz Blues',
@@ -78,10 +78,10 @@ const PROGRESSIONS = {
 
 const BAR_COLORS = {
   'I7': '#60a5fa', 'Im7': '#60a5fa',
-  'IV7': '#c084fc', 'IVm7': '#c084fc',
-  'V7': '#f472b6', 'V7(b9)': '#f472b6',
-  'VI7': '#818cf8', 'ii7': '#818cf8',
-  'I7 – VI7': '#60a5fa', 'ii7 – V7': '#818cf8'
+  'IV7': '#eab308', 'IVm7': '#eab308',
+  'V7': '#eab308', 'V7(b9)': '#eab308',
+  'VI7': '#2563eb', 'ii7': '#2563eb',
+  'I7 – VI7': '#60a5fa', 'ii7 – V7': '#2563eb'
 }
 
 const CHORD_ROOTS = {
@@ -140,12 +140,12 @@ export default function JazzBlues() {
             <p>
               O <b>12-bar blues</b> é a forma mais influente da música popular ocidental.
               I, IV e V: três acordes, 12 compassos, infinitas interpretações.
-              De Robert Johnson ao bebop de Charlie Parker, a forma é a mesma — o que muda é a harmonia interior.
+              De Robert Johnson ao bebop de Charlie Parker, a forma é a mesma: o que muda é a harmonia interior.
             </p>
           </Step>
           <Step n={2}>
             <p>
-              No blues clássico, todos os acordes são <b>dominantes (X7)</b> — isso cria tensão constante
+              No blues clássico, todos os acordes são <b>dominantes (X7)</b>: isso cria tensão constante
               e é o que dá o "sabor" característico. No jazz, cada acorde é expandido com ii-V e substituições.
             </p>
           </Step>
@@ -200,10 +200,10 @@ export default function JazzBlues() {
             const bgColor = bar.includes('I7') || bar.includes('Im7')
               ? '#60a5fa'
               : bar.includes('IV')
-              ? '#c084fc'
+              ? '#eab308'
               : bar.includes('V7') || bar.includes('ii7 – V7')
-              ? '#f472b6'
-              : '#818cf8'
+              ? '#eab308'
+              : '#2563eb'
 
             return (
               <button
@@ -246,7 +246,7 @@ export default function JazzBlues() {
         <TheoryBlock>
           <div className="space-y-4">
             <div>
-              <div className="font-bold text-accent-emerald mb-1">ii–V–I — A cadência fundamental</div>
+              <div className="font-bold text-accent-emerald mb-1">ii–V–I: A cadência fundamental</div>
               <p>
                 O movimento Xm7 → X7 → XM7 resolve por quartas. O ii prepara, o V tensiona, o I resolve.
                 Em Dó: Dm7 → G7 → CM7. É a frase gramatical básica do jazz. 80% das músicas de jazz
@@ -254,23 +254,23 @@ export default function JazzBlues() {
               </p>
             </div>
             <div>
-              <div className="font-bold text-accent-amber mb-1">Tritone Substitution — Substituição de trítono</div>
+              <div className="font-bold text-accent-amber mb-1">Tritone Substitution: Substituição de trítono</div>
               <p>
-                O G7 pode ser substituído por Db7 — a distância entre eles é um trítono (6 semitons).
+                O G7 pode ser substituído por Db7: a distância entre eles é um trítono (6 semitons).
                 Eles compartilham as mesmas notas de tensão (3ª e 7ª trocam de posição).
                 O Db7 resolve para Dó com movimento cromático no baixo (Db → C), criando suavidade.
               </p>
             </div>
             <div>
-              <div className="font-bold text-accent-coral mb-1">Back-cycling — Preparando dominantes</div>
+              <div className="font-bold text-accent-coral mb-1">Back-cycling: Preparando dominantes</div>
               <p>
                 Para chegar ao G7 com mais tensão, adicione D7 antes (pois D7 → G7 é um ii-V).
-                Você pode continuar: A7 → D7 → G7 → C. Isso é "back-cycling" — uma cadeia de
+                Você pode continuar: A7 → D7 → G7 → C. Isso é "back-cycling": uma cadeia de
                 dominantes secundários, cada um resolvendo uma quarta acima.
               </p>
             </div>
             <div>
-              <div className="font-bold mb-1" style={{ color: '#c7d2fe' }}>Escala Alterada sobre V7</div>
+              <div className="font-bold mb-1" style={{ color: '#7dabff' }}>Escala Alterada sobre V7</div>
               <p>
                 O dominante com todas as alterações (b9, #9, #11, b13) pede a escala alterada.
                 Atalho: toque a menor melódica um semitom acima da raiz do dominante.

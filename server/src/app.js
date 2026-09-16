@@ -9,7 +9,6 @@ import hpp from "hpp";
 import { initDb } from "./db/index.js";
 import authRouter from "./routes/auth.js";
 import progressRouter from "./routes/progress.js";
-import aiRouter from "./routes/ai.js";
 import { notFound, errorHandler } from "./middleware/errors.js";
 
 const app = express();
@@ -77,7 +76,6 @@ app.get("/api/health", (_req, res) => {
 // ── Routes ────────────────────────────────────────────────────────────
 app.use("/api/auth", authLimiter, authRouter);
 app.use("/api/progress", progressRouter);
-app.use("/api/ai", aiRouter);
 
 // ── Error handling ────────────────────────────────────────────────────
 app.use(notFound);

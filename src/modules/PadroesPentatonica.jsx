@@ -58,16 +58,16 @@ function buildBoxPitches(root) {
 const PATTERNS = [
   {
     id: "col_4",
-    name: "Colcheia/Semicolcheia — 4 notas",
+    name: "Colcheia/Semicolcheia: 4 notas",
     description:
-      'Agrupamentos de 4 notas ascendentes (sequencial direto). É a base do "running scales" — corrida sobre os graus da pentatônica.',
+      'Agrupamentos de 4 notas ascendentes (sequencial direto). É a base do "running scales": corrida sobre os graus da pentatônica.',
     subdiv: 4,
     groupSize: 4,
     sequence: [0, 1, 2, 3, 1, 2, 3, 4, 2, 3, 4, 5, 3, 4, 5, 6],
   },
   {
     id: "col_3",
-    name: "Colcheia/Semicolcheia — 3 notas",
+    name: "Colcheia/Semicolcheia: 3 notas",
     description:
       'Agrupamentos de 3 notas. Cria uma sensação de "rolo" e quebra o ritmo binário, ótimo para frases cíclicas.',
     subdiv: 4,
@@ -76,9 +76,9 @@ const PATTERNS = [
   },
   {
     id: "tercina_3",
-    name: "Tercina/Sextina — 3 notas",
+    name: "Tercina/Sextina: 3 notas",
     description:
-      "Tercinas em grupos de 3 — cada grupo cabe exatamente em um tempo. Sextinas (6 sobre 1 tempo) intensificam o efeito.",
+      "Tercinas em grupos de 3: cada grupo cabe exatamente em um tempo. Sextinas (6 sobre 1 tempo) intensificam o efeito.",
     subdiv: 3,
     groupSize: 3,
     sequence: [
@@ -87,16 +87,16 @@ const PATTERNS = [
   },
   {
     id: "tercina_4",
-    name: "Tercina — 4 notas",
+    name: "Tercina: 4 notas",
     description:
-      "Tercinas com agrupamento de 4 notas. O grupo de 4 sobre subdivisão de 3 gera deslocamento rítmico — sensação de polirritmia 4:3.",
+      "Tercinas com agrupamento de 4 notas. O grupo de 4 sobre subdivisão de 3 gera deslocamento rítmico: sensação de polirritmia 4:3.",
     subdiv: 3,
     groupSize: 4,
     sequence: [0, 1, 2, 3, 1, 2, 3, 4, 2, 3, 4, 5, 3, 4, 5, 6],
   },
   {
     id: "nao_seq_4",
-    name: "Não sequencial — 4 notas",
+    name: "Não sequencial: 4 notas",
     description:
       'Em vez de subir 1-2-3-4, alterna ordem (ex: 1-3-2-4). Quebra a previsibilidade e soa mais "musical".',
     subdiv: 4,
@@ -105,9 +105,9 @@ const PATTERNS = [
   },
   {
     id: "col_6",
-    name: "Colcheia — 6 notas",
+    name: "Colcheia: 6 notas",
     description:
-      "Grupos de 6 notas em colcheias. Ideal para frases longas em tempos rápidos — pega 6 graus consecutivos da pentatônica.",
+      "Grupos de 6 notas em colcheias. Ideal para frases longas em tempos rápidos: pega 6 graus consecutivos da pentatônica.",
     subdiv: 4,
     groupSize: 6,
     sequence: [
@@ -118,7 +118,7 @@ const PATTERNS = [
     id: "cinco_sobre",
     name: "5 sobre ritmo",
     description:
-      'Quintetos (5 notas por agrupamento) sobre qualquer subdivisão. Cria polirritmia 5:4 — soa "fora do compasso" mas resolve no próximo ciclo.',
+      'Quintetos (5 notas por agrupamento) sobre qualquer subdivisão. Cria polirritmia 5:4: soa "fora do compasso" mas resolve no próximo ciclo.',
     subdiv: 4,
     groupSize: 5,
     sequence: [0, 1, 2, 3, 4, 1, 2, 3, 4, 5, 2, 3, 4, 5, 6, 3, 4, 5, 6, 7],
@@ -127,14 +127,14 @@ const PATTERNS = [
     id: "salto",
     name: "Com salto (skip)",
     description:
-      'Alterna entre graus distantes — pula 1 grau a cada nota. Cria intervalos maiores e fraseado mais "guitarrístico" (à la Eric Johnson).',
+      'Alterna entre graus distantes: pula 1 grau a cada nota. Cria intervalos maiores e fraseado mais "guitarrístico" (à la Eric Johnson).',
     subdiv: 4,
     groupSize: 4,
     sequence: [0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9],
   },
   {
     id: "tercina_6",
-    name: "Tercina/Sextina — 6 notas",
+    name: "Tercina/Sextina: 6 notas",
     description:
       "Sextinas (6 notas por tempo) em grupos descendentes/ascendentes. Frases velozes que cobrem grande região do braço.",
     subdiv: 6,
@@ -214,7 +214,7 @@ export default function PadroesPentatonica() {
               Dividimos o improviso em duas partes: a <b>mecânica</b> (escalas e
               tonalidades) e a <b>criativa </b>
               (motivos, padrões e fraseado). A pentatônica é a fundação, mas
-              tocá-la de cabo a rabo só sobe e desce — som de exercício. É o{" "}
+              tocá-la de cabo a rabo só sobe e desce: som de exercício. É o{" "}
               <b>padrão rítmico</b> aplicado sobre ela que vira frase musical.
             </p>
           </Step>
@@ -350,7 +350,7 @@ export default function PadroesPentatonica() {
             <div style={{ display: "flex", gap: 16, alignSelf: "center" }}>
               <div style={{ textAlign: "center" }}>
                 <div
-                  style={{ fontSize: 22, fontWeight: 800, color: "#a78bfa" }}
+                  style={{ fontSize: 22, fontWeight: 800, color: "#2563eb" }}
                 >
                   {pattern.groupSize}
                 </div>
@@ -367,7 +367,7 @@ export default function PadroesPentatonica() {
               </div>
               <div style={{ textAlign: "center" }}>
                 <div
-                  style={{ fontSize: 22, fontWeight: 800, color: "#f472b6" }}
+                  style={{ fontSize: 22, fontWeight: 800, color: "#eab308" }}
                 >
                   {pattern.subdiv}
                 </div>
@@ -429,7 +429,7 @@ export default function PadroesPentatonica() {
                     color: isActive ? "#fff" : "#60a5fa",
                     border: `1px solid ${
                       isGroupStart
-                        ? "rgba(167,139,250,0.5)"
+                        ? "rgba(37,99,235,0.5)"
                         : "rgba(59,130,246,0.15)"
                     }`,
                     marginLeft: isGroupStart && i > 0 ? 6 : 0,
@@ -478,7 +478,7 @@ export default function PadroesPentatonica() {
             <p>
               <b>Semana 3–4</b>: Padrões 3, 4 e 9 (tercinas). Trabalham a
               divisão ternária, fundamental para blues, shuffle e jazz. Atenção:
-              a tercina precisa "respirar" — não acelere demais.
+              a tercina precisa "respirar": não acelere demais.
             </p>
           </Step>
           <Step>

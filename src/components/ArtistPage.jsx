@@ -175,7 +175,7 @@ export default function ArtistPage({ data }) {
             <PhotoCard
               key={i}
               src={typeof img === 'string' ? img : img.src}
-              alt={`${data.name} — foto ${i + 1}`}
+              alt={`${data.name}: foto ${i + 1}`}
               color={data.color}
               idx={i}
               label={typeof img === 'object' ? img.label : ''}

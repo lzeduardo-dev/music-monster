@@ -19,7 +19,7 @@ import { playSequence, playInterval } from "../lib/audio.js";
 import { useProgress } from "../context/ProgressContext.jsx";
 
 import LessonFooter from "../components/LessonFooter.jsx";
-import CompleteToggle from '../components/CompleteToggle.jsx'
+import CompleteToggle from "../components/CompleteToggle.jsx";
 const INTERVAL_TABLE = [
   {
     semis: 1,
@@ -27,7 +27,7 @@ const INTERVAL_TABLE = [
     name: "Segunda Menor",
     type: "Menor",
     compound: "9ª menor",
-    color: "#a78bfa",
+    color: "#2563eb",
   },
   {
     semis: 2,
@@ -43,7 +43,7 @@ const INTERVAL_TABLE = [
     name: "Terça Menor",
     type: "Menor",
     compound: null,
-    color: "#a78bfa",
+    color: "#2563eb",
   },
   {
     semis: 4,
@@ -59,7 +59,7 @@ const INTERVAL_TABLE = [
     name: "Quarta Justa",
     type: "Justo",
     compound: "11ª",
-    color: "#38bdf8",
+    color: "#3b82f6",
   },
   {
     semis: 6,
@@ -67,7 +67,7 @@ const INTERVAL_TABLE = [
     name: "Trítono",
     type: "Aug/Dim",
     compound: null,
-    color: "#f472b6",
+    color: "#eab308",
   },
   {
     semis: 7,
@@ -75,7 +75,7 @@ const INTERVAL_TABLE = [
     name: "Quinta Justa",
     type: "Justo",
     compound: null,
-    color: "#38bdf8",
+    color: "#3b82f6",
   },
   {
     semis: 8,
@@ -83,7 +83,7 @@ const INTERVAL_TABLE = [
     name: "Sexta Menor",
     type: "Menor",
     compound: "13ª menor",
-    color: "#a78bfa",
+    color: "#2563eb",
   },
   {
     semis: 9,
@@ -99,7 +99,7 @@ const INTERVAL_TABLE = [
     name: "Sétima Menor",
     type: "Menor",
     compound: null,
-    color: "#a78bfa",
+    color: "#2563eb",
   },
   {
     semis: 11,
@@ -113,9 +113,9 @@ const INTERVAL_TABLE = [
 
 const TYPE_COLORS = {
   Maior: "#60a5fa",
-  Menor: "#a78bfa",
-  Justo: "#38bdf8",
-  "Aug/Dim": "#f472b6",
+  Menor: "#2563eb",
+  Justo: "#3b82f6",
+  "Aug/Dim": "#eab308",
 };
 
 // Note frequencies (Hz) for display
@@ -199,26 +199,26 @@ const SOUND_PROPERTIES = [
   {
     key: "intensidade",
     label: "Intensidade",
-    color: "#c084fc",
+    color: "#eab308",
     icon: (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M3 13 L7 10 L7 13 Z" fill="#c084fc" />
+        <path d="M3 13 L7 10 L7 13 Z" fill="#eab308" />
         <path
           d="M7 7 Q11 10 7 13"
-          stroke="#c084fc"
+          stroke="#eab308"
           strokeWidth="1.5"
           fill="none"
         />
         <path
           d="M9 5 Q15 10 9 15"
-          stroke="#c084fc"
+          stroke="#eab308"
           strokeWidth="1.5"
           fill="none"
           opacity="0.6"
         />
         <path
           d="M11 3 Q18 10 11 17"
-          stroke="#c084fc"
+          stroke="#eab308"
           strokeWidth="1.5"
           fill="none"
           opacity="0.35"
@@ -227,7 +227,7 @@ const SOUND_PROPERTIES = [
     ),
     summary: "O volume e a força de uma nota ou frase musical.",
     content: [
-      "Determinada pela amplitude da vibração — quão longe as moléculas de ar se deslocam.",
+      "Determinada pela amplitude da vibração: quão longe as moléculas de ar se deslocam.",
       "Medida em decibéis (dB), uma escala logarítmica: +10 dB = 2× mais alto na percepção.",
       "Na partitura, usamos italianos: pp (pianissimo) → p → mp → mf → f → ff (fortissimo).",
       "Crescendo (——<): progressivo aumento de volume. Decrescendo (>——): progressiva diminuição.",
@@ -247,13 +247,13 @@ const SOUND_PROPERTIES = [
             key={sym}
             className="px-3 py-2 rounded-lg text-center"
             style={{
-              background: "rgba(192,132,252,0.1)",
-              border: "1px solid rgba(192,132,252,0.25)",
+              background: "rgba(234,179,8,0.1)",
+              border: "1px solid rgba(234,179,8,0.25)",
             }}
           >
             <div
               className="font-bold italic text-base"
-              style={{ color: "#c084fc" }}
+              style={{ color: "#eab308" }}
             >
               {sym}
             </div>
@@ -271,12 +271,12 @@ const SOUND_PROPERTIES = [
   {
     key: "timbre",
     label: "Timbre",
-    color: "#818cf8",
+    color: "#2563eb",
     icon: (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
         <path
           d="M2 10 Q5 4 8 10 Q11 16 14 10 Q17 4 20 10"
-          stroke="#818cf8"
+          stroke="#2563eb"
           strokeWidth="1.8"
           fill="none"
           strokeLinecap="round"
@@ -284,9 +284,9 @@ const SOUND_PROPERTIES = [
       </svg>
     ),
     summary:
-      'O "sotaque" de cada instrumento — por que o violão soa diferente do piano.',
+      'O "sotaque" de cada instrumento: por que o violão soa diferente do piano.',
     content: [
-      "Quando uma corda vibra, ela não produz apenas uma frequência — produz a fundamental E seus harmônicos (múltiplos inteiros da frequência base).",
+      "Quando uma corda vibra, ela não produz apenas uma frequência: produz a fundamental E seus harmônicos (múltiplos inteiros da frequência base).",
       "C4 no piano = 261 Hz + 522 Hz + 784 Hz + 1046 Hz + … cada um em proporção diferente.",
       "A mistura e intensidade relativa desses harmônicos define o timbre. Violão, piano e violino tocando C4 têm a mesma fundamental mas perfis de harmônicos completamente distintos.",
       "No violão, o ponto de ataque (ponte vs. escala vs. boca) muda o timbre: mais brilhante perto da ponte (harmônicos agudos em destaque), mais encorpado perto da boca.",
@@ -297,31 +297,31 @@ const SOUND_PROPERTIES = [
   {
     key: "duracao",
     label: "Duração",
-    color: "#c084fc",
+    color: "#eab308",
     icon: (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <circle cx="10" cy="11" r="3.5" stroke="#c084fc" strokeWidth="1.5" />
+        <circle cx="10" cy="11" r="3.5" stroke="#eab308" strokeWidth="1.5" />
         <path
           d="M13.5 7.5 L13.5 3"
-          stroke="#c084fc"
+          stroke="#eab308"
           strokeWidth="1.5"
           strokeLinecap="round"
         />
         <path
           d="M13.5 3 L16 4.5"
-          stroke="#c084fc"
+          stroke="#eab308"
           strokeWidth="1.5"
           strokeLinecap="round"
         />
       </svg>
     ),
-    summary: "Por quanto tempo uma nota soa — o ritmo da música.",
+    summary: "Por quanto tempo uma nota soa: o ritmo da música.",
     content: [
-      "A duração das notas cria o ritmo. Sem ritmo não há música — apenas frequências.",
+      "A duração das notas cria o ritmo. Sem ritmo não há música: apenas frequências.",
       "Notação: Semibreve (4 tempos) → Mínima (2) → Semínima (1) → Colcheia (½) → Semicolcheia (¼).",
       "Tempo: medido em BPM (batidas por minuto). 60 BPM = 1 batida por segundo.",
       "Compasso: agrupa batidas em unidades repetíveis. 4/4 = 4 batidas por compasso, semínima = 1 tempo.",
-      'Síncope: acentuação em tempos fracos — é a "virada" rítmica do blues e do jazz.',
+      'Síncope: acentuação em tempos fracos: é a "virada" rítmica do blues e do jazz.',
     ],
     extra: (
       <div className="flex flex-wrap gap-2 mt-3">
@@ -335,11 +335,11 @@ const SOUND_PROPERTIES = [
             key={name}
             className="px-3 py-2 rounded-lg"
             style={{
-              background: "rgba(192,132,252,0.1)",
-              border: "1px solid rgba(192,132,252,0.25)",
+              background: "rgba(234,179,8,0.1)",
+              border: "1px solid rgba(234,179,8,0.25)",
             }}
           >
-            <div className="font-mono text-sm" style={{ color: "#c084fc" }}>
+            <div className="font-mono text-sm" style={{ color: "#eab308" }}>
               {vis}
             </div>
             <div
@@ -363,7 +363,6 @@ const SOUND_PROPERTIES = [
 
 export default function Fundamentals() {
   const [root, setRoot] = useState("C");
-  const [activeProp, setActiveProp] = useState("altura");
   const [selectedIv, setSelectedIv] = useState(null);
   const { markLesson, isComplete } = useProgress();
 
@@ -375,82 +374,81 @@ export default function Fundamentals() {
     [root]
   );
   const noteNames = useMemo(() => buildScaleNotes(root, "major"), [root]);
-  const prop = SOUND_PROPERTIES.find((p) => p.key === activeProp);
 
   return (
     <div>
       <PageHeader
         chip="Fundamentos"
         title="O Que é o Som Musical?"
-        description="Antes de escalas e acordes, precisamos entender o material com que trabalhamos. O som tem quatro propriedades fundamentais — dominar esse vocabulário é a base de toda a teoria."
+        description="Antes de escalas e acordes, precisamos entender o material com que trabalhamos. O som tem quatro propriedades fundamentais: altura, intensidade, timbre e duração. Conhecer elas te torna um musico mais completo."
       />
 
-      {/* ── Sound properties ───────────────────────────────────────────── */}
-      <Section title="1. As quatro propriedades do som">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
-          {SOUND_PROPERTIES.map((p) => (
-            <button
-              key={p.key}
-              onClick={() => setActiveProp(p.key)}
-              className="p-4 rounded-xl text-left transition"
+      {/* ── Sound properties — texto corrido ──────────────────────────── */}
+      <Section title="As quatro propriedades do som">
+        <TheoryBlock>
+          <p>
+            O som tem quatro propriedades fundamentais que definem tudo o que
+            ouvimos. Entender cada uma é o primeiro passo pra qualquer decisão
+            musical consciente.
+          </p>
+        </TheoryBlock>
+
+        {SOUND_PROPERTIES.map((p) => (
+          <div key={p.key} style={{ marginTop: 28 }}>
+            <h3
+              className="font-display"
               style={{
-                background:
-                  activeProp === p.key ? `${p.color}15` : "var(--bg-card)",
-                border: `1px solid ${
-                  activeProp === p.key ? `${p.color}50` : "var(--border-card)"
-                }`,
+                fontSize: 18,
+                fontWeight: 600,
+                letterSpacing: "-0.01em",
+                color: "var(--text-base)",
+                margin: 0,
+                marginBottom: 6,
               }}
             >
-              <div className="mb-2">{p.icon}</div>
-              <div
-                className="font-bold text-sm"
+              {p.label}
+              <span
+                className="uppercase"
                 style={{
-                  color: activeProp === p.key ? p.color : "var(--text-base)",
+                  marginLeft: 10,
+                  fontSize: 10.5,
+                  letterSpacing: "0.14em",
+                  fontWeight: 700,
+                  color: "var(--text-subtle)",
                 }}
               >
-                {p.label}
-              </div>
-              <div
-                className="text-[10px] uppercase tracking-wider font-medium mt-0.5"
-                style={{ color: "var(--text-ultra)" }}
-              >
                 {p.en}
-              </div>
-            </button>
-          ))}
-        </div>
-
-        {/* Active property detail */}
-        <div
-          className="card p-5"
-          style={{ borderLeft: `3px solid ${prop.color}` }}
-        >
-          <div className="flex items-center gap-2 mb-3">
-            {prop.icon}
-            <span className="font-bold" style={{ color: prop.color }}>
-              {prop.label}
-            </span>
-            <span className="text-xs" style={{ color: "var(--text-subtle)" }}>
-              — {prop.summary}
-            </span>
+              </span>
+            </h3>
+            <p
+              style={{
+                fontSize: 14.5,
+                color: "var(--text-subtle)",
+                margin: "0 0 10px",
+              }}
+            >
+              {p.summary}
+            </p>
+            <div
+              style={{
+                fontSize: 16,
+                lineHeight: 1.75,
+                color: "var(--text-muted)",
+              }}
+            >
+              {p.content.map((line, i) => (
+                <p key={i} style={{ margin: "8px 0" }}>
+                  {line}
+                </p>
+              ))}
+            </div>
+            {p.extra}
           </div>
-          <div className="space-y-2">
-            {prop.content.map((line, i) => (
-              <p
-                key={i}
-                className="text-sm"
-                style={{ color: "var(--text-muted)" }}
-              >
-                {line}
-              </p>
-            ))}
-          </div>
-          {prop.extra}
-        </div>
+        ))}
       </Section>
 
       {/* ── Major scale ────────────────────────────────────────────────── */}
-      <Section title="2. A Escala Maior — fórmula T-T-st-T-T-T-st">
+      <Section title="2. Escala Maior">
         <TheoryBlock>
           <Step n={1}>
             <p>
@@ -466,7 +464,7 @@ export default function Fundamentals() {
                 className="block mt-1.5 font-mono text-lg font-bold"
                 style={{ color: "#60a5fa" }}
               >
-                T — T — st — T — T — T — st
+                T - T - st - T - T - T - st
               </span>
             </p>
           </Step>
@@ -534,7 +532,7 @@ export default function Fundamentals() {
       </Section>
 
       {/* ── Intervals ──────────────────────────────────────────────────── */}
-      <Section title="3. Intervalos — a linguagem das distâncias">
+      <Section title="3. Intervalos: a linguagem das distâncias">
         <TheoryBlock>
           <p>
             Um <b>intervalo</b> é a distância entre duas notas, contada em
@@ -542,7 +540,7 @@ export default function Fundamentals() {
             conjunto de intervalos medidos a partir de uma referência.
           </p>
           <p>
-            Clique para ouvir cada intervalo a partir de C4 — raiz, depois
+            Clique para ouvir cada intervalo a partir de C4: raiz, depois
             intervalo, depois os dois juntos:
           </p>
           <div className="flex flex-wrap gap-2 mt-1">
@@ -584,7 +582,7 @@ export default function Fundamentals() {
                 className="text-xs leading-relaxed"
                 style={{ color: "var(--text-muted)" }}
               >
-                Duas notas tocadas em <b>sequência</b> — uma de cada vez. Forma
+                Duas notas tocadas em <b>sequência</b>: uma de cada vez. Forma
                 melodias e escalas. Ex.: a subida de um semitom de E para F em
                 um solo.
               </p>
@@ -612,7 +610,7 @@ export default function Fundamentals() {
             <div className="card p-4">
               <div
                 className="font-bold text-sm mb-2"
-                style={{ color: "#a78bfa" }}
+                style={{ color: "#2563eb" }}
               >
                 Intervalo Harmônico
               </div>
@@ -620,7 +618,7 @@ export default function Fundamentals() {
                 className="text-xs leading-relaxed"
                 style={{ color: "var(--text-muted)" }}
               >
-                Duas notas tocadas <b>simultaneamente</b> — formam acordes e
+                Duas notas tocadas <b>simultaneamente</b>: formam acordes e
                 double stops. Ex.: C e E soando ao mesmo tempo criam uma terça
                 maior harmônica.
               </p>
@@ -630,8 +628,8 @@ export default function Fundamentals() {
                     key={i}
                     className="px-3 py-1 rounded text-xs font-bold"
                     style={{
-                      background: "rgba(167,139,250,0.12)",
-                      color: "#a78bfa",
+                      background: "rgba(37,99,235,0.12)",
+                      color: "#2563eb",
                     }}
                   >
                     {n}
@@ -657,7 +655,7 @@ export default function Fundamentals() {
             </div>
             <p className="text-xs mb-3" style={{ color: "var(--text-muted)" }}>
               Intervalos simples ficam dentro de uma oitava (até 12 semitons).
-              Compostos ultrapassam a oitava — são o intervalo simples
+              Compostos ultrapassam a oitava: são o intervalo simples
               correspondente mais 7 graus:
             </p>
             <div className="grid grid-cols-3 gap-2">
@@ -681,7 +679,7 @@ export default function Fundamentals() {
                   </div>
                   <div
                     className="text-lg font-extrabold"
-                    style={{ color: "#f472b6" }}
+                    style={{ color: "#eab308" }}
                   >
                     {c}
                   </div>
@@ -699,11 +697,11 @@ export default function Fundamentals() {
           {/* A Regra Mais Importante */}
           <div
             className="card p-4 mb-4"
-            style={{ borderLeft: "3px solid #f472b6" }}
+            style={{ borderLeft: "3px solid #eab308" }}
           >
             <div
               className="font-bold text-sm mb-2"
-              style={{ color: "#f472b6" }}
+              style={{ color: "#eab308" }}
             >
               A Regra Mais Importante
             </div>
@@ -714,7 +712,7 @@ export default function Fundamentals() {
               Intervalos são contados pela <b>posição numérica das notas</b>,
               não pelos semitons. C→D# é sempre uma
               <b> segunda</b> (aumentada), porque D é a segunda nota acima de C
-              — mesmo que D# soe "mais longe" que Eb.
+              xmesmo que D# soe "mais longe" que Eb.
             </p>
             <div className="flex flex-wrap gap-2 mt-1">
               {[
@@ -728,13 +726,13 @@ export default function Fundamentals() {
                   style={{
                     background: ex.ok
                       ? "rgba(59,130,246,0.08)"
-                      : "rgba(244,114,182,0.08)",
+                      : "rgba(234,179,8,0.08)",
                     border: `1px solid ${
-                      ex.ok ? "rgba(59,130,246,0.2)" : "rgba(244,114,182,0.2)"
+                      ex.ok ? "rgba(59,130,246,0.2)" : "rgba(234,179,8,0.2)"
                     }`,
                   }}
                 >
-                  <span style={{ color: ex.ok ? "#60a5fa" : "#f472b6" }}>
+                  <span style={{ color: ex.ok ? "#60a5fa" : "#eab308" }}>
                     {ex.ok ? "✓" : "✗"}
                   </span>
                   <span style={{ color: "var(--text-muted)" }}>
@@ -749,7 +747,7 @@ export default function Fundamentals() {
           <div className="card p-4 mb-4">
             <div
               className="font-bold text-sm mb-2"
-              style={{ color: "#c084fc" }}
+              style={{ color: "#eab308" }}
             >
               Enarmonia
             </div>
@@ -758,9 +756,9 @@ export default function Fundamentals() {
               style={{ color: "var(--text-muted)" }}
             >
               O mesmo som pode ter dois nomes dependendo do contexto.{" "}
-              <b>C# = Db</b> — mesma tecla no piano, nomes diferentes. No X°7
+              <b>C# = Db</b>: mesma tecla no piano, nomes diferentes. No X°7
               (diminuto), a 7ª é chamada de <b>Bbb</b> (si dobrado bemol), não
-              de A — porque a 7ª nota acima de C é B, e precisamos de uma 7ª
+              de A: porque a 7ª nota acima de C é B, e precisamos de uma 7ª
               diminuta, não uma 6ª maior.
             </p>
             <div className="flex flex-wrap gap-2">
@@ -775,13 +773,13 @@ export default function Fundamentals() {
                   key={a}
                   className="text-xs px-2.5 py-1.5 rounded-lg"
                   style={{
-                    background: "rgba(192,132,252,0.08)",
-                    border: "1px solid rgba(192,132,252,0.2)",
+                    background: "rgba(234,179,8,0.08)",
+                    border: "1px solid rgba(234,179,8,0.2)",
                   }}
                 >
-                  <span style={{ color: "#c084fc", fontWeight: 700 }}>{a}</span>
+                  <span style={{ color: "#eab308", fontWeight: 700 }}>{a}</span>
                   <span style={{ color: "var(--text-ultra)" }}> = </span>
-                  <span style={{ color: "#c084fc", fontWeight: 700 }}>{b}</span>
+                  <span style={{ color: "#eab308", fontWeight: 700 }}>{b}</span>
                   <span style={{ color: "var(--text-subtle)", fontSize: 10 }}>
                     {" "}
                     ({ctx})
@@ -863,7 +861,7 @@ export default function Fundamentals() {
                   {iv.compound && (
                     <div
                       className="text-[10px] mt-0.5"
-                      style={{ color: "#f472b680" }}
+                      style={{ color: "#eab30880" }}
                     >
                       = {iv.compound}
                     </div>
@@ -882,7 +880,7 @@ export default function Fundamentals() {
           >
             Mapeamento no braço
             {selectedIv != null
-              ? ` — ${
+              ? `: ${
                   INTERVAL_TABLE.find((iv) => iv.semis === selectedIv)?.name
                 } a partir de C`
               : ""}

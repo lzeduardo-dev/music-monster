@@ -249,24 +249,24 @@ html.light .btn-ghost {
   border: 1px solid rgba(59, 130, 246, 0.28);
 }
 .chip-amber {
-  background: rgba(192, 132, 252, 0.12);
-  color: #d8b4fe;
-  border-color: rgba(192, 132, 252, 0.28);
+  background: rgba(234,179,8, 0.12);
+  color: #fde047;
+  border-color: rgba(234,179,8, 0.28);
 }
 .chip-coral {
-  background: rgba(244, 114, 182, 0.12);
-  color: #f9a8d4;
-  border-color: rgba(244, 114, 182, 0.28);
+  background: rgba(234,179,8, 0.12);
+  color: #fde047;
+  border-color: rgba(234,179,8, 0.28);
 }
 .chip-indigo {
-  background: rgba(129, 140, 248, 0.12);
-  color: #c7d2fe;
-  border-color: rgba(129, 140, 248, 0.28);
+  background: rgba(37,99,235, 0.12);
+  color: #7dabff;
+  border-color: rgba(37,99,235, 0.28);
 }
 .chip-fuchsia {
-  background: rgba(232, 121, 249, 0.12);
-  color: #f5d0fe;
-  border-color: rgba(232, 121, 249, 0.28);
+  background: rgba(234,179,8, 0.12);
+  color: #fde047;
+  border-color: rgba(234,179,8, 0.28);
 }
 
 /* ─── Sidebar / Header ──────────────────────────────────────────────── */
@@ -335,4 +335,104 @@ main > section:last-child {
 }
 .bar-cell:active {
   transform: scale(0.97);
+}
+/* ─────────────────────────────────────────────────────────────────────
+   PATCH DE PALETA — azul / amarelo / verde
+   Cole estes blocos DEPOIS dos :root e html.light atuais de src/styles.css.
+   Sobrescrevem apenas as variaveis de cor; nada de layout muda.
+   ───────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Papeis semanticos */
+  --brand-primary: #2563eb;         /* azul: estrutura, item ativo, links */
+  --brand-primary-strong: #1d4ed8;
+  --brand-primary-on-dark: #7dabff; /* azul legivel sobre fundo escuro */
+  --brand-accent: #eab308;          /* amarelo: CTA principal */
+  --brand-accent-ink: #17202b;      /* texto sobre amarelo (NUNCA branco) */
+  --brand-accent-on-light: #a16207; /* amarelo escurecido p/ texto no branco */
+  --brand-accent-on-dark: #fde047;
+  --brand-progress: #16a34a;        /* verde: progresso / concluido */
+  --brand-progress-on-light: #15803d;
+  --brand-progress-on-dark: #4ade80;
+
+  /* Estado ativo da navegacao passa a ser azul solido */
+  --nav-active-bg: rgba(37, 99, 235, 0.16);
+  --nav-active-fg: #7dabff;
+
+  /* Texto secundario mais legivel (contraste >= 4.5:1) */
+  --text-muted: rgba(232, 238, 247, 0.72);
+  --text-subtle: rgba(232, 238, 247, 0.62);
+  --text-ultra: rgba(232, 238, 247, 0.62);
+}
+
+html.light {
+  --brand-primary: #2563eb;
+  --brand-primary-strong: #1d4ed8;
+  --brand-primary-on-dark: #1d4ed8;
+  --brand-accent: #eab308;
+  --brand-accent-ink: #17202b;
+  --brand-accent-on-light: #a16207;
+  --brand-accent-on-dark: #a16207;
+  --brand-progress: #15803d;
+  --brand-progress-on-light: #15803d;
+  --brand-progress-on-dark: #15803d;
+
+  --nav-active-bg: rgba(37, 99, 235, 0.09);
+  --nav-active-fg: #1d4ed8;
+
+  --text-muted: #5a6472;
+  --text-subtle: #5a6472;
+  --text-ultra: #6b7482;
+}
+
+/* Fundo do app: remover os radial-gradients roxo/azul do modo escuro. */
+html.dark body {
+  background: #0b1220;
+}
+
+/* Tipografia: Inter em tudo (fonte original do app). */
+body,
+h1, h2, h3, .font-display {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+h1, h2, h3, .font-display {
+  letter-spacing: -0.02em;
+}
+h1 { letter-spacing: -0.025em; }
+
+/* CTA amarelo padrao */
+.btn-cta {
+  background: var(--brand-accent);
+  color: var(--brand-accent-ink);
+  border: none;
+  border-radius: 11px;
+  font-weight: 700;
+}
+
+/* Barra de progresso: verde solido, sem gradiente. */
+.progress-bar-fill {
+  background: var(--brand-progress);
+}
+
+/* Landing pública: esconde a guitarra do hero em telas menores. */
+@media (max-width: 900px) {
+  .hero-guitar { display: none; }
+}
+
+/* Balanço suave da guitarra no hero da Landing. */
+@keyframes hero-guitar-sway {
+  /* Base inclinada em -18° (anti-horário); balanço sutil de ±2.5° em torno disso. */
+  0%, 10%, 100% { transform: rotate(-18deg); }
+  25%           { transform: rotate(-20.5deg); }
+  40%, 60%      { transform: rotate(-18deg); }
+  75%           { transform: rotate(-15.5deg); }
+  90%           { transform: rotate(-18deg); }
+}
+.hero-guitar {
+  transform-origin: 50% 50%;
+  animation: hero-guitar-sway 12s ease-in-out infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-guitar { animation: none; }
 }

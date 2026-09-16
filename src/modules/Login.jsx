@@ -69,14 +69,14 @@ function InputField({
           fontSize: 14,
           outline: 'none',
           background: '#ffffff',
-          border: `1px solid ${error ? '#f472b6' : '#e4e7ec'}`,
+          border: `1px solid ${error ? '#eab308' : '#e4e7ec'}`,
           color: '#17202b',
           fontFamily: 'inherit',
           transition: 'border-color .15s ease',
         }}
         onFocus={(e) => (e.currentTarget.style.borderColor = '#2f6bff')}
         onBlur={(e) =>
-          (e.currentTarget.style.borderColor = error ? '#f472b6' : '#e4e7ec')
+          (e.currentTarget.style.borderColor = error ? '#eab308' : '#e4e7ec')
         }
       />
       {error && (
@@ -140,7 +140,6 @@ export default function Login() {
         background: '#ffffff',
         display: 'flex',
         flexDirection: 'column',
-        fontFamily: "'Plus Jakarta Sans', sans-serif",
         color: '#17202b',
       }}
     >
@@ -192,7 +191,6 @@ export default function Login() {
         >
           <h1
             style={{
-              fontFamily: "'Space Grotesk', sans-serif",
               fontWeight: 700,
               fontSize: 28,
               letterSpacing: '-0.015em',
@@ -297,8 +295,8 @@ export default function Login() {
                   padding: '10px 14px',
                   borderRadius: 12,
                   fontSize: 13,
-                  background: 'rgba(244,114,182,0.10)',
-                  border: '1px solid rgba(244,114,182,0.30)',
+                  background: 'rgba(234,179,8,0.10)',
+                  border: '1px solid rgba(234,179,8,0.30)',
                   color: '#c93b7c',
                 }}
               >

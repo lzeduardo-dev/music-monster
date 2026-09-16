@@ -116,21 +116,21 @@ const SUBDIVISIONS = [
     id: "sixteenth",
     label: "Semicolcheia",
     perBeat: 4,
-    color: "#818cf8",
+    color: "#2563eb",
     desc: "4 por tempo",
   },
   {
     id: "triplet",
     label: "Tercina",
     perBeat: 3,
-    color: "#a78bfa",
+    color: "#2563eb",
     desc: "3 por tempo",
   },
   {
     id: "sextuplet",
     label: "Sextina",
     perBeat: 6,
-    color: "#c084fc",
+    color: "#eab308",
     desc: "6 por tempo",
   },
 ];
@@ -372,7 +372,7 @@ function DurationTree() {
       id: "seminima",
       label: "Semínima",
       count: 4,
-      color: "#818cf8",
+      color: "#2563eb",
       filled: true,
       stem: true,
       flags: 0,
@@ -381,7 +381,7 @@ function DurationTree() {
       id: "colcheia",
       label: "Colcheia",
       count: 8,
-      color: "#a78bfa",
+      color: "#2563eb",
       filled: true,
       stem: true,
       flags: 1,
@@ -390,7 +390,7 @@ function DurationTree() {
       id: "semicolcheia",
       label: "Semicolcheia",
       count: 16,
-      color: "#c084fc",
+      color: "#eab308",
       filled: true,
       stem: true,
       flags: 2,
@@ -493,7 +493,7 @@ function PulseDemo() {
           Cada batida = 1 semínima = 1 tempo
         </div>
         <div className="text-xs mt-0.5" style={{ color: "var(--text-ultra)" }}>
-          Coloque a mão no peito — seu coração bate em pulso regular.
+          Coloque a mão no peito: seu coração bate em pulso regular.
         </div>
       </div>
     </div>
@@ -758,12 +758,12 @@ function TripletVisual({ bpm = 72 }) {
                     height: 26,
                     background:
                       active === i
-                        ? "#a78bfa"
+                        ? "#2563eb"
                         : i % 3 === 0
-                        ? "rgba(167,139,250,0.28)"
+                        ? "rgba(37,99,235,0.28)"
                         : "var(--ink-08)",
                     boxShadow:
-                      active === i ? "0 0 8px rgba(167,139,250,0.6)" : "none",
+                      active === i ? "0 0 8px rgba(37,99,235,0.6)" : "none",
                   }}
                 />
               ))}
@@ -774,8 +774,8 @@ function TripletVisual({ bpm = 72 }) {
                   key={beat}
                   className="flex-1 text-center text-[10px] border-t mt-1 pt-0.5"
                   style={{
-                    borderColor: "rgba(167,139,250,0.35)",
-                    color: "#a78bfa",
+                    borderColor: "rgba(37,99,235,0.35)",
+                    color: "#2563eb",
                   }}
                 >
                   tri-po-let
@@ -841,7 +841,7 @@ function SextupletVisual({ bpm = 72 }) {
   const colors33 = [0, 0, 0, 1, 1, 1];
   const colors222 = [0, 1, 2, 0, 1, 2];
   const colors = grouping === "3+3" ? colors33 : colors222;
-  const palette = ["#a78bfa", "#c084fc", "#818cf8"];
+  const palette = ["#2563eb", "#eab308", "#2563eb"];
 
   return (
     <div className="card p-5 space-y-4">
@@ -877,16 +877,16 @@ function SextupletVisual({ bpm = 72 }) {
                 height: 26,
                 background:
                   active === i
-                    ? "#c084fc"
+                    ? "#eab308"
                     : `${palette[colors[i]]}${
                         grouping === "3+3" && i === 3 ? "28" : "18"
                       }`,
                 boxShadow:
-                  active === i ? "0 0 8px rgba(192,132,252,0.6)" : "none",
+                  active === i ? "0 0 8px rgba(234,179,8,0.6)" : "none",
                 borderLeft:
                   (grouping === "3+3" && i === 3) ||
                   (grouping === "2+2+2" && [0, 2, 4].includes(i))
-                    ? "2px solid rgba(192,132,252,0.5)"
+                    ? "2px solid rgba(234,179,8,0.5)"
                     : "none",
               }}
             />
@@ -899,8 +899,8 @@ function SextupletVisual({ bpm = 72 }) {
                   key={g}
                   className="flex-1 text-center text-[10px] border-t pt-0.5"
                   style={{
-                    borderColor: "rgba(192,132,252,0.3)",
-                    color: "#c084fc",
+                    borderColor: "rgba(234,179,8,0.3)",
+                    color: "#eab308",
                   }}
                 >
                   tri-po-let
@@ -911,8 +911,8 @@ function SextupletVisual({ bpm = 72 }) {
                   key={g}
                   className="flex-[2] text-center text-[10px] border-t pt-0.5"
                   style={{
-                    borderColor: "rgba(192,132,252,0.3)",
-                    color: "#c084fc",
+                    borderColor: "rgba(234,179,8,0.3)",
+                    color: "#eab308",
                   }}
                 >
                   la-ra
@@ -932,7 +932,7 @@ function SextupletVisual({ bpm = 72 }) {
       <TheoryBlock>
         <p className="text-xs">
           A sextina divide cada tempo em 6 partes iguais. Pode ser sentida como{" "}
-          <b>2 tercinas</b> (3+3) ou como <b>3 colcheias duplas</b> (2+2+2) — a
+          <b>2 tercinas</b> (3+3) ou como <b>3 colcheias duplas</b> (2+2+2): a
           escolha muda o fraseado e o groove.
         </p>
       </TheoryBlock>
@@ -1055,7 +1055,7 @@ function RhythmMetronome() {
           <div className="mt-2 text-[10px] text-white/35">
             {subdiv.perBeat === 3
               ? 'Cante: "tri-po-let | tri-po-let | tri-po-let | tri-po-let"'
-              : 'Cante: "la-ra-la-ra-la-ra" por tempo — ou agrupe 3+3 / 2+2+2'}
+              : 'Cante: "la-ra-la-ra-la-ra" por tempo: ou agrupe 3+3 / 2+2+2'}
           </div>
         )}
       </div>
@@ -1083,7 +1083,7 @@ function RhythmMetronome() {
             className="text-[10px] uppercase tracking-widest mt-0.5"
             style={{ color: "var(--text-ultra)" }}
           >
-            BPM — {getBpmLabel(bpm)}
+            BPM: {getBpmLabel(bpm)}
           </div>
         </div>
         <button
@@ -1101,10 +1101,10 @@ function RhythmMetronome() {
           className="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold"
           style={{
             background: running
-              ? "rgba(244,114,182,0.15)"
+              ? "rgba(234,179,8,0.15)"
               : "rgba(59,130,246,0.15)",
-            border: `2px solid ${running ? "#f472b660" : "#3b82f660"}`,
-            color: running ? "#f472b6" : "#60a5fa",
+            border: `2px solid ${running ? "#eab30860" : "#3b82f660"}`,
+            color: running ? "#eab308" : "#60a5fa",
           }}
         >
           {running ? "⏹" : "▶"}
@@ -1161,7 +1161,7 @@ export default function FigurasRitmicas() {
       <PageHeader
         chip="Fundamentos"
         title="Figuras Rítmicas"
-        description="Aprenda a ler, sentir e executar ritmo com precisão — de semibreves a sextinas, com áudio sincronizado e metrônomo integrado."
+        description="Aprenda a ler, sentir e executar ritmo com precisão: de semibreves a sextinas, com áudio sincronizado e metrônomo integrado."
       />
 
       {/* ── 1. Introdução ─────────────────────────────────────────────── */}
@@ -1173,7 +1173,7 @@ export default function FigurasRitmicas() {
           <Step n={1}>
             <p>
               <b>Pulsação</b> é a batida regular e constante que organiza a
-              música no tempo — como um relógio ou um coração. Toda música tem
+              música no tempo: como um relógio ou um coração. Toda música tem
               um pulso, mesmo que nem sempre seja tocado explicitamente.
             </p>
           </Step>
@@ -1265,13 +1265,13 @@ export default function FigurasRitmicas() {
           </Step>
           <Step n={2}>
             <p>
-              <b>Subdividir o tempo</b> = dividir cada pulso em partes menores —
+              <b>Subdividir o tempo</b> = dividir cada pulso em partes menores:
               colcheias (÷2), semicolcheias (÷4), tercinas (÷3), etc.
             </p>
           </Step>
           <Step n={3}>
             <p>
-              <b>Divisão binária:</b> subdivisão em 2 (ou múltiplos de 2) —
+              <b>Divisão binária:</b> subdivisão em 2 (ou múltiplos de 2):
               colcheias, semicolcheias. É o sistema padrão no pop, rock e samba.{" "}
               <b>Divisão ternária:</b> subdivisão em 3 — tercinas, 6/8. Cria a
               sensação de swing e shuffle.
@@ -1293,7 +1293,7 @@ export default function FigurasRitmicas() {
               {
                 label: "÷ 8 (Fusas)",
                 count: 16,
-                color: "#818cf8",
+                color: "#2563eb",
                 ellipsis: true,
               },
             ].map((r) => (
@@ -1325,7 +1325,7 @@ export default function FigurasRitmicas() {
           <div className="card p-4">
             <div
               className="text-sm font-bold mb-3"
-              style={{ color: "#a78bfa" }}
+              style={{ color: "#2563eb" }}
             >
               Divisão Ternária
             </div>
@@ -1333,13 +1333,13 @@ export default function FigurasRitmicas() {
               {
                 label: "÷ 3 (Tercinas)",
                 count: 12,
-                color: "#a78bfa",
+                color: "#2563eb",
                 group: 3,
               },
               {
                 label: "÷ 6 (Sextinas)",
                 count: 24,
-                color: "#c084fc",
+                color: "#eab308",
                 group: 6,
               },
             ].map((r) => (
@@ -1403,17 +1403,17 @@ export default function FigurasRitmicas() {
             {
               label: "Tercina de Colcheias",
               desc: "3 no espaço de 2 colcheias (= 1 tempo)",
-              color: "#a78bfa",
+              color: "#2563eb",
             },
             {
               label: "Tercina de Semínimas",
               desc: "3 no espaço de 2 semínimas (= 2 tempos)",
-              color: "#818cf8",
+              color: "#2563eb",
             },
             {
               label: "Tercina de Semicolcheias",
               desc: "3 no espaço de 2 semicolcheias (= ½ tempo)",
-              color: "#c084fc",
+              color: "#eab308",
             },
           ].map((item) => (
             <div
@@ -1456,7 +1456,7 @@ export default function FigurasRitmicas() {
             <p>
               Uma <b>sextina</b> coloca <b>6 notas iguais</b> em 1 tempo (ou no
               espaço de 4 colcheias). É essencialmente <b>2 tercinas</b>{" "}
-              encadeadas — ou <b>3 pares</b> de notas.
+              encadeadas: ou <b>3 pares</b> de notas.
             </p>
           </Step>
           <Step n={2}>

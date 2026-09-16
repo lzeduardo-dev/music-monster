@@ -13,7 +13,7 @@ const MODES = [
     label: 'Menor Melódica',
     degree: 'I',
     formula: '1 – 2 – b3 – 4 – 5 – 6 – 7',
-    char: 'Escura mas com a 6ª e 7ª abertas — tensão elegante.',
+    char: 'Escura mas com a 6ª e 7ª abertas: tensão elegante.',
     use: 'Sobre acordes Xm(M7) e Xm6. Muito usada no jazz contemporâneo sobre tônicas menores.',
     color: 'emerald'
   },
@@ -22,7 +22,7 @@ const MODES = [
     label: 'Dórico b2',
     degree: 'II',
     formula: '1 – b2 – b3 – 4 – 5 – 6 – b7',
-    char: 'Frigio com 6ª natural — ambíguo, tenso, exótico.',
+    char: 'Frigio com 6ª natural: ambíguo, tenso, exótico.',
     use: 'Sobre acordes sus(b9). Muito usada em jazz modal e música árabe/flamenca fusionada.',
     color: 'amber'
   },
@@ -31,7 +31,7 @@ const MODES = [
     label: 'Lídio Aumentado',
     degree: 'III',
     formula: '1 – 2 – 3 – #4 – #5 – 6 – 7',
-    char: 'Eufórico, flutuante — a mais "alienígena" dos modos.',
+    char: 'Eufórico, flutuante: a mais "alienígena" dos modos.',
     use: 'Sobre acordes Xaug(M7). Herbie Hancock e Wayne Shorter usaram em contextos modais.',
     color: 'emerald'
   },
@@ -49,7 +49,7 @@ const MODES = [
     label: 'Mixolídio b6',
     degree: 'V',
     formula: '1 – 2 – 3 – 4 – 5 – b6 – b7',
-    char: 'Dominante com uma sombra na 6ª — melancólico e unshaven.',
+    char: 'Dominante com uma sombra na 6ª: melancólico e unshaven.',
     use: 'Sobre V7 com b13. Dominante com resolução ambígua, muito usado em músicas modais hinduístas/mediterrâneas.',
     color: 'coral'
   },
@@ -58,7 +58,7 @@ const MODES = [
     label: 'Lócrio #2',
     degree: 'VI',
     formula: '1 – 2 – b3 – 4 – b5 – b6 – b7',
-    char: 'Meio-diminuto com a 2ª natural — menos tenso que o Lócrio padrão.',
+    char: 'Meio-diminuto com a 2ª natural: menos tenso que o Lócrio padrão.',
     use: 'A escala padrão do jazz sobre acordes m7b5 (meio-diminuto). Leva bem à resolução do V7alt.',
     color: 'coral'
   },
@@ -67,7 +67,7 @@ const MODES = [
     label: 'Escala Alterada',
     degree: 'VII',
     formula: '1 – b2 – b3 – b4(3) – b5 – b6 – b7',
-    char: 'Caos organizado — todas as alterações possíveis (#9, b9, #11, b13).',
+    char: 'Caos organizado: todas as alterações possíveis (#9, b9, #11, b13).',
     use: 'A escala de dominante mais usada no jazz sobre V7alt antes de uma resolução de Imaj7. Charlie Parker, Coltrane e Pat Metheny a dominavam.',
     color: 'amber'
   }
@@ -98,14 +98,14 @@ export default function MelodicMinor() {
             <p>
               Na teoria clássica, a menor melódica sobe com a 6ª e 7ª maiores (para evitar o salto
               aumentado) e <i>desce</i> como a menor natural. No <b>jazz</b>, convenciona-se usar a forma
-              ascendente nos dois sentidos — isso se chama "jazz minor" ou "menor melódica de jazz".
+              ascendente nos dois sentidos: isso se chama "jazz minor" ou "menor melódica de jazz".
             </p>
           </Step>
           <Step n={2}>
             <p>
               Fórmula: <span className="font-mono text-accent-emerald">1 – 2 – b3 – 4 – 5 – 6 – 7</span><br/>
               É exatamente a escala maior com a 3ª bemolizada. Resultado: soa menor na 3ª
-              mas tem a luminosidade da 6ª e 7ª maiores — uma dualidade única.
+              mas tem a luminosidade da 6ª e 7ª maiores: uma dualidade única.
             </p>
           </Step>
           <Step n={3}>
@@ -119,7 +119,7 @@ export default function MelodicMinor() {
       </Section>
 
       <Section
-        title={`${root} ${mode.label} — ${mode.formula}`}
+        title={`${root} ${mode.label}: ${mode.formula}`}
         action={
           <div className="flex flex-wrap gap-2">
             <button className="btn btn-primary" onClick={() => playSequence(pitches, 0.28, true)}>▶ Tocar</button>
@@ -183,10 +183,10 @@ export default function MelodicMinor() {
         </div>
       </Section>
 
-      <Section title="2. A Escala Alterada — o coração do jazz moderno">
+      <Section title="2. A Escala Alterada: o coração do jazz moderno">
         <TheoryBlock>
           <p>
-            O VII modo da menor melódica — chamado de <b>Escala Alterada</b> ou <b>Super Lócrio</b> —
+            O VII modo da menor melódica: chamado de <b>Escala Alterada</b> ou <b>Super Lócrio</b>:
             é a escala mais importante do vocabulário jazz sobre dominantes. Ela contém <i>todas</i>
             as alterações possíveis da escala dominante: b9, #9, #11 (trítono) e b13.
           </p>
@@ -196,9 +196,9 @@ export default function MelodicMinor() {
           <p>
             <b>Regra de ouro:</b> quando um acorde dominante <b>resolve</b> uma quarta acima
             (ex: G7 → C), toque a escala alterada de G. Isso significa tocar a menor melódica
-            de Ab — um semitom acima da raiz do dominante.
+            de Ab: um semitom acima da raiz do dominante.
           </p>
-          <div className="card p-4 mt-2" style={{ background: 'rgba(192,132,252,0.07)', borderColor: 'rgba(192,132,252,0.2)' }}>
+          <div className="card p-4 mt-2" style={{ background: 'rgba(234,179,8,0.07)', borderColor: 'rgba(234,179,8,0.2)' }}>
             <div className="font-bold text-accent-amber mb-1">Atalho prático</div>
             <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
               G7 alterada → toque a escala de <b>Ab menor melódica</b> (um semitom acima).<br />

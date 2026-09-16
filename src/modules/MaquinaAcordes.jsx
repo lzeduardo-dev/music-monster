@@ -25,7 +25,7 @@ const QUALITY_GROUPS = [
   },
   {
     label: 'Tétrades',
-    color: '#a78bfa',
+    color: '#2563eb',
     qualities: [
       { key: 'maj7',   label: 'XM7',     name: '7ª Maior',        formula: '1–3–5–7' },
       { key: '7',      label: 'X7',      name: 'Dominante',       formula: '1–3–5–b7' },
@@ -37,7 +37,7 @@ const QUALITY_GROUPS = [
   },
   {
     label: 'Extensões',
-    color: '#f472b6',
+    color: '#eab308',
     qualities: [
       { key: '9',      label: 'X9',      name: 'Nona Dom.',       formula: '1–3–5–b7–9' },
       { key: 'maj9',   label: 'XM9',     name: 'Nona Maior',      formula: '1–3–5–7–9' },
@@ -93,7 +93,7 @@ export default function MaquinaAcordes() {
       <PageHeader
         chip="Tétrades & Voicings"
         title="Máquina de Acordes"
-        description="Explore qualquer acorde — de tríades simples a extensões com 13ª — no braço inteiro."
+        description="Explore qualquer acorde: de tríades simples a extensões com 13ª: no braço inteiro."
       />
 
       {/* ── Theory ─────────────────────────────────────────────────────── */}
@@ -142,8 +142,8 @@ export default function MaquinaAcordes() {
               </div>
             </div>
             <div className="card p-4">
-              <div style={{ fontWeight: 700, color: '#a78bfa', marginBottom: 6, fontSize: 14 }}>Drop 3</div>
-              <div style={{ padding: '8px 12px', background: 'rgba(167,139,250,0.06)', borderRadius: 8, fontSize: 11, fontFamily: 'monospace', lineHeight: 1.9, color: 'var(--text-subtle)', borderLeft: '3px solid #a78bfa' }}>
+              <div style={{ fontWeight: 700, color: '#2563eb', marginBottom: 6, fontSize: 14 }}>Drop 3</div>
+              <div style={{ padding: '8px 12px', background: 'rgba(37,99,235,0.06)', borderRadius: 8, fontSize: 11, fontFamily: 'monospace', lineHeight: 1.9, color: 'var(--text-subtle)', borderLeft: '3px solid #2563eb' }}>
                 Fechado:   C4 – E4 – G4 – B4<br />
                 Drop 3:    E4 ↓ → E3<br />
                 Resultado: E3 – C4 – G4 – B4
@@ -211,7 +211,7 @@ export default function MaquinaAcordes() {
                         <button
                           key={q.key}
                           onClick={() => setQuality(q.key)}
-                          title={`${q.name} — ${q.formula}`}
+                          title={`${q.name}: ${q.formula}`}
                           style={{
                             padding: '5px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: 'pointer',
                             background: active ? `${group.color}22` : 'var(--ink-03)',
@@ -242,7 +242,7 @@ export default function MaquinaAcordes() {
                     style={{
                       padding: '5px 14px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: 'pointer',
                       background: active ? 'rgba(99,102,241,0.15)' : 'var(--ink-03)',
-                      color: active ? '#818cf8' : 'var(--text-muted)',
+                      color: active ? '#2563eb' : 'var(--text-muted)',
                       border: active ? '1px solid rgba(99,102,241,0.5)' : '1px solid rgba(255,255,255,0.06)',
                     }}
                   >
@@ -290,9 +290,9 @@ export default function MaquinaAcordes() {
                 {chordNoteNames.map((note, i) => (
                   <span key={i} style={{
                     padding: '2px 10px', borderRadius: 999, fontSize: 12, fontWeight: 700,
-                    background: i === inv ? '#f472b620' : `${groupColor}15`,
-                    color: i === inv ? '#f472b6' : groupColor,
-                    border: `1px solid ${i === inv ? '#f472b640' : groupColor + '30'}`,
+                    background: i === inv ? '#eab30820' : `${groupColor}15`,
+                    color: i === inv ? '#eab308' : groupColor,
+                    border: `1px solid ${i === inv ? '#eab30840' : groupColor + '30'}`,
                   }}>
                     {note}
                   </span>
@@ -317,11 +317,11 @@ export default function MaquinaAcordes() {
         {/* Legend */}
         <div style={{ display: 'flex', gap: 16, marginBottom: 12, fontSize: 11, flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-            <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#f472b6' }} />
+            <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#eab308' }} />
             <span style={{ color: 'var(--text-ultra)' }}>nota no baixo (inversão)</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-            <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#a78bfa' }} />
+            <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#2563eb' }} />
             <span style={{ color: 'var(--text-ultra)' }}>demais notas do acorde</span>
           </div>
         </div>

@@ -32,7 +32,7 @@ const QUESTIONS = [
   {
     id: "f3",
     category: "Fundamentos",
-    q: "Qual intervalo equivale a 6 semitons — metade de uma oitava?",
+    q: "Qual intervalo equivale a 6 semitons: metade de uma oitava?",
     options: ["Quarta justa", "Quinta justa", "Trítono", "Sexta menor"],
     correct: 2,
     explanation:
@@ -80,7 +80,7 @@ const QUESTIONS = [
     options: ["Quarta justa", "Trítono", "Quinta justa", "Sexta maior"],
     correct: 2,
     explanation:
-      "A quinta justa tem 7 semitons — o intervalo mais estável depois da oitava.",
+      "A quinta justa tem 7 semitons: o intervalo mais estável depois da oitava.",
   },
   {
     id: "f9",
@@ -89,7 +89,7 @@ const QUESTIONS = [
     options: ["A", "Bb", "B", "G#"],
     correct: 2,
     explanation:
-      "C-D-E-F-G-A-B. O 7º grau é B (Si) — a sensível, a 1 semitom da tônica.",
+      "C-D-E-F-G-A-B. O 7º grau é B (Si): a sensível, a 1 semitom da tônica.",
   },
   {
     id: "f10",
@@ -97,7 +97,7 @@ const QUESTIONS = [
     q: "O que é um semitom na guitarra?",
     options: [
       "A distância entre duas casas separadas por uma corda",
-      "A menor distância entre duas notas — equivale a 1 casa (fret)",
+      "A menor distância entre duas notas: equivale a 1 casa (fret)",
       "O equivalente a dois tons inteiros",
       "A distância entre a tônica e a dominante",
     ],
@@ -141,7 +141,7 @@ const QUESTIONS = [
     options: ["Dm", "Em", "F", "G"],
     correct: 2,
     explanation:
-      "O IV grau de C maior é F (Fá) — acorde maior com função subdominante.",
+      "O IV grau de C maior é F (Fá): acorde maior com função subdominante.",
   },
   {
     id: "h5",
@@ -201,7 +201,7 @@ const QUESTIONS = [
     options: ["2", "3", "4", "5"],
     correct: 1,
     explanation:
-      "I (C), IV (F) e V (G) são maiores — 3 no total. II, III, VI são menores; VII é diminuto.",
+      "I (C), IV (F) e V (G) são maiores: 3 no total. II, III, VI são menores; VII é diminuto.",
   },
   {
     id: "h10",
@@ -215,7 +215,7 @@ const QUESTIONS = [
     ],
     correct: 1,
     explanation:
-      'Xm7b5 (1-b3-b5-b7) = "meio-diminuto" — quinta diminuta mas sétima menor (não bb7 como no X°7).',
+      'Xm7b5 (1-b3-b5-b7) = "meio-diminuto": quinta diminuta mas sétima menor (não bb7 como no X°7).',
   },
   {
     id: "h11",
@@ -238,7 +238,7 @@ const QUESTIONS = [
     ],
     correct: 1,
     explanation:
-      "X°7 = 1-b3-b5-bb7. Intervalos de terça menor simétricos — por isso tem 4 nomes enarmônicos.",
+      "X°7 = 1-b3-b5-bb7. Intervalos de terça menor simétricos: por isso tem 4 nomes enarmônicos.",
   },
 
   // ── Harmonia Funcional ───────────────────────────────────────────────────
@@ -249,7 +249,7 @@ const QUESTIONS = [
     options: ["Tônica", "Subdominante", "Dominante", "Modal"],
     correct: 2,
     explanation:
-      "V grau = função Dominante — cria máxima tensão que resolve para a Tônica (I).",
+      "V grau = função Dominante: cria máxima tensão que resolve para a Tônica (I).",
   },
   {
     id: "hf2",
@@ -258,7 +258,7 @@ const QUESTIONS = [
     options: ["Tônica", "Subdominante", "Dominante", "Ambígua"],
     correct: 1,
     explanation:
-      "II grau = função Subdominante — prepara o V, que resolve para o I (cadência perfeita II-V-I).",
+      "II grau = função Subdominante: prepara o V, que resolve para o I (cadência perfeita II-V-I).",
   },
   {
     id: "hf3",
@@ -295,7 +295,7 @@ const QUESTIONS = [
     ],
     correct: 1,
     explanation:
-      "Cadência de engano: V resolve para o vi (tônica relativa) em vez do I esperado — cria surpresa.",
+      "Cadência de engano: V resolve para o vi (tônica relativa) em vez do I esperado: cria surpresa.",
   },
   {
     id: "hf6",
@@ -338,7 +338,7 @@ const QUESTIONS = [
     ],
     correct: 1,
     explanation:
-      'A escala blues (hexatônica) adiciona a b5 — a famosa "blue note" — à pentatônica menor.',
+      'A escala blues (hexatônica) adiciona a b5: a famosa "blue note": à pentatônica menor.',
   },
   {
     id: "es4",
@@ -346,7 +346,7 @@ const QUESTIONS = [
     q: "Quantas notas tem a escala blues?",
     options: ["5", "6", "7", "8"],
     correct: 1,
-    explanation: "Blues é hexatônica — 6 notas (pentatônica menor + b5).",
+    explanation: "Blues é hexatônica: 6 notas (pentatônica menor + b5).",
   },
   {
     id: "es5",
@@ -364,7 +364,7 @@ const QUESTIONS = [
     options: ["G maior", "F maior", "C maior", "D maior"],
     correct: 2,
     explanation:
-      "Am pent (A-C-D-E-G) = C major pent (C-D-E-G-A) — mesmas notas, tônica diferente. Escala relativa.",
+      "Am pent (A-C-D-E-G) = C major pent (C-D-E-G-A): mesmas notas, tônica diferente. Escala relativa.",
   },
 
   // ── Arpejos ──────────────────────────────────────────────────────────────
@@ -393,7 +393,7 @@ const QUESTIONS = [
     options: ["XM7", "X7 Dominante", "Xm7", "X°7 (Diminuto)"],
     correct: 3,
     explanation:
-      "X°7 = 1-b3-b5-bb7 — empilha quatro terças menores simétricas. Por isso tem 4 nomes enarmônicos.",
+      "X°7 = 1-b3-b5-bb7: empilha quatro terças menores simétricas. Por isso tem 4 nomes enarmônicos.",
   },
   {
     id: "ar4",
@@ -436,7 +436,7 @@ const QUESTIONS = [
     ],
     correct: 1,
     explanation:
-      "CAGED = C, A, G, E, D — os 5 acordes maiores abertos mais comuns na guitarra.",
+      "CAGED = C, A, G, E, D: os 5 acordes maiores abertos mais comuns na guitarra.",
   },
   {
     id: "ca3",
@@ -459,7 +459,7 @@ const QUESTIONS = [
     ],
     correct: 1,
     explanation:
-      'CAGED mapeia o braço em 5 formas — você nunca fica "preso" em uma região do instrumento.',
+      'CAGED mapeia o braço em 5 formas: você nunca fica "preso" em uma região do instrumento.',
   },
   {
     id: "ca5",
@@ -478,7 +478,7 @@ const QUESTIONS = [
     q: 'O que são "chord tones" (notas de repouso)?',
     options: [
       "Notas fora da tonalidade que criam tensão",
-      "As notas do acorde ativo — soam estáveis ao improvisar",
+      "As notas do acorde ativo: soam estáveis ao improvisar",
       "Notas exclusivas da escala pentatônica",
       "Notas usadas apenas na melodia",
     ],
@@ -507,7 +507,7 @@ const QUESTIONS = [
     options: ["2º grau", "4º grau", "6º grau", "7º grau"],
     correct: 1,
     explanation:
-      "O 4º grau forma trítono com a 7M — cria dissonância intensa sobre acordes Maj7 em repouso.",
+      "O 4º grau forma trítono com a 7M: cria dissonância intensa sobre acordes Maj7 em repouso.",
   },
   {
     id: "tec4",
@@ -516,7 +516,7 @@ const QUESTIONS = [
     options: ["G menor", "D menor", "A menor", "E menor"],
     correct: 2,
     explanation:
-      "A menor relativa de C maior é A menor — ambas compartilham as mesmas 7 notas.",
+      "A menor relativa de C maior é A menor: ambas compartilham as mesmas 7 notas.",
   },
   {
     id: "tec5",
@@ -525,7 +525,7 @@ const QUESTIONS = [
     options: ["b7", "5ª justa", "3ª maior", "7ª maior (7M)"],
     correct: 3,
     explanation:
-      "A 7M conflita com a b7 do acorde X7 — estão a apenas 1 semitom, causando batimento forte.",
+      "A 7M conflita com a b7 do acorde X7: estão a apenas 1 semitom, causando batimento forte.",
   },
 
   // ── Escalas Avançadas / Modos ────────────────────────────────────────────
@@ -536,7 +536,7 @@ const QUESTIONS = [
     options: ["Lócrio ♮6", "Jônico #5", "Frígio Dominante", "Lídio #2"],
     correct: 2,
     explanation:
-      "Frígio Dominante (V da menor harmônica): 1-b2-3-4-5-b6-b7. Dominante com b9 — sons flamenco/árabe.",
+      "Frígio Dominante (V da menor harmônica): 1-b2-3-4-5-b6-b7. Dominante com b9: sons flamenco/árabe.",
   },
   {
     id: "ea2",
@@ -554,7 +554,7 @@ const QUESTIONS = [
     options: ["b3 + b7", "#4 + b7", "#5 + 7M", "b2 + b7"],
     correct: 1,
     explanation:
-      "Lídio Dominante = 1-2-3-#4-5-6-b7. Usado sobre X7#11 — som brilhante e suspenso.",
+      "Lídio Dominante = 1-2-3-#4-5-6-b7. Usado sobre X7#11: som brilhante e suspenso.",
   },
   {
     id: "ea4",
@@ -568,7 +568,7 @@ const QUESTIONS = [
     ],
     correct: 1,
     explanation:
-      "Menor harmônica: eleva o 7º grau de b7 para 7M — cria sensível para a tônica, ideal para cadências V-i.",
+      "Menor harmônica: eleva o 7º grau de b7 para 7M: cria sensível para a tônica, ideal para cadências V-i.",
   },
   {
     id: "ea5",
@@ -582,7 +582,7 @@ const QUESTIONS = [
     ],
     correct: 1,
     explanation:
-      'Dórico = menor natural com 6ª maior. Essa 6M é sua "assinatura" — som menos sombrio, mais "latino".',
+      'Dórico = menor natural com 6ª maior. Essa 6M é sua "assinatura": som menos sombrio, mais "latino".',
   },
   {
     id: "ea6",
@@ -596,7 +596,7 @@ const QUESTIONS = [
     ],
     correct: 1,
     explanation:
-      "Mixolídio = maior com b7. É o modo do V grau — blues, rock e funk amam esse som.",
+      "Mixolídio = maior com b7. É o modo do V grau: blues, rock e funk amam esse som.",
   },
   {
     id: "ea7",
@@ -604,7 +604,7 @@ const QUESTIONS = [
     q: "Qual característica sonora define o modo Frígio?",
     options: [
       "Brilhante e eufórico, com #4",
-      "Sombrio e ibérico — b2 e b6 criam o som de flamenco",
+      "Sombrio e ibérico: b2 e b6 criam o som de flamenco",
       "Neutro e suave como a escala maior",
       "Instável com b2 e b5 (similar ao Lócrio)",
     ],
@@ -653,7 +653,7 @@ const QUESTIONS = [
     options: [
       "Por causa de substituição de trítono",
       "Para criar tensão em direção ao IV",
-      "Tradição da música africana — mistura natural de escala maior e menor (blue notes)",
+      "Tradição da música africana: mistura natural de escala maior e menor (blue notes)",
       "Para facilitar o solo na pentatônica menor",
     ],
     correct: 2,
@@ -672,7 +672,7 @@ const QUESTIONS = [
     ],
     correct: 1,
     explanation:
-      "Jazz blues incorpora II-V-I, tritone subs e dominantes secundários — enriquece sem perder o caráter do blues.",
+      "Jazz blues incorpora II-V-I, tritone subs e dominantes secundários: enriquece sem perder o caráter do blues.",
   },
   {
     id: "jb5",
@@ -686,7 +686,7 @@ const QUESTIONS = [
     ],
     correct: 2,
     explanation:
-      'A pentatônica menor com a blue note (b5) é a "língua-mãe" do blues — funciona sobre I7, IV7 e V7.',
+      'A pentatônica menor com a blue note (b5) é a "língua-mãe" do blues: funciona sobre I7, IV7 e V7.',
   },
 
   // ── Tétrades & Voicings ──────────────────────────────────────────────────
@@ -702,7 +702,7 @@ const QUESTIONS = [
     ],
     correct: 1,
     explanation:
-      "Drop 2: a 2ª nota mais aguda do voicing fechado baixa uma oitava — abre o espaço entre as vozes.",
+      "Drop 2: a 2ª nota mais aguda do voicing fechado baixa uma oitava: abre o espaço entre as vozes.",
   },
   {
     id: "tv2",
@@ -720,7 +720,7 @@ const QUESTIONS = [
     options: ["E-A-D-G", "A-D-G-B", "D-G-B-e", "Apenas em cordas soltas"],
     correct: 2,
     explanation:
-      "Drop 2 em D-G-B-e é o padrão do jazz — produz 4 posições distintas cobrindo toda a extensão do braço.",
+      "Drop 2 em D-G-B-e é o padrão do jazz: produz 4 posições distintas cobrindo toda a extensão do braço.",
   },
   {
     id: "tv4",
@@ -758,7 +758,7 @@ function ProgressBar({ value, max }) {
         style={{
           width: `${pct}%`,
           height: "100%",
-          background: "linear-gradient(90deg,#3b82f6,#a78bfa)",
+          background: "linear-gradient(90deg,#3b82f6,#2563eb)",
           borderRadius: 999,
           transition: "width 0.4s ease",
         }}
@@ -777,13 +777,13 @@ function OptionBtn({ text, state, onClick }) {
     correct: {
       bg: "rgba(99,102,241,0.18)",
       border: "#6366f1",
-      color: "#c7d2fe",
+      color: "#7dabff",
     },
     wrong: { bg: "rgba(236,72,153,0.15)", border: "#ec4899", color: "#fbcfe8" },
     reveal: {
       bg: "rgba(99,102,241,0.07)",
       border: "rgba(99,102,241,0.35)",
-      color: "#818cf8",
+      color: "#2563eb",
     },
     dimmed: {
       bg: "var(--ink-03)",
@@ -825,7 +825,7 @@ function StartScreen({ category, setCategory, onStart }) {
       <PageHeader
         chip="Quiz"
         title="Quiz Musical"
-        description="Teste seus conhecimentos em todos os módulos — Fundamentos, Harmonia, Modos, Blues, CAGED e mais."
+        description="Teste seus conhecimentos em todos os módulos: Fundamentos, Harmonia, Modos, Blues, CAGED e mais."
       />
 
       <div className="card p-6 md:p-8 mb-6">
@@ -876,7 +876,7 @@ function StartScreen({ category, setCategory, onStart }) {
                     )} questões aleatórias`
                   : `${
                       QUESTIONS.filter((q) => q.category === category).length
-                    } questões — ${category}`}
+                    } questões: ${category}`}
               </div>
               <div
                 className="text-xs mt-1"
@@ -945,8 +945,8 @@ function ResultsScreen({ questions, answers, score, onRetry, onNewCategory }) {
     pct >= 80
       ? { text: "Excelente! Você domina o conteúdo.", color: "#6366f1" }
       : pct >= 60
-      ? { text: "Muito bem! Continue praticando.", color: "#a78bfa" }
-      : { text: "Continue estudando — revise os módulos!", color: "#f472b6" };
+      ? { text: "Muito bem! Continue praticando.", color: "#2563eb" }
+      : { text: "Continue estudando: revise os módulos!", color: "#eab308" };
 
   // Category breakdown
   const breakdown = {};
@@ -1015,7 +1015,7 @@ function ResultsScreen({ questions, answers, score, onRetry, onNewCategory }) {
         >
           {Object.entries(breakdown).map(([cat, { total, correct }]) => {
             const p = Math.round((correct / total) * 100);
-            const color = p >= 80 ? "#6366f1" : p >= 60 ? "#a78bfa" : "#f472b6";
+            const color = p >= 80 ? "#6366f1" : p >= 60 ? "#2563eb" : "#eab308";
             return (
               <div key={cat} className="card p-4">
                 <div className="flex justify-between items-center mb-2">
@@ -1079,7 +1079,7 @@ function ResultsScreen({ questions, answers, score, onRetry, onNewCategory }) {
                   >
                     {q.q}
                   </div>
-                  <div className="text-sm mb-1" style={{ color: "#f472b6" }}>
+                  <div className="text-sm mb-1" style={{ color: "#eab308" }}>
                     Sua resposta: <strong>{q.options[answers[i]]}</strong>
                   </div>
                   <div className="text-sm mb-2" style={{ color: "#a5b4fc" }}>
@@ -1207,7 +1207,7 @@ export default function Quiz() {
       <div className="card p-5 md:p-6 mb-4">
         <span
           className="inline-flex px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4"
-          style={{ background: "rgba(99,102,241,0.12)", color: "#818cf8" }}
+          style={{ background: "rgba(99,102,241,0.12)", color: "#2563eb" }}
         >
           {q.category}
         </span>
@@ -1252,7 +1252,7 @@ export default function Quiz() {
           <div
             className="font-bold mb-2"
             style={{
-              color: selected === q.correct ? "#a5b4fc" : "#f9a8d4",
+              color: selected === q.correct ? "#a5b4fc" : "#fde047",
               fontSize: 15,
             }}
           >

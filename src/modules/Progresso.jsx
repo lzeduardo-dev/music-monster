@@ -33,7 +33,7 @@ const CATALOG = [
   },
   {
     moduleId: 'ciclo_quintas', label: 'Ciclo das Quintas', category: 'aprender',
-    route: '/ciclo-das-quintas', color: '#38bdf8',
+    route: '/ciclo-das-quintas', color: '#3b82f6',
     lessons: [
       { id: 'quintas', label: 'Ciclo das Quintas' },
       { id: 'quartas', label: 'Ciclo das Quartas' },
@@ -41,7 +41,7 @@ const CATALOG = [
   },
   {
     moduleId: 'harmony', label: 'Tríades & Voicings', category: 'aprender',
-    route: '/harmonia', color: '#c084fc',
+    route: '/harmonia', color: '#eab308',
     lessons: [
       { id: 'chord_qualities', label: 'Qualidades dos acordes' },
       { id: 'triads',          label: 'Tríades e tétrades' },
@@ -60,7 +60,7 @@ const CATALOG = [
   },
   {
     moduleId: 'scales', label: 'Escalas & Solos', category: 'dominio',
-    route: '/escalas-solos', color: '#f472b6',
+    route: '/escalas-solos', color: '#eab308',
     lessons: [
       { id: 'pentatonicMinor', label: 'Pentatônica menor' },
       { id: 'pentatonicMajor', label: 'Pentatônica maior' },
@@ -72,22 +72,22 @@ const CATALOG = [
   },
   {
     moduleId: 'penta_patterns', label: 'Padrões na Pentatônica', category: 'dominio',
-    route: '/padroes-pentatonica', color: '#f472b6',
+    route: '/padroes-pentatonica', color: '#eab308',
     lessons: [
-      { id: 'col_4',        label: 'Colcheia/Semicolcheia — 4 notas' },
-      { id: 'col_3',        label: 'Colcheia/Semicolcheia — 3 notas' },
-      { id: 'tercina_3',    label: 'Tercina/Sextina — 3 notas' },
-      { id: 'tercina_4',    label: 'Tercina — 4 notas' },
-      { id: 'nao_seq_4',    label: 'Não sequencial — 4 notas' },
-      { id: 'col_6',        label: 'Colcheia — 6 notas' },
+      { id: 'col_4',        label: 'Colcheia/Semicolcheia: 4 notas' },
+      { id: 'col_3',        label: 'Colcheia/Semicolcheia: 3 notas' },
+      { id: 'tercina_3',    label: 'Tercina/Sextina: 3 notas' },
+      { id: 'tercina_4',    label: 'Tercina: 4 notas' },
+      { id: 'nao_seq_4',    label: 'Não sequencial: 4 notas' },
+      { id: 'col_6',        label: 'Colcheia: 6 notas' },
       { id: 'cinco_sobre',  label: '5 sobre ritmo' },
       { id: 'salto',        label: 'Com salto' },
-      { id: 'tercina_6',    label: 'Tercina/Sextina — 6 notas' },
+      { id: 'tercina_6',    label: 'Tercina/Sextina: 6 notas' },
     ],
   },
   {
     moduleId: 'arpejos', label: 'Arpejos', category: 'dominio',
-    route: '/arpejos', color: '#a78bfa',
+    route: '/arpejos', color: '#2563eb',
     lessons: [
       { id: 'maj',  label: 'Tríade Maior' },
       { id: 'min',  label: 'Tríade Menor' },
@@ -100,7 +100,7 @@ const CATALOG = [
   },
   {
     moduleId: 'caged', label: 'Sistema CAGED', category: 'dominio',
-    route: '/caged', color: '#38bdf8',
+    route: '/caged', color: '#3b82f6',
     lessons: [
       { id: 'concept', label: 'O sistema CAGED' },
       { id: 'c_shape', label: 'Forma C' },
@@ -112,7 +112,7 @@ const CATALOG = [
   },
   {
     moduleId: 'escalas_avancadas', label: 'Escalas Avançadas', category: 'dominio',
-    route: '/escalas-avancadas', color: '#a78bfa',
+    route: '/escalas-avancadas', color: '#2563eb',
     lessons: [
       { id: 'harmonic_minor', label: 'Menor Harmônica' },
       { id: 'harmonic_modes', label: 'Modos da harm. menor' },
@@ -121,7 +121,7 @@ const CATALOG = [
   },
   {
     moduleId: 'modos', label: 'Modos Gregos', category: 'dominio',
-    route: '/avancado', color: '#a78bfa',
+    route: '/avancado', color: '#2563eb',
     lessons: [
       { id: 'ionian',     label: 'Jônico' },
       { id: 'dorian',     label: 'Dórico' },
@@ -136,8 +136,8 @@ const CATALOG = [
     moduleId: 'maquina_acordes', label: 'Máquina de Acordes', category: 'ferramentas',
     route: '/maquina-acordes', color: '#6366f1',
     lessons: [
-      { id: 'teoria',  label: 'Tétrades e voicings — teoria' },
-      { id: 'maquina', label: 'Máquina de acordes — prática' },
+      { id: 'teoria',  label: 'Tétrades e voicings: teoria' },
+      { id: 'maquina', label: 'Máquina de acordes: prática' },
     ],
   },
   {
@@ -150,7 +150,7 @@ const CATALOG = [
   // ── Páginas de artistas individuais (desativadas) ────────────────────────
   // {
   //   moduleId: 'djavan', label: 'Djavan', category: 'lendas',
-  //   route: '/lendas/djavan', color: '#a78bfa',
+  //   route: '/lendas/djavan', color: '#2563eb',
   //   lessons: [
   //     { id: 'oceano',     label: 'Oceano (1989)' },
   //     { id: 'samurai',    label: 'Samurai (1982)' },
@@ -159,7 +159,7 @@ const CATALOG = [
   // },
   // {
   //   moduleId: 'chico-buarque', label: 'Chico Buarque', category: 'lendas',
-  //   route: '/lendas/chico-buarque', color: '#818cf8',
+  //   route: '/lendas/chico-buarque', color: '#2563eb',
   //   lessons: [
   //     { id: 'construcao',  label: 'Construção (1971)' },
   //     { id: 'calice',      label: 'Cálice (1973)' },
@@ -177,7 +177,7 @@ const CATALOG = [
   // },
   // {
   //   moduleId: 'cazuza', label: 'Cazuza', category: 'lendas',
-  //   route: '/lendas/cazuza', color: '#c084fc',
+  //   route: '/lendas/cazuza', color: '#eab308',
   //   lessons: [
   //     { id: 'codinome-beija-flor',  label: 'Codinome Beija-Flor (1985)' },
   //     { id: 'o-tempo-nao-para',     label: 'O Tempo Não Para (1988)' },
@@ -186,7 +186,7 @@ const CATALOG = [
   // },
   // {
   //   moduleId: 'paralamas', label: 'Paralamas do Sucesso', category: 'lendas',
-  //   route: '/lendas/paralamas', color: '#38bdf8',
+  //   route: '/lendas/paralamas', color: '#3b82f6',
   //   lessons: [
   //     { id: 'lanterna-dos-afogados', label: 'Lanterna dos Afogados (1989)' },
   //     { id: 'alagados',              label: 'Alagados (1986)' },
@@ -204,7 +204,7 @@ const CATALOG = [
   // },
   // {
   //   moduleId: 'stevie-wonder', label: 'Stevie Wonder', category: 'lendas',
-  //   route: '/lendas/stevie-wonder', color: '#e879f9',
+  //   route: '/lendas/stevie-wonder', color: '#eab308',
   //   lessons: [
   //     { id: 'superstition',    label: 'Superstition (1972)' },
   //     { id: 'sir-duke',        label: 'Sir Duke (1976)' },
@@ -222,7 +222,7 @@ const CATALOG = [
   // },
   {
     moduleId: 'licks', label: 'Vocabulário de Licks', category: 'lendas',
-    route: '/lendas/licks', color: '#c084fc',
+    route: '/lendas/licks', color: '#eab308',
     lessons: [
       // Hendrix (6)
       { id: 'hendrix-little-wing',          label: 'Hendrix · Little Wing' },
@@ -295,7 +295,7 @@ const CATALOG = [
   },
   {
     moduleId: 'quiz', label: 'Quiz Musical', category: 'treino',
-    route: '/quiz', color: '#818cf8',
+    route: '/quiz', color: '#2563eb',
     lessons: [
       { id: 'completed', label: 'Quiz concluído' },
     ],
@@ -313,10 +313,10 @@ const CATALOG = [
 
 const CATEGORIES = [
   { id: 'aprender',    label: 'Aprender',    color: '#3b82f6', accent: 'rgba(59,130,246,1)'  },
-  { id: 'dominio',     label: 'Domínio',     color: '#a78bfa', accent: 'rgba(167,139,250,1)' },
+  { id: 'dominio',     label: 'Domínio',     color: '#2563eb', accent: 'rgba(37,99,235,1)' },
   { id: 'ferramentas', label: 'Ferramentas', color: '#60a5fa', accent: 'rgba(96,165,250,1)'  },
-  { id: 'lendas',      label: 'Lendas',      color: '#c084fc', accent: 'rgba(192,132,252,1)' },
-  { id: 'treino',      label: 'Treino',      color: '#f472b6', accent: 'rgba(244,114,182,1)' },
+  { id: 'lendas',      label: 'Lendas',      color: '#eab308', accent: 'rgba(234,179,8,1)' },
+  { id: 'treino',      label: 'Treino',      color: '#eab308', accent: 'rgba(234,179,8,1)' },
 ]
 
 const TOTAL = CATALOG.reduce((acc, m) => acc + m.lessons.length, 0)
@@ -468,7 +468,7 @@ export default function Progresso() {
       <PageHeader
         chip="Dashboard"
         title="Meu Progresso"
-        description="Visão geral do seu avanço no Harmony Hub — métricas, categorias e atividade recente."
+        description="Visão geral do seu avanço no Harmony Hub: métricas, categorias e atividade recente."
       />
 
       {/* ── KPI Row ────────────────────────────────────────────────────── */}
@@ -477,7 +477,7 @@ export default function Progresso() {
           <Kpi label="Lições totais"     value={TOTAL}                sub={`${CATALOG.length} módulos disponíveis`}    accent="#3b82f6" />
           <Kpi label="Concluídas"        value={totalCompleted}       sub={`${overallPct}% do total`}                  accent="#22c55e" trend={thisWeek > 0 ? Math.round((thisWeek / Math.max(totalCompleted, 1)) * 100) : null} />
           <Kpi label="Em progresso"      value={inProgressCount}      sub={`${completedModulesCount} módulos concluídos`} accent="#f59e0b" />
-          <Kpi label="Acerto Ear-Lab"   value={`${earAccuracy}%`}    sub={`${progress.ear.score}/${progress.ear.attempts} tentativas`} accent="#a78bfa" />
+          <Kpi label="Acerto Ear-Lab"   value={`${earAccuracy}%`}    sub={`${progress.ear.score}/${progress.ear.attempts} tentativas`} accent="#2563eb" />
         </div>
 
         {/* Overall progress hero */}
@@ -491,7 +491,7 @@ export default function Progresso() {
                 {totalCompleted} <span style={{ fontSize: 16, color: 'var(--text-ultra)', fontWeight: 600 }}>de {TOTAL}</span>
               </div>
             </div>
-            <div style={{ fontSize: 28, fontWeight: 800, background: 'linear-gradient(135deg,#3b82f6,#a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', lineHeight: 1 }}>
+            <div style={{ fontSize: 28, fontWeight: 800, background: 'linear-gradient(135deg,#3b82f6,#2563eb)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', lineHeight: 1 }}>
               {overallPct}%
             </div>
           </div>
@@ -500,7 +500,7 @@ export default function Progresso() {
               style={{
                 width: `${overallPct}%`,
                 height: '100%',
-                background: 'linear-gradient(90deg,#3b82f6,#a78bfa,#f472b6)',
+                background: 'linear-gradient(90deg,#3b82f6,#2563eb,#eab308)',
                 borderRadius: 999,
                 transition: 'width 0.6s ease',
               }}

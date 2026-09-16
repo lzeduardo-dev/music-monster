@@ -32,7 +32,7 @@ const CAGED_SHAPES_C = [
   {
     id: "A",
     label: "Forma A",
-    color: "#c084fc",
+    color: "#eab308",
     rootString: "A (5ª corda)",
     neckZone: "Casa 3–5",
     desc: "A forma A em barre. Tônica continua na corda A, agora na 3ª casa.",
@@ -44,7 +44,7 @@ const CAGED_SHAPES_C = [
   {
     id: "G",
     label: "Forma G",
-    color: "#818cf8",
+    color: "#2563eb",
     rootString: "E (6ª e 1ª corda)",
     neckZone: "Casa 5–8",
     desc: "Forma do acorde G aberto transposto. Tônica nas cordas E baixa e E alta.",
@@ -55,7 +55,7 @@ const CAGED_SHAPES_C = [
   {
     id: "E",
     label: "Forma E",
-    color: "#a78bfa",
+    color: "#2563eb",
     rootString: "E (6ª corda)",
     neckZone: "Casa 7–10",
     desc: "O barre chord mais famoso. Forma do acorde E aberto em com pestana. Tônica na corda mais grave.",
@@ -67,7 +67,7 @@ const CAGED_SHAPES_C = [
   {
     id: "D",
     label: "Forma D",
-    color: "#f472b6",
+    color: "#eab308",
     rootString: "D (4ª corda)",
     neckZone: "Casa 10–13",
     desc: "Forma do D aberto transposto. Tônica na corda D (10ª casa).",
@@ -118,7 +118,7 @@ export default function CAGED() {
       <PageHeader
         chip="Sistema CAGED"
         title="O Sistema CAGED"
-        description="As cinco formas de acorde maior que cobrem todo o braço — o mapa completo do violão e da guitarra."
+        description="As cinco formas de acorde maior que cobrem todo o braço: o mapa completo do violão e da guitarra."
       />
 
       {/* ── O que é o CAGED ───────────────────────────────────────────── */}
@@ -141,7 +141,7 @@ export default function CAGED() {
           </Step>
           <Step n={3}>
             <p>
-              As 5 formas se encadeiam pelo braço — a última casa de uma forma é
+              As 5 formas se encadeiam pelo braço: a última casa de uma forma é
               a primeira casa da próxima. Dominando esse mapa, você nunca fica
               "perdido" no braço.
             </p>
@@ -149,7 +149,7 @@ export default function CAGED() {
           <Step n={4}>
             <p>
               Além de acordes, o CAGED define as{" "}
-              <b>regiões de escala e arpejo</b> para improvisação — cada forma
+              <b>regiões de escala e arpejo</b> para improvisação: cada forma
               tem uma "caixa" de pentatônica e de escala maior associada.
             </p>
           </Step>
@@ -210,7 +210,7 @@ export default function CAGED() {
             {/* Diagram */}
             <div>
               <ChordDiagram
-                name={`${root} — Forma ${currentShape.id}`}
+                name={`${root}: Forma ${currentShape.id}`}
                 subtitle={currentShape.neckZone}
                 positions={currentShape.positions}
                 startFret={currentShape.startFret}
@@ -332,7 +332,7 @@ export default function CAGED() {
           <p>
             O braço abaixo mostra <b>todas as posições das notas</b> do acorde
             de {root} maior. As regiões CAGED são as "ilhas" de concentração
-            dessas notas — é onde você toca cada forma.
+            dessas notas: é onde você toca cada forma.
           </p>
         </TheoryBlock>
         <div className="mt-4">
@@ -352,17 +352,17 @@ export default function CAGED() {
             {
               title: "Mude de posição suavemente",
               text: 'Em vez de saltar aleatoriamente pelo braço, use o CAGED para "escoregar" de uma forma para a próxima. O mapa se torna intuitivo.',
-              color: "#c084fc",
+              color: "#eab308",
             },
             {
               title: "Arpejos seguem o mesmo mapa",
               text: "Os arpejos (tocar as notas do acorde individualmente) seguem exatamente o formato CAGED. Aprenda os 5 arpejos e você tem um vocabulário solo completo.",
-              color: "#818cf8",
+              color: "#2563eb",
             },
             {
               title: "Aplique em todos os acordes",
-              text: "O mesmo sistema vale para acordes menores (forma Em, Am, Dm, Gm, Cm), dominantes e qualquer qualidade — só mudam alguns dedos.",
-              color: "#f472b6",
+              text: "O mesmo sistema vale para acordes menores (forma Em, Am, Dm, Gm, Cm), dominantes e qualquer qualidade: só mudam alguns dedos.",
+              color: "#eab308",
             },
           ].map((tip) => (
             <div

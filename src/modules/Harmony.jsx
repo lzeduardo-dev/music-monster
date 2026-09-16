@@ -144,7 +144,7 @@ const STRING_SHAPES = [
   {
     label: "Root na corda E (6ª)",
     rootString: 6,
-    desc: 'Formato "E shape" — barre chord clássico. Tônica na corda mais grave.',
+    desc: 'Formato "E shape": barre chord clássico. Tônica na corda mais grave.',
     shapes: [
       {
         name: "Maior (E shape)",
@@ -172,7 +172,7 @@ const STRING_SHAPES = [
   {
     label: "Root na corda A (5ª)",
     rootString: 5,
-    desc: 'Formato "A shape" — o outro barre chord essencial. Tônica na 5ª corda.',
+    desc: 'Formato "A shape": o outro barre chord essencial. Tônica na 5ª corda.',
     shapes: [
       {
         name: "Maior (A shape)",
@@ -200,7 +200,7 @@ const STRING_SHAPES = [
   {
     label: "Root na corda D (4ª)",
     rootString: 4,
-    desc: 'Formato "D shape" — acorde aberto movível. Tônica na 4ª corda.',
+    desc: 'Formato "D shape": acorde aberto movível. Tônica na 4ª corda.',
     shapes: [
       {
         name: "Maior (D shape)",
@@ -303,7 +303,7 @@ export default function Harmony() {
         <TheoryBlock>
           <Step n={1}>
             <p>
-              A <b>qualidade</b> de um acorde define o seu sabor harmônico —
+              A <b>qualidade</b> de um acorde define o seu sabor harmônico:
               maior, menor, dominante, diminuto etc. Cada qualidade nasce de uma
               combinação específica de intervalos a partir da tônica.
             </p>
@@ -364,13 +364,13 @@ export default function Harmony() {
                   </td>
                   <td
                     className="px-3 py-2 font-mono text-xs"
-                    style={{ color: "#c084fc" }}
+                    style={{ color: "#eab308" }}
                   >
                     {row.formula}
                   </td>
                   <td
                     className="px-3 py-2 font-mono text-xs"
-                    style={{ color: "#f472b6" }}
+                    style={{ color: "#eab308" }}
                   >
                     {row.example}
                   </td>
@@ -432,7 +432,7 @@ export default function Harmony() {
                   className="px-2.5 py-1 rounded-lg text-xs font-bold transition"
                   style={{
                     background:
-                      chordKey === k ? "#c084fc" : "var(--ink-05)",
+                      chordKey === k ? "#eab308" : "var(--ink-05)",
                     color: chordKey === k ? "#1a0628" : "var(--text-muted)",
                   }}
                 >
@@ -467,16 +467,16 @@ export default function Harmony() {
             {/* Chord diagram */}
             <div
               style={{
-                border: "1px solid rgba(192,132,252,0.2)",
+                border: "1px solid rgba(234,179,8,0.2)",
                 borderRadius: 16,
                 padding: "12px 10px",
-                background: "rgba(192,132,252,0.04)",
+                background: "rgba(234,179,8,0.04)",
               }}
             >
               <GuitarChordDiagram
                 root={root}
                 chordKey={chordKey}
-                accentColor="#c084fc"
+                accentColor="#eab308"
                 width={130}
                 height={168}
               />

@@ -52,7 +52,7 @@ export default function Arpejos() {
       <PageHeader
         chip="Arpejos"
         title="Arpejos: a espinha dorsal dos solos"
-        description="Um arpejo é o acorde tocado nota por nota. Tocar o arpejo do acorde da harmonia garante que cada nota do seu solo pertença ao momento — é o segredo de solos que 'cantam' a música."
+        description="Um arpejo é o acorde tocado nota por nota. Tocar o arpejo do acorde da harmonia garante que cada nota do seu solo pertença ao momento: é o segredo de solos que 'cantam' a música."
       />
 
       <Section title="1. Por que usar arpejos?">
@@ -187,13 +187,13 @@ export default function Arpejos() {
       </Section>
 
       {/* ── Tríade vs Tétrade ──────────────────────────────────────────── */}
-      <Section title="2. Tríade vs Tétrade — Comparação">
+      <Section title="2. Tríade vs Tétrade: Comparação">
         <TheoryBlock>
           <Step n={1}>
             <p>
-              Uma <b>tríade</b> (1–3–5) é a versão mais compacta do acorde —
+              Uma <b>tríade</b> (1–3–5) é a versão mais compacta do acorde:
               três notas, som direto. Uma <b>tétrade</b> adiciona a 7ª, criando
-              mais cor e ambiguidade — o vocabulário do jazz e do pop moderno.
+              mais cor e ambiguidade: o vocabulário do jazz e do pop moderno.
               No braço, a tétrade usa 4 notas mas ocupa basicamente a mesma
               região da tríade.
             </p>
@@ -214,35 +214,35 @@ export default function Arpejos() {
               label: "7ª Maior (M7)",
               key: "maj7",
               formula: "1–3–5–7",
-              color: "#818cf8",
+              color: "#2563eb",
             },
             {
               type: "Tríade",
               label: "Menor",
               key: "min",
               formula: "1–b3–5",
-              color: "#a78bfa",
+              color: "#2563eb",
             },
             {
               type: "Tétrade",
               label: "7ª Menor (m7)",
               key: "min7",
               formula: "1–b3–5–b7",
-              color: "#c084fc",
+              color: "#eab308",
             },
             {
               type: "Tríade",
               label: "Dominante",
               key: "maj",
               formula: "1–3–5",
-              color: "#f472b6",
+              color: "#eab308",
             },
             {
               type: "Tétrade",
               label: "Dom. 7 (X7)",
               key: "7",
               formula: "1–3–5–b7",
-              color: "#fb7185",
+              color: "#eab308",
             },
             {
               type: "Tríade",
@@ -333,27 +333,27 @@ export default function Arpejos() {
                 chord: "Dm7",
                 key: "min7",
                 root: "D",
-                desc: "Preparo — tensão leve",
-                color: "rgba(129,140,248,0.15)",
-                borderColor: "rgba(129,140,248,0.3)",
-                textColor: "#818cf8",
+                desc: "Preparo: tensão leve",
+                color: "rgba(37,99,235,0.15)",
+                borderColor: "rgba(37,99,235,0.3)",
+                textColor: "#2563eb",
               },
               {
                 numeral: "V",
                 chord: "G7",
                 key: "7",
                 root: "G",
-                desc: "Dominante — tensão máx.",
-                color: "rgba(244,114,182,0.15)",
-                borderColor: "rgba(244,114,182,0.3)",
-                textColor: "#f472b6",
+                desc: "Dominante: tensão máx.",
+                color: "rgba(234,179,8,0.15)",
+                borderColor: "rgba(234,179,8,0.3)",
+                textColor: "#eab308",
               },
               {
                 numeral: "I",
                 chord: "CM7",
                 key: "maj7",
                 root: "C",
-                desc: "Tônica — resolução",
+                desc: "Tônica: resolução",
                 color: "rgba(37,99,235,0.15)",
                 borderColor: "rgba(37,99,235,0.3)",
                 textColor: "#3b82f6",
@@ -385,7 +385,7 @@ export default function Arpejos() {
         </TheoryBlock>
       </Section>
 
-      <Section title="4. Arpejos no Blues — I7, IV7, V7">
+      <Section title="4. Arpejos no Blues: I7, IV7, V7">
         <TheoryBlock>
           <p>
             No blues padrão em <b>A</b>, os três acordes são todos dominantes
@@ -417,7 +417,7 @@ export default function Arpejos() {
           </div>
           <p className="mt-3">
             Nos momentos de troca de acorde, toque a nota raiz ou a 3ª do arpejo
-            correspondente — isso cria a sensação de que o solo "move com" a
+            correspondente: isso cria a sensação de que o solo "move com" a
             harmonia.
           </p>
         </TheoryBlock>

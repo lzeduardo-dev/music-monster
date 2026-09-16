@@ -26,25 +26,25 @@ const HARMONIC_MODES = [
     label: "Menor Harmônica",
     degree: "I",
     formula: "1 – 2 – b3 – 4 – 5 – b6 – 7",
-    char: "Sombria e tensa — a 7ª maior cria o leading tone e o intervalo aumentado característico (b6→7).",
+    char: "Sombria e tensa: a 7ª maior cria o leading tone e o intervalo aumentado característico (b6→7).",
     use: "Tônica menor com sensível. V7b9 resolve para im. Base do flamenco, metal e música árabe.",
-    color: "#a78bfa",
+    color: "#2563eb",
   },
   {
     key: "locrianNat6",
     label: "Lócrio ♮6",
     degree: "II",
     formula: "1 – b2 – b3 – 4 – b5 – 6 – b7",
-    char: "Meio-diminuto com 6ª natural — menos tenso que o Lócrio padrão.",
+    char: "Meio-diminuto com 6ª natural: menos tenso que o Lócrio padrão.",
     use: "Sobre acordes Xm7b5 no jazz. Mais melódico que o Lócrio comum.",
-    color: "#818cf8",
+    color: "#2563eb",
   },
   {
     key: "ionianSharp5",
     label: "Jônico #5",
     degree: "III",
     formula: "1 – 2 – 3 – 4 – #5 – 6 – 7",
-    char: "Maior com a quinta aumentada — eufórico e ligeiramente tenso.",
+    char: "Maior com a quinta aumentada: eufórico e ligeiramente tenso.",
     use: "Sobre acordes Xaug(M7). Alternativa ao Lídio Aumentado.",
     color: "#60a5fa",
   },
@@ -53,36 +53,36 @@ const HARMONIC_MODES = [
     label: "Dórico #4 (Romeno)",
     degree: "IV",
     formula: "1 – 2 – b3 – #4 – 5 – 6 – b7",
-    char: "Exótico e dançante — a #4 dá sabor balcânico/oriental.",
+    char: "Exótico e dançante: a #4 dá sabor balcânico/oriental.",
     use: "Música romena, klezmer, jazz modal. Muito característico geograficamente.",
-    color: "#38bdf8",
+    color: "#3b82f6",
   },
   {
     key: "phrygianDominant",
     label: "Frígio Dominante",
     degree: "V",
     formula: "1 – b2 – 3 – 4 – 5 – b6 – b7",
-    char: "O mais importante! Dominante com a b2 — sabor espanhol/árabe imenso.",
+    char: "O mais importante! Dominante com a b2: sabor espanhol/árabe imenso.",
     use: "O modo V da menor harmônica. Sobre V7b9 em progressões menores. Flamenco, metal, jazz.",
-    color: "#f472b6",
+    color: "#eab308",
   },
   {
     key: "lydianSharp2",
     label: "Lídio #2",
     degree: "VI",
     formula: "1 – #2 – 3 – #4 – 5 – 6 – 7",
-    char: "Lídio com a 2ª aumentada — dupla tensão cromática, som quase etéreo.",
+    char: "Lídio com a 2ª aumentada: dupla tensão cromática, som quase etéreo.",
     use: "Raramente usado sozinho; aparece em improvisação sobre contextos tonais ambíguos.",
-    color: "#c084fc",
+    color: "#eab308",
   },
   {
     key: "superLocrianBb7",
     label: "Super Lócrio bb7",
     degree: "VII",
     formula: "1 – b2 – b3 – b4 – b5 – b6 – bb7",
-    char: "A escala mais dissonante — apenas para efeito. Quase atonal.",
+    char: "A escala mais dissonante: apenas para efeito. Quase atonal.",
     use: "Contextos experimentais e free jazz. Sobre acordes dim7 em resolução.",
-    color: "#e879f9",
+    color: "#eab308",
   },
 ];
 
@@ -104,7 +104,7 @@ const MELODIC_HIGHLIGHTS = [
     key: "altered",
     label: "Alterada (VII)",
     formula: "1–b2–b3–b4–b5–b6–b7",
-    use: "Sobre V7alt — máxima tensão cromática.",
+    use: "Sobre V7alt: máxima tensão cromática.",
   },
 ];
 
@@ -139,7 +139,7 @@ export default function EscalasAvancadas() {
       <PageHeader
         chip="Avançado"
         title="Escalas Avançadas"
-        description="Menor Harmônica e Menor Melódica — as duas escalas menores mais ricas do jazz, do metal e da música erudita, com todos os seus modos."
+        description="Menor Harmônica e Menor Melódica: as duas escalas menores mais ricas do jazz, do metal e da música erudita, com todos os seus modos."
       />
 
       {/* Section tabs */}
@@ -180,7 +180,7 @@ export default function EscalasAvancadas() {
               <Step n={1}>
                 <p>
                   A escala <b>menor natural</b> (eólio) tem um problema: a 7ª
-                  está a 1 tom da tônica, e não a meio tom — isso enfraquece a
+                  está a 1 tom da tônica, e não a meio tom: isso enfraquece a
                   sensação de resolução. A <b>menor harmônica</b> resolve isso
                   elevando a 7ª em meio tom.
                 </p>
@@ -188,7 +188,7 @@ export default function EscalasAvancadas() {
               <Step n={2}>
                 <p>
                   Resultado: <b>b6 → 7</b> cria um intervalo de segunda
-                  aumentada (3 semitons) — o som mais característico da escala,
+                  aumentada (3 semitons): o som mais característico da escala,
                   evocando flamenco, música árabe e o modal clássico.
                 </p>
               </Step>
@@ -196,7 +196,7 @@ export default function EscalasAvancadas() {
                 <p>
                   O <b>acorde V7</b> da tonalidade menor agora é verdadeiramente
                   dominante (tem a 3ª maior) e resolve com força para o im. O
-                  modo V da menor harmônica é o <b>Frígio Dominante</b> — o mais
+                  modo V da menor harmônica é o <b>Frígio Dominante</b>: o mais
                   usado na prática.
                 </p>
               </Step>
@@ -277,8 +277,8 @@ export default function EscalasAvancadas() {
                 <p>
                   No jazz, ela é usada <em>igual ascendente e descendente</em>{" "}
                   (diferente da versão clássica que desce como menor natural).
-                  Seus modos — especialmente o <b>Lídio Dominante</b> e a{" "}
-                  <b>Alterada</b> — são fundamentais no jazz moderno.
+                  Seus modos: especialmente o <b>Lídio Dominante</b> e a{" "}
+                  <b>Alterada</b>: são fundamentais no jazz moderno.
                 </p>
               </Step>
             </TheoryBlock>
@@ -337,7 +337,7 @@ export default function EscalasAvancadas() {
 
       {/* ── Visualização interativa ────────────────────────────────────── */}
       <Section
-        title={`Visualização — ${root} ${
+        title={`Visualização: ${root} ${
           SCALE_LABELS[activeMode] ?? activeMode
         }`}
         action={
@@ -364,10 +364,10 @@ export default function EscalasAvancadas() {
                 style={{
                   background:
                     i === 0
-                      ? "rgba(244,114,182,0.15)"
-                      : "rgba(167,139,250,0.1)",
-                  color: i === 0 ? "#f472b6" : "#a78bfa",
-                  border: `1px solid ${i === 0 ? "#f472b680" : "#a78bfa40"}`,
+                      ? "rgba(234,179,8,0.15)"
+                      : "rgba(37,99,235,0.1)",
+                  color: i === 0 ? "#eab308" : "#2563eb",
+                  border: `1px solid ${i === 0 ? "#eab30880" : "#2563eb40"}`,
                 }}
               >
                 {n}
@@ -424,14 +424,14 @@ export default function EscalasAvancadas() {
                   formula: "1–2–b3–4–5–b6–b7",
                   diff: "—",
                   use: "Pop, rock, tônica menor simples",
-                  color: "#818cf8",
+                  color: "#2563eb",
                 },
                 {
                   name: "Menor Harmônica",
                   formula: "1–2–b3–4–5–b6–7",
                   diff: "7ª elevada ½ tom",
                   use: "Clássico, flamenco, metal, V7b9",
-                  color: "#a78bfa",
+                  color: "#2563eb",
                 },
                 {
                   name: "Menor Melódica (Jazz)",

@@ -1,262 +1,30 @@
-import { useEffect, useRef, useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { GoogleLogin } from "@react-oauth/google";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 import { LogoMark, MusicMonsterWordmark } from "../components/Layout.jsx";
-
-// ─── Preview panel (mock do produto) ───────────────────────────────────────
-
-function ProductPreview() {
-  return (
-    <div
-      style={{
-        position: "relative",
-        width: "min(1000px, 92vw)",
-        borderRadius: 18,
-        overflow: "hidden",
-        boxShadow: "0 40px 90px -30px rgba(23,32,43,0.35)",
-        border: "1px solid #1c2432",
-        background: "#0e131c",
-        textAlign: "left",
-      }}
-    >
-      {/* Body: split */}
-      <div style={{ display: "flex" }}>
-        {/* Left: flowchart mock */}
-        <div style={{ flex: 1.2, background: "#0e131c", padding: "22px 26px" }}>
-          <div
-            style={{
-              display: "flex",
-              gap: 8,
-              marginBottom: 18,
-              fontSize: 12.5,
-              fontWeight: 700,
-              color: "#7c8798",
-            }}
-          >
-            <span style={{ color: "#8fb0ff" }}>Comece aqui</span>
-            <span>Trilha</span>
-            <span>Speedrun</span>
-            <span>Modelos</span>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 10,
-            }}
-          >
-            {/* Diamond 1 */}
-            <div
-              style={{
-                background: "#f5c344",
-                color: "#17202b",
-                fontWeight: 700,
-                fontSize: 12.5,
-                padding: "10px 14px",
-                borderRadius: 8,
-                transform: "rotate(45deg)",
-                width: 90,
-                textAlign: "center",
-              }}
-            >
-              <span style={{ display: "block", transform: "rotate(-45deg)" }}>
-                Ciclo das Quintas?
-              </span>
-            </div>
-            <div style={{ height: 16, width: 2, background: "#33405a" }} />
-            {/* Row: box + diamond */}
-            <div style={{ display: "flex", gap: 36, alignItems: "center" }}>
-              <div
-                style={{
-                  background: "#7c8ff0",
-                  color: "#fff",
-                  fontWeight: 700,
-                  fontSize: 12.5,
-                  padding: "9px 14px",
-                  borderRadius: 8,
-                }}
-              >
-                Harmonia
-              </div>
-              <div
-                style={{
-                  background: "#f5c344",
-                  color: "#17202b",
-                  fontWeight: 700,
-                  fontSize: 12.5,
-                  padding: "10px 14px",
-                  borderRadius: 8,
-                  transform: "rotate(45deg)",
-                  width: 90,
-                  textAlign: "center",
-                }}
-              >
-                <span style={{ display: "block", transform: "rotate(-45deg)" }}>
-                  É tonal?
-                </span>
-              </div>
-            </div>
-            <div style={{ height: 16, width: 2, background: "#33405a" }} />
-            <div style={{ display: "flex", gap: 36, alignItems: "center" }}>
-              <div
-                style={{
-                  background: "#7c8ff0",
-                  color: "#fff",
-                  fontWeight: 700,
-                  fontSize: 12.5,
-                  padding: "9px 14px",
-                  borderRadius: 8,
-                }}
-              >
-                CAGED
-              </div>
-              <div
-                style={{
-                  background: "#7c8ff0",
-                  color: "#fff",
-                  fontWeight: 700,
-                  fontSize: 12.5,
-                  padding: "9px 14px",
-                  borderRadius: 8,
-                }}
-              >
-                Blues
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right: Q&A block */}
-        <div style={{ flex: 1, background: "#fff", padding: "26px 28px" }}>
-          <div
-            style={{
-              fontWeight: 800,
-              fontSize: 16,
-              color: "#17202b",
-              marginBottom: 10,
-            }}
-          >
-            O que é isso?
-          </div>
-          <div
-            style={{
-              fontSize: 13.5,
-              lineHeight: 1.6,
-              color: "#4a525e",
-              marginBottom: 18,
-            }}
-          >
-            A trilha MusicMonster foi criada por músicos e educadores, a partir
-            da análise de milhares de músicas para identificar os padrões comuns
-            de harmonia e técnica.
-          </div>
-          <div
-            style={{
-              fontWeight: 800,
-              fontSize: 16,
-              color: "#17202b",
-              marginBottom: 10,
-            }}
-          >
-            Como usar?
-          </div>
-          <div style={{ fontSize: 13.5, lineHeight: 1.6, color: "#4a525e" }}>
-            Os nós internos são decisões sobre a música; as caixas roxas são as
-            técnicas necessárias. Percorra a árvore da raiz até a folha para
-            descobrir o que estudar.
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // ─── Landing page ──────────────────────────────────────────────────────────
 
 export default function Landing() {
   const navigate = useNavigate();
-
-  const [visible, setVisible] = useState({
-    headline: false,
-    sub: false,
-    buttons: false,
-    shot: false,
-  });
   const [authOpen, setAuthOpen] = useState(false);
-
-  const refs = useRef({});
-  const setRef = (key) => (el) => {
-    refs.current[key] = el;
-  };
-
-  // Reveal com IntersectionObserver + reveal imediato pra quem já está na tela
-  useEffect(() => {
-    const vh = window.innerHeight;
-    const initially = {};
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const key = entry.target.dataset.revealKey;
-            setVisible((v) => ({ ...v, [key]: true }));
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    const raf = requestAnimationFrame(() => {
-      Object.entries(refs.current).forEach(([key, el]) => {
-        if (!el) return;
-        el.dataset.revealKey = key;
-        const rect = el.getBoundingClientRect();
-        if (rect.top < vh * 0.9 && rect.bottom > 0) {
-          initially[key] = true;
-        } else {
-          observer.observe(el);
-        }
-      });
-      if (Object.keys(initially).length) {
-        setVisible((v) => ({ ...v, ...initially }));
-      }
-    });
-
-    return () => {
-      cancelAnimationFrame(raf);
-      observer.disconnect();
-    };
-  }, []);
-
-  const reveal = (isVisible, distance = 26) => ({
-    opacity: isVisible ? 1 : 0,
-    transform: `translateY(${isVisible ? 0 : distance}px)`,
-  });
 
   return (
     <div
       style={{
-        position: "relative",
         minHeight: "100vh",
         background: "#ffffff",
-        backgroundImage:
-          "linear-gradient(#eef0f3 1px, transparent 1px), linear-gradient(90deg, #eef0f3 1px, transparent 1px)",
-        backgroundSize: "46px 46px",
-        overflow: "hidden",
-        fontFamily: "'Plus Jakarta Sans', sans-serif",
       }}
     >
-      {/* ── Nav ────────────────────────────────────────────────────────── */}
+      {/* ── Nav (branco, wordmark colorido + pills) ───────────────────── */}
       <header
         style={{
-          position: "relative",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "26px clamp(20px, 5vw, 64px)",
-          background: "#ffffff",
-          zIndex: 2,
+          height: 78,
+          padding: "0 clamp(20px, 4vw, 40px)",
+          background: "#fff",
         }}
       >
         <Link
@@ -272,152 +40,463 @@ export default function Landing() {
           <LogoMark height={26} />
           <MusicMonsterWordmark fontSize={22} ink="#17202b" hole="#ffffff" />
         </Link>
-        <button
-          onClick={() => setAuthOpen(true)}
-          style={{
-            fontWeight: 700,
-            fontSize: 16,
-            color: "#17202b",
-            background: "transparent",
-            border: "none",
-            padding: 0,
-            cursor: "pointer",
-            fontFamily: "inherit",
-          }}
-        >
-          Entrar
-        </button>
-      </header>
 
-      {/* ── Hero ────────────────────────────────────────────────────────── */}
-      <main
-        style={{
-          position: "relative",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-          padding: "70px 24px 0",
-          zIndex: 1,
-        }}
-      >
-        <h1
-          ref={setRef("headline")}
-          style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            fontWeight: 700,
-            fontSize: "clamp(36px, 6.2vw, 56px)",
-            lineHeight: 1.12,
-            color: "#17202b",
-            margin: 0,
-            maxWidth: 780,
-            letterSpacing: "-0.02em",
-            ...reveal(visible.headline),
-            transition:
-              "opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1)",
-          }}
-        >
-          A forma mais{" "}
-          <span
-            style={{
-              background: "linear-gradient(90deg, #2f6bff, #12b8a6)",
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-              color: "transparent",
-            }}
-          >
-            estruturada
-          </span>
-          <br />
-          de aprender música de verdade
-        </h1>
-
-        <p
-          ref={setRef("sub")}
-          style={{
-            fontSize: 19,
-            lineHeight: 1.6,
-            color: "#5a6472",
-            maxWidth: 620,
-            margin: "26px 0 40px",
-            ...reveal(visible.sub),
-            transition:
-              "opacity .8s cubic-bezier(.16,1,.3,1) .1s, transform .8s cubic-bezier(.16,1,.3,1) .1s",
-          }}
-        >
-          Domine teoria, harmonia e o braço do violão com uma trilha completa —
-          e ganhe o conhecimento sistemático para tocar qualquer música.
-        </p>
-
-        <div
-          ref={setRef("buttons")}
+        <nav
           style={{
             display: "flex",
-            gap: 14,
-            marginBottom: 56,
-            flexWrap: "wrap",
-            justifyContent: "center",
-            ...reveal(visible.buttons),
-            transition:
-              "opacity .8s cubic-bezier(.16,1,.3,1) .2s, transform .8s cubic-bezier(.16,1,.3,1) .2s",
+            alignItems: "center",
+            gap: 6,
           }}
         >
-          <button
-            onClick={() => navigate("/fundamentos")}
+          <NavPill onClick={() => setAuthOpen(true)}>Entrar</NavPill>
+        </nav>
+      </header>
+
+      {/* ── Hero (dark radial + dot pattern + fade branco embaixo) ────── */}
+      <section
+        style={{
+          position: "relative",
+          minHeight: 720,
+          overflow: "hidden",
+          background:
+            "radial-gradient(680px 480px at 68% 46%, rgba(56,132,255,.42) 0%, rgba(37,99,235,.10) 45%, transparent 72%), linear-gradient(180deg, #101c33 0%, #0c1728 55%, #0b1524 100%)",
+        }}
+      >
+        {/* Padrão de pontos */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "radial-gradient(rgba(255,255,255,.10) 1px, transparent 1px)",
+            backgroundSize: "22px 22px",
+          }}
+        />
+        {/* Fade branco embaixo */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: 110,
+            background:
+              "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.9) 78%, #fff 100%)",
+          }}
+        />
+
+        <div
+          style={{
+            position: "relative",
+            height: "100%",
+            minHeight: 720,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 40,
+            padding: "0 clamp(24px, 5vw, 72px)",
+          }}
+        >
+          <div style={{ flex: 1, minWidth: 0, maxWidth: 700 }}>
+            {/* Eyebrow pill */}
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 9,
+                padding: "8px 16px 8px 13px",
+                borderRadius: 999,
+                border: "1px solid rgba(255,255,255,.14)",
+                background: "rgba(255,255,255,.05)",
+                fontSize: 13.5,
+                color: "rgba(232,238,247,.82)",
+              }}
+            >
+              <span style={{ color: "#eab308", fontSize: 13 }}>✦</span>
+              Teoria, harmonia e braço do violão · em português
+            </div>
+
+            <h1
+              className="font-display"
+              style={{
+                margin: "26px 0 0",
+                fontWeight: 700,
+                fontSize: "clamp(38px, 5.4vw, 56px)",
+                lineHeight: 1.08,
+                letterSpacing: "-.03em",
+                color: "#fff",
+              }}
+            >
+              A forma mais
+              <br />
+              <span style={{ color: "#5aa9ff" }}>estruturada</span>{" "}
+              <span style={{ color: "#f3e3a8" }}>de aprender</span>
+              <br />
+              música de verdade
+            </h1>
+
+            <p
+              style={{
+                margin: "26px 0 0",
+                maxWidth: 520,
+                fontSize: 18,
+                lineHeight: 1.68,
+                color: "rgba(226,234,246,.72)",
+              }}
+            >
+              Domine teoria, harmonia e o braço do violão com uma trilha
+              completa: e ganhe o conhecimento sistemático para tocar qualquer
+              música.
+            </p>
+
+            <div
+              style={{
+                display: "flex",
+                gap: 14,
+                marginTop: 38,
+                flexWrap: "wrap",
+              }}
+            >
+              <button
+                onClick={() => navigate("/fundamentos")}
+                style={{
+                  height: 54,
+                  padding: "0 28px",
+                  borderRadius: 999,
+                  border: "none",
+                  background: "#eab308",
+                  color: "#17202b",
+                  fontFamily: "inherit",
+                  fontSize: 15.5,
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  boxShadow: "0 0 34px rgba(234,179,8,.35)",
+                }}
+              >
+                Começar pelos Fundamentos →
+              </button>
+              <button
+                onClick={() => navigate("/roadmap")}
+                style={{
+                  height: 54,
+                  padding: "0 26px",
+                  borderRadius: 999,
+                  background: "transparent",
+                  border: "1px solid rgba(255,255,255,.28)",
+                  color: "#fff",
+                  fontFamily: "inherit",
+                  fontSize: 15.5,
+                  fontWeight: 600,
+                  cursor: "pointer",
+                }}
+              >
+                Ver a Trilha
+              </button>
+            </div>
+          </div>
+
+          {/* Imagem da guitarra + wordmark (só em telas grandes) */}
+          <img
+            src="/hero-guitar.png"
+            alt="MusicMonster"
+            className="hero-guitar"
             style={{
-              background: "#2f6bff",
-              color: "#fff",
-              border: "none",
-              fontFamily: "inherit",
-              fontWeight: 700,
-              fontSize: 16,
-              padding: "16px 28px",
-              borderRadius: 14,
-              cursor: "pointer",
-              transition: "background .2s ease, transform .1s ease",
+              flexShrink: 0,
+              width: "clamp(320px, 34vw, 520px)",
+              height: "auto",
+              objectFit: "contain",
+              filter: "drop-shadow(0 12px 40px rgba(0,0,0,0.35))",
+              pointerEvents: "none",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#1c4fd6")}
-            onMouseLeave={(e) => (e.currentTarget.style.background = "#2f6bff")}
-          >
-            Começar pelos Fundamentos →
-          </button>
-          <button
-            onClick={() => navigate("/roadmap")}
+          />
+        </div>
+      </section>
+
+      {/* ── Stats + "Por onde começar" (fundo branco) ─────────────────── */}
+
+      {/* ── O que oferecemos ──────────────────────────────────────────── */}
+      <section
+        style={{
+          background: "#f8fafc",
+          padding: "90px clamp(24px, 5vw, 72px) 110px",
+        }}
+      >
+        <div
+          style={{ textAlign: "center", maxWidth: 720, margin: "0 auto 56px" }}
+        >
+          <div
             style={{
-              background: "#fff",
-              color: "#17202b",
-              border: "1.5px solid #e4e7ec",
-              fontFamily: "inherit",
+              fontSize: 13,
               fontWeight: 700,
-              fontSize: 16,
-              padding: "16px 26px",
-              borderRadius: 14,
-              cursor: "pointer",
-              transition: "border-color .2s ease, background .2s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "#17202b";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "#e4e7ec";
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "#3b82f6",
+              marginBottom: 14,
             }}
           >
-            Ver a Trilha
-          </button>
+            O que oferecemos
+          </div>
+          <h2
+            style={{
+              fontSize: "clamp(30px, 4vw, 44px)",
+              fontWeight: 800,
+              lineHeight: 1.15,
+              letterSpacing: "-0.02em",
+              color: "#0f172a",
+              margin: 0,
+            }}
+          >
+            Tudo que você precisa
+            <br />
+            pra tocar de verdade
+          </h2>
         </div>
 
-        <div style={{ height: 90 }} />
-      </main>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: 20,
+            maxWidth: 1180,
+            margin: "0 auto",
+          }}
+        >
+          <FeatureCard
+            iconBg="#dbeafe"
+            iconColor="#2563eb"
+            title="Teoria que faz sentido"
+            desc="Trilha completa do zero ao improviso, com áudio em tempo real e o braço da guitarra na tela. Chega de decorar sem entender."
+            icon={
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M4 5.5A1.5 1.5 0 0 1 5.5 4h5v14h-5A1.5 1.5 0 0 1 4 16.5v-11Z"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                />
+                <path
+                  d="M20 5.5A1.5 1.5 0 0 0 18.5 4h-5v14h5a1.5 1.5 0 0 0 1.5-1.5v-11Z"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                />
+                <path
+                  d="M4 20h16"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                />
+              </svg>
+            }
+          />
+          <FeatureCard
+            iconBg="#fef3c7"
+            iconColor="#a16207"
+            title="Ferramentas na palma da mão"
+            desc="Máquina de acordes, lab auditivo, playback de improviso. Tudo dentro do site, sem plugin nem download."
+            icon={
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M14.5 3a4.5 4.5 0 0 0-4.4 5.5l-6.6 6.6a1.5 1.5 0 0 0 2.1 2.1l6.6-6.6A4.5 4.5 0 0 0 21 5l-2.5 2.5-2.4-2.4L18.5 3H14.5Z"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            }
+          />
+          <FeatureCard
+            iconBg="#dcfce7"
+            iconColor="#15803d"
+            title="Ritmo no lugar certo"
+            desc="Metrônomo por figura, subdivisão e tempo. Treine leitura rítmica, groove e precisão sem sair da lição."
+            icon={
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M8 3h8l3 18H5L8 3Z"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M12 8v9"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                />
+                <circle cx="12" cy="17" r="1.4" fill="currentColor" />
+              </svg>
+            }
+          />
+        </div>
+      </section>
 
       {authOpen && <AuthModal onClose={() => setAuthOpen(false)} />}
     </div>
   );
 }
 
+// ─── Sub-componentes da Landing ────────────────────────────────────────────
+
+function NavPill({ to, onClick, children }) {
+  const style = {
+    padding: "9px 16px",
+    fontSize: 14.5,
+    fontWeight: 500,
+    color: "#4a5261",
+    background: "transparent",
+    border: "none",
+    borderRadius: 999,
+    cursor: "pointer",
+    textDecoration: "none",
+    fontFamily: "inherit",
+  };
+  if (to) {
+    return (
+      <Link to={to} style={style}>
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <button onClick={onClick} style={style}>
+      {children}
+    </button>
+  );
+}
+
+function Stat({ value, label }) {
+  return (
+    <div>
+      <div
+        style={{
+          fontSize: 30,
+          fontWeight: 700,
+          color: "#0f172a",
+          lineHeight: 1,
+        }}
+      >
+        {value}
+      </div>
+      <div style={{ fontSize: 13.5, color: "#5a6472", marginTop: 4 }}>
+        {label}
+      </div>
+    </div>
+  );
+}
+
+function FeatureCard({ icon, iconBg, iconColor, title, desc }) {
+  const [hover, setHover] = useState(false);
+  return (
+    <div
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        padding: 32,
+        borderRadius: 18,
+        border: `1px solid ${hover ? iconColor + "40" : "#e5e9f0"}`,
+        background: hover ? iconBg + "80" : "#ffffff",
+        transition:
+          "background 0.25s ease, border-color 0.25s ease, transform 0.15s ease",
+        transform: hover ? "translateY(-2px)" : "translateY(0)",
+        boxShadow: hover
+          ? `0 12px 30px -18px ${iconColor}55`
+          : "0 1px 2px rgba(15,23,42,0.04)",
+      }}
+    >
+      <div
+        style={{
+          display: "grid",
+          placeItems: "center",
+          width: 52,
+          height: 52,
+          borderRadius: 14,
+          background: iconBg,
+          color: iconColor,
+          marginBottom: 44,
+        }}
+      >
+        {icon}
+      </div>
+      <h3
+        style={{
+          fontSize: 22,
+          fontWeight: 800,
+          color: "#0f172a",
+          margin: "0 0 14px",
+          letterSpacing: "-0.015em",
+        }}
+      >
+        {title}
+      </h3>
+      <p
+        style={{
+          fontSize: 15.5,
+          lineHeight: 1.65,
+          color: "#5a6472",
+          margin: 0,
+        }}
+      >
+        {desc}
+      </p>
+    </div>
+  );
+}
+
+function StartCard({ to, eyebrow, eyebrowColor, title, desc }) {
+  return (
+    <Link
+      to={to}
+      style={{
+        padding: 24,
+        borderRadius: 14,
+        border: "1px solid #e5e9f0",
+        textDecoration: "none",
+        background: "#fff",
+        display: "block",
+        transition: "transform 0.15s ease, border-color 0.15s ease",
+      }}
+      className="hover:-translate-y-0.5"
+    >
+      <div
+        style={{
+          fontSize: 12,
+          fontWeight: 700,
+          letterSpacing: ".12em",
+          textTransform: "uppercase",
+          color: eyebrowColor,
+        }}
+      >
+        {eyebrow}
+      </div>
+      <div
+        style={{
+          marginTop: 10,
+          fontSize: 19,
+          fontWeight: 600,
+          color: "#0f172a",
+        }}
+      >
+        {title}
+      </div>
+      <div
+        style={{
+          marginTop: 6,
+          fontSize: 14,
+          lineHeight: 1.6,
+          color: "#5a6472",
+        }}
+      >
+        {desc}
+      </div>
+    </Link>
+  );
+}
+
 // ─── Modal de autenticação (layout split: visual + form) ──────────────────
 
 function AuthModal({ onClose }) {
-  const { login, register, loginWithGoogle } = useAuth();
+  const { login, register } = useAuth();
   const navigate = useNavigate();
 
   const [mode, setMode] = useState("login"); // 'login' | 'register'
@@ -465,19 +544,6 @@ function AuthModal({ onClose }) {
     }
   };
 
-  const handleGoogleSuccess = async (credentialResponse) => {
-    setServerError("");
-    setLoading(true);
-    try {
-      await loginWithGoogle(credentialResponse.credential);
-      navigate("/inicio", { replace: true });
-    } catch (err) {
-      setServerError(err.message ?? "Erro ao entrar com o Google.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div
       onClick={(e) => {
@@ -504,30 +570,19 @@ function AuthModal({ onClose }) {
           to   { opacity: 1; transform: scale(1) translateY(0); }
         }
         @media (max-width: 720px) {
-          .auth-modal-grid {
-            grid-template-columns: 1fr !important;
-            min-height: auto !important;
-          }
-          .auth-modal-visual { display: none !important; }
-          .auth-modal-form { padding: 40px 28px !important; }
         }
       `}</style>
       <div
-        className="auth-modal-grid"
         style={{
           width: "100%",
-          maxWidth: 820,
-          minHeight: 520,
+          maxWidth: 440,
           background: "#ffffff",
           borderRadius: 22,
           overflow: "hidden",
           boxShadow: "0 40px 90px -25px rgba(23,32,43,0.45)",
           position: "relative",
           animation: "auth-pop-in .28s cubic-bezier(.16,1,.3,1) both",
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
           color: "#17202b",
-          display: "grid",
-          gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)",
         }}
       >
         <button
@@ -540,9 +595,9 @@ function AuthModal({ onClose }) {
             width: 32,
             height: 32,
             borderRadius: "50%",
-            background: "rgba(255,255,255,0.14)",
-            border: "1px solid rgba(255,255,255,0.20)",
-            color: "#ffffff",
+            background: "#f4f6f8",
+            border: "none",
+            color: "#5a6472",
             cursor: "pointer",
             fontSize: 14,
             fontWeight: 700,
@@ -552,90 +607,8 @@ function AuthModal({ onClose }) {
           ✕
         </button>
 
-        {/* ── Painel esquerdo (visual) ────────────────────────────────── */}
+        {/* ── Form ────────────────────────────────────────────────────── */}
         <div
-          className="auth-modal-visual"
-          style={{
-            background:
-              "linear-gradient(150deg, #0e131c 0%, #12213b 60%, #1c2f5c 100%)",
-            color: "#ffffff",
-            padding: "44px 40px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          {/* Orb de fundo */}
-
-          <div style={{ position: "relative" }}>
-            <h3
-              style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontWeight: 700,
-                fontSize: 30,
-                lineHeight: 1.15,
-                letterSpacing: "-0.02em",
-                margin: 0,
-                marginBottom: 12,
-              }}
-            >
-              A forma mais{" "}
-              <span
-                style={{
-                  background: "linear-gradient(90deg, #7ba4ff, #12b8a6)",
-                  WebkitBackgroundClip: "text",
-                  backgroundClip: "text",
-                  color: "transparent",
-                }}
-              >
-                estruturada
-              </span>{" "}
-              de aprender música.
-            </h3>
-            <p
-              style={{
-                fontSize: 14,
-                lineHeight: 1.65,
-                color: "#c6d1e0",
-                margin: 0,
-                maxWidth: 300,
-              }}
-            >
-              Teoria, harmonia e braço do violão numa trilha completa — feita
-              por músicos e educadores.
-            </p>
-          </div>
-
-          <div style={{ position: "relative", display: "flex", gap: 18 }}>
-            {[
-              { label: "Trilhas", v: "20+" },
-              { label: "Módulos", v: "70+" },
-              { label: "Ferramentas", v: "5" },
-            ].map((s) => (
-              <div key={s.label}>
-                <div
-                  style={{
-                    fontFamily: "'Space Grotesk', sans-serif",
-                    fontWeight: 700,
-                    fontSize: 22,
-                    color: "#ffffff",
-                  }}
-                >
-                  {s.v}
-                </div>
-                <div style={{ fontSize: 11.5, color: "#8ea1bd", marginTop: 2 }}>
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Painel direito (form) ───────────────────────────────────── */}
-        <div
-          className="auth-modal-form"
           style={{
             padding: "44px 40px 38px",
             display: "flex",
@@ -646,7 +619,6 @@ function AuthModal({ onClose }) {
         >
           <h2
             style={{
-              fontFamily: "'Space Grotesk', sans-serif",
               fontWeight: 700,
               fontSize: 24,
               letterSpacing: "-0.015em",
@@ -668,39 +640,6 @@ function AuthModal({ onClose }) {
               ? "Entre para continuar sua trilha."
               : "Comece grátis, sem cartão."}
           </p>
-
-          {/* Google */}
-          <div style={{ marginBottom: 16 }}>
-            <GoogleLogin
-              onSuccess={handleGoogleSuccess}
-              onError={() =>
-                setServerError("Falha ao autenticar com o Google.")
-              }
-              text={mode === "login" ? "signin_with" : "signup_with"}
-              shape="pill"
-              locale="pt_BR"
-              width="100%"
-            />
-          </div>
-
-          {/* Divider */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 12,
-              margin: "10px 0 16px",
-              color: "#a8afba",
-              fontSize: 11.5,
-              fontWeight: 600,
-              textTransform: "uppercase",
-              letterSpacing: "0.14em",
-            }}
-          >
-            <div style={{ flex: 1, height: 1, background: "#e4e7ec" }} />
-            ou com e-mail
-            <div style={{ flex: 1, height: 1, background: "#e4e7ec" }} />
-          </div>
 
           <form
             onSubmit={handleSubmit}
@@ -749,8 +688,8 @@ function AuthModal({ onClose }) {
                   padding: "10px 14px",
                   borderRadius: 12,
                   fontSize: 12.5,
-                  background: "rgba(244,114,182,0.10)",
-                  border: "1px solid rgba(244,114,182,0.30)",
+                  background: "rgba(234,179,8,0.10)",
+                  border: "1px solid rgba(234,179,8,0.30)",
                   color: "#c93b7c",
                 }}
               >
@@ -868,14 +807,14 @@ function AuthInput({
           fontSize: 14,
           outline: "none",
           background: "#ffffff",
-          border: `1px solid ${error ? "#f472b6" : "#e4e7ec"}`,
+          border: `1px solid ${error ? "#eab308" : "#e4e7ec"}`,
           color: "#17202b",
           fontFamily: "inherit",
           transition: "border-color .15s ease",
         }}
         onFocus={(e) => (e.currentTarget.style.borderColor = "#2f6bff")}
         onBlur={(e) =>
-          (e.currentTarget.style.borderColor = error ? "#f472b6" : "#e4e7ec")
+          (e.currentTarget.style.borderColor = error ? "#eab308" : "#e4e7ec")
         }
       />
       {error && (

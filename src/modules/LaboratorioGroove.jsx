@@ -36,10 +36,10 @@ const CELL_CFG = {
     heightFactor: 1,
   },
   Q: {
-    bg: "rgba(192,132,252,0.18)",
-    border: "#c084fc",
+    bg: "rgba(234,179,8,0.18)",
+    border: "#eab308",
     label: "X",
-    color: "#e879f9",
+    color: "#eab308",
     heightFactor: 0.6,
   },
 };
@@ -280,25 +280,25 @@ export default function LaboratorioGroove() {
         <TheoryBlock>
           <Step>
             <p>
-              <b style={{ color: "#60a5fa" }}>M — Motorzinho</b>: a mão da
+              <b style={{ color: "#60a5fa" }}>M: Motorzinho</b>: a mão da
               palheta <b>nunca para</b>. Mantém 16 movimentos por compasso em
-              semicolcheias (↓↑↓↑) como um pêndulo físico — mesmo nas pausas, a
+              semicolcheias (↓↑↓↑) como um pêndulo físico: mesmo nas pausas, a
               mão continua no ar, garantindo tempo matematicamente perfeito.
             </p>
           </Step>
           <Step>
             <p>
-              <b style={{ color: "#60a5fa" }}>P — Pulsação</b>: os acentos
+              <b style={{ color: "#60a5fa" }}>P: Pulsação</b>: os acentos
               principais que <b>travam com o bumbo e a caixa</b>. É onde a mão
-              direita aplica mais pressão e o acorde soa com clareza — o que faz
+              direita aplica mais pressão e o acorde soa com clareza: o que faz
               o ouvinte bater o pé.
             </p>
           </Step>
           <Step>
             <p>
-              <b style={{ color: "#e879f9" }}>Q — Quebradinha</b>: a nota
+              <b style={{ color: "#eab308" }}>Q: Quebradinha</b>: a nota
               malandra. Ghost notes percussivas, síncopes e contratempos nas
-              subdivisões fracas — o que <b>separa o robô do humano</b> e faz o
+              subdivisões fracas: o que <b>separa o robô do humano</b> e faz o
               ouvinte querer dançar.
             </p>
           </Step>
@@ -420,7 +420,7 @@ export default function LaboratorioGroove() {
                   textAlign: "center",
                   fontSize: 11,
                   fontWeight: 700,
-                  color: "#818cf8",
+                  color: "#2563eb",
                   letterSpacing: "0.04em",
                 }}
               >
@@ -444,7 +444,7 @@ export default function LaboratorioGroove() {
                 style={{
                   textAlign: "center",
                   fontSize: 9,
-                  color: i % 4 === 0 ? "#818cf8" : "var(--ink-20)",
+                  color: i % 4 === 0 ? "#2563eb" : "var(--ink-20)",
                   fontWeight: i % 4 === 0 ? 700 : 400,
                 }}
               >
@@ -490,7 +490,7 @@ export default function LaboratorioGroove() {
                       ? type === "P"
                         ? "rgba(59,130,246,0.5)"
                         : type === "Q"
-                        ? "rgba(192,132,252,0.45)"
+                        ? "rgba(234,179,8,0.45)"
                         : "var(--ink-10)"
                       : cfg.bg,
                     cursor: "pointer",
@@ -506,7 +506,7 @@ export default function LaboratorioGroove() {
                           type === "P"
                             ? "#3b82f680"
                             : type === "Q"
-                            ? "#c084fc80"
+                            ? "#eab30880"
                             : "#ffffff30"
                         }`
                       : "none",
@@ -537,7 +537,7 @@ export default function LaboratorioGroove() {
                 left: `${((activeIdx ?? 0) / 16) * 100}%`,
                 width: `${100 / 16}%`,
                 height: "100%",
-                background: "linear-gradient(90deg, #3b82f6, #818cf8)",
+                background: "linear-gradient(90deg, #3b82f6, #2563eb)",
                 borderRadius: 999,
                 opacity: playing ? 1 : 0,
                 transition: "left 0.04s linear, opacity 0.3s",
@@ -589,9 +589,9 @@ export default function LaboratorioGroove() {
           {/* Legend */}
           <div className="card p-3 flex flex-col gap-1.5 justify-center">
             {[
-              { type: "P", label: "Pulsação — acento forte" },
-              { type: "Q", label: "Quebradinha — ghost / síncope" },
-              { type: "empty", label: "Motorzinho — sem ataque" },
+              { type: "P", label: "Pulsação: acento forte" },
+              { type: "Q", label: "Quebradinha: ghost / síncope" },
+              { type: "empty", label: "Motorzinho: sem ataque" },
             ].map(({ type, label }) => {
               const cfg = CELL_CFG[type];
               return (
@@ -633,14 +633,14 @@ export default function LaboratorioGroove() {
               label: "Articulação",
               left: "Staccato",
               right: "Legato",
-              color: "#a78bfa",
+              color: "#2563eb",
             },
             {
               key: "pocket",
               label: "Feel / Timing",
               left: "Behind the beat",
               right: "On top",
-              color: "#f472b6",
+              color: "#eab308",
             },
           ].map(({ key, label, left, right, color }) => (
             <div key={key}>
@@ -718,7 +718,7 @@ export default function LaboratorioGroove() {
               },
               {
                 letter: "Q",
-                color: "#e879f9",
+                color: "#eab308",
                 title: "Quebradinha",
                 rule: "Solte a mão esquerda nos contratempos para criar sons percussivos.",
               },

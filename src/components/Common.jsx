@@ -2,16 +2,43 @@ import { COMMON_ROOTS } from "../lib/theory.js";
 
 export function PageHeader({ chip, title, description }) {
   return (
-    <div className="mb-6 md:mb-8">
-      {chip && <span className="chip mb-3 inline-flex">{chip}</span>}
+    <div className="mb-8 md:mb-10">
+      {chip && (
+        <div
+          className="uppercase mb-3"
+          style={{
+            fontSize: 12,
+            fontWeight: 700,
+            letterSpacing: "0.14em",
+            color: "var(--brand-accent-on-dark, #eab308)",
+          }}
+        >
+          {chip}
+        </div>
+      )}
       <h1
-        className="text-3xl md:text-4xl font-extrabold tracking-tight"
-        style={{ color: "var(--text-base)" }}
+        className="font-display"
+        style={{
+          fontSize: "clamp(30px, 3.6vw, 40px)",
+          fontWeight: 700,
+          letterSpacing: "-0.025em",
+          lineHeight: 1.12,
+          color: "var(--text-base)",
+          margin: 0,
+        }}
       >
         {title}
       </h1>
       {description && (
-        <p className="mt-2 max-w-3xl" style={{ color: "var(--text-muted)" }}>
+        <p
+          style={{
+            marginTop: 12,
+            maxWidth: 700,
+            fontSize: 16.5,
+            lineHeight: 1.65,
+            color: "var(--text-subtle)",
+          }}
+        >
           {description}
         </p>
       )}
@@ -28,11 +55,17 @@ function stripLeadingNumber(text) {
 
 export function Section({ title, children, action }) {
   return (
-    <section className="mb-16 md:mb-24">
+    <section style={{ marginBottom: 44, maxWidth: 720 }}>
       <div className="flex items-end justify-between mb-3 gap-3 flex-wrap">
         <h2
-          className="text-xl md:text-2xl font-bold"
-          style={{ color: "var(--text-base)" }}
+          className="font-display"
+          style={{
+            fontSize: 22,
+            fontWeight: 600,
+            letterSpacing: "-0.015em",
+            color: "var(--text-base)",
+            margin: 0,
+          }}
         >
           {stripLeadingNumber(title)}
         </h2>
@@ -92,9 +125,9 @@ export function Pill({ children, tone = "emerald", onClick, active = false }) {
     },
     amber: {
       active: {
-        background: "#c084fc",
+        background: "#eab308",
         color: "#1a0628",
-        border: "1px solid #c084fc",
+        border: "1px solid #eab308",
       },
       idle: {
         background: "transparent",
@@ -104,9 +137,9 @@ export function Pill({ children, tone = "emerald", onClick, active = false }) {
     },
     coral: {
       active: {
-        background: "#f472b6",
+        background: "#eab308",
         color: "#1a0628",
-        border: "1px solid #f472b6",
+        border: "1px solid #eab308",
       },
       idle: {
         background: "transparent",
@@ -131,8 +164,14 @@ export function Pill({ children, tone = "emerald", onClick, active = false }) {
 export function TheoryBlock({ children }) {
   return (
     <div
-      className="py-3 leading-relaxed space-y-5 mb-6 text-[15px] md:text-[16px]"
-      style={{ color: "var(--text-body, var(--text-muted))" }}
+      style={{
+        marginTop: 8,
+        marginBottom: 12,
+        fontSize: 16,
+        lineHeight: 1.75,
+        color: "var(--text-muted)",
+      }}
+      className="theory-block"
     >
       {children}
     </div>
@@ -140,7 +179,42 @@ export function TheoryBlock({ children }) {
 }
 
 export function Step({ n, children }) {
-  return <div className="leading-[1.7]">{children}</div>;
+  return (
+    <div
+      style={{
+        marginTop: 12,
+        fontSize: 16,
+        lineHeight: 1.75,
+        color: "var(--text-muted)",
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+/**
+ * Destaque de fórmula: bloco simples com faixa lateral azul.
+ * Sem cartão, sem fundo, apenas tipografia display e alinhamento.
+ */
+export function Formula({ children }) {
+  return (
+    <div
+      className="font-display"
+      style={{
+        borderLeft: "2px solid var(--brand-primary, #2563eb)",
+        padding: "20px 24px",
+        margin: "24px 0",
+        fontSize: 24,
+        fontWeight: 600,
+        letterSpacing: "0.06em",
+        color: "var(--brand-primary-on-dark, #7dabff)",
+        lineHeight: 1.4,
+      }}
+    >
+      {children}
+    </div>
+  );
 }
 
 // Guitar chord diagram renderer
@@ -206,7 +280,7 @@ export function ChordDiagram({
               height: 14,
               lineHeight: "14px",
               fontWeight: 800,
-              color: p === -1 ? "#f472b6" : p === 0 ? "#60a5fa" : "transparent",
+              color: p === -1 ? "#eab308" : p === 0 ? "#60a5fa" : "transparent",
             }}
           >
             {p === -1 ? "×" : p === 0 ? "○" : ""}

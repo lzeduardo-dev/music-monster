@@ -39,7 +39,7 @@ export default function Fretboard({
   showNoteNames = true,
   tuning = STANDARD_TUNING,
   useFlats = false,
-  characteristicNote = null,        // semitone index (0-11) — highlighted with characteristicColor
+  characteristicNote = null,        // semitone index (0-11): highlighted with characteristicColor
   characteristicColor = '#f59e0b',
 }) {
   const stringsTopDown = useMemo(() => [...tuning].reverse(), [tuning])

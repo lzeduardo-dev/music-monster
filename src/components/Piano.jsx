@@ -62,9 +62,9 @@ export default function Piano({
                 className="flex-1 relative border border-white/10 first:rounded-l-md last:rounded-r-md transition"
                 style={{
                   background: isRoot
-                    ? 'linear-gradient(180deg, #fce7f3, #f472b6)'
+                    ? 'linear-gradient(180deg, #fce7f3, #eab308)'
                     : isHi
-                    ? 'linear-gradient(180deg, #ede9fe, #a78bfa)'
+                    ? 'linear-gradient(180deg, #ede9fe, #2563eb)'
                     : 'linear-gradient(180deg, #f8fafc, #cbd5e1)',
                   boxShadow: isActive ? 'inset 0 -8px 14px rgba(0,0,0,0.18)' : 'inset 0 -4px 8px rgba(0,0,0,0.08)'
                 }}
@@ -104,9 +104,9 @@ export default function Piano({
                   width: `${whiteWidth * 0.64}%`,
                   height: '62%',
                   background: isRoot
-                    ? 'linear-gradient(180deg, #f472b6, #9d174d)'
+                    ? 'linear-gradient(180deg, #eab308, #9d174d)'
                     : isHi
-                    ? 'linear-gradient(180deg, #a78bfa, #5b21b6)'
+                    ? 'linear-gradient(180deg, #2563eb, #5b21b6)'
                     : 'linear-gradient(180deg, #1f2937, #0b1220)',
                   border: '1px solid rgba(0,0,0,0.5)',
                   boxShadow: isActive

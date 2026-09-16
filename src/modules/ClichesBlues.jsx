@@ -420,8 +420,8 @@ const BLUES_CLICHES = [
       "Frase descendente",
     ],
     description:
-      'Albert King famou esse bend "exagerado" — usa cordas leves pra dobrar UMA E MEIA TOM. Soa como uma voz chorando. SRV, Hendrix e Clapton roubaram tudo do Albert.',
-    tip: "Use cordas finas (.009 ou .010). Bend de 1½ tom em corda .013 (SRV usava) é fisicamente brutal. Mesmo Albert usava cordas finas — segredo escondido por anos.",
+      'Albert King famou esse bend "exagerado": usa cordas leves pra dobrar UMA E MEIA TOM. Soa como uma voz chorando. SRV, Hendrix e Clapton roubaram tudo do Albert.',
+    tip: "Use cordas finas (.009 ou .010). Bend de 1½ tom em corda .013 (SRV usava) é fisicamente brutal. Mesmo Albert usava cordas finas: segredo escondido por anos.",
   },
   {
     id: "turnaround-a",
@@ -446,7 +446,7 @@ const BLUES_CLICHES = [
     ],
     description:
       "Todo blues de 12 compassos TERMINA com algum tipo de turnaround. Esse é o mais clássico em Lá: descida cromática + linha de baixo + chegada no V (E7).",
-    tip: "Esse turnaround existe em DEZENAS de variações — Robert Johnson, Big Bill Broonzy, T-Bone Walker têm versões diferentes. Aprenda essa e depois explore as outras.",
+    tip: "Esse turnaround existe em DEZENAS de variações: Robert Johnson, Big Bill Broonzy, T-Bone Walker têm versões diferentes. Aprenda essa e depois explore as outras.",
   },
   {
     id: "chuck-berry",
@@ -471,7 +471,7 @@ const BLUES_CLICHES = [
     ],
     description:
       'Chuck Berry inventou esse double-stop em "Johnny B. Goode" (1958). Sem ele, não existiria Keith Richards, Angus Young, ou qualquer rock baseado em cordas duplas.',
-    tip: 'Toque com palheta DOWN em todas as notas — sem alternate picking. A "pegada de country/honky-tonk" vem dessa rigidez.',
+    tip: 'Toque com palheta DOWN em todas as notas: sem alternate picking. A "pegada de country/honky-tonk" vem dessa rigidez.',
   },
   {
     id: "blue-note-slide",
@@ -495,8 +495,8 @@ const BLUES_CLICHES = [
       "Blue note (b5) como nota de passagem",
     ],
     description:
-      'A nota "blue" (b5) é a alma do blues — passa rápido entre a 4ª e a 5ª. Aqui o slide 6→7 imita exatamente o efeito de "deslizar pela tensão".',
-    tip: 'NÃO pause na blue note. Ela é "nota de passagem" — fica no ar por meia colcheia no máximo. Se você pausar, vira jazz.',
+      'A nota "blue" (b5) é a alma do blues: passa rápido entre a 4ª e a 5ª. Aqui o slide 6→7 imita exatamente o efeito de "deslizar pela tensão".',
+    tip: 'NÃO pause na blue note. Ela é "nota de passagem": fica no ar por meia colcheia no máximo. Se você pausar, vira jazz.',
   },
   {
     id: "pentatonic-descent",
@@ -520,7 +520,7 @@ const BLUES_CLICHES = [
       "Resolução em vibrato",
     ],
     description:
-      'Lick "molhado" de Hendrix/Page — três pares de notas DESCENDENTES criam sensação de "queda d\'água".',
+      'Lick "molhado" de Hendrix/Page: três pares de notas DESCENDENTES criam sensação de "queda d\'água".',
     tip: 'A REPETIÇÃO é o que vende o lick. Não tente "variar". Toque 3 vezes idêntico, e ATÉ a 4ª vez. A repetição cria hipnose.',
   },
   {
@@ -545,7 +545,7 @@ const BLUES_CLICHES = [
       "Apenas 1 palhetada por grupo",
     ],
     description:
-      "Trinado clássico do blues rock — palheta NA PRIMEIRA NOTA SÓ. Hammer 5→8 e pull 8→5 sai com o dedo. Velocidade triplica sem esforço.",
+      "Trinado clássico do blues rock: palheta NA PRIMEIRA NOTA SÓ. Hammer 5→8 e pull 8→5 sai com o dedo. Velocidade triplica sem esforço.",
     tip: "Pratique APENAS o hammer-pull (5h8p5) em UMA corda por 5 minutos. Esse padrão funciona em QUALQUER pentatônica menor.",
   },
   {
@@ -570,7 +570,7 @@ const BLUES_CLICHES = [
       "Pegada Chicago blues",
     ],
     description:
-      'Estilo "blues solo no violão" — UMA guitarra faz harmonia, baixo e melodia ao mesmo tempo. Big Bill Broonzy popularizou.',
+      'Estilo "blues solo no violão": UMA guitarra faz harmonia, baixo e melodia ao mesmo tempo. Big Bill Broonzy popularizou.',
     tip: "Use polegar da mão direita pra cordas graves (E, A, D) e dedos pras agudas (G, B, e). Sem essa coordenação, não rola.",
   },
   {
@@ -595,7 +595,7 @@ const BLUES_CLICHES = [
       "Pegada de polegar",
     ],
     description:
-      "Wes Montgomery usou oitavas como assinatura — toca a MESMA nota em duas alturas, mute a corda do meio. Soa MASSIVO.",
+      "Wes Montgomery usou oitavas como assinatura: toca a MESMA nota em duas alturas, mute a corda do meio. Soa MASSIVO.",
     tip: "A corda G no meio tem que estar 100% mutada (dedo do indicador encosta levemente). Pratique mutar PRIMEIRO, depois tocar.",
   },
   {
@@ -620,8 +620,8 @@ const BLUES_CLICHES = [
       "Articulação country-blues",
     ],
     description:
-      'Lick clássico de country blues — alterna entre acorde I (A: 5-4) e IV (D: 3-2). Slide entre eles cria movimento. Hendrix usava sobre "Hey Joe".',
-    tip: "Esse lick é PERFEITO pra blues lento (slow shuffle). Não acelere — toque com swing pesado.",
+      'Lick clássico de country blues: alterna entre acorde I (A: 5-4) e IV (D: 3-2). Slide entre eles cria movimento. Hendrix usava sobre "Hey Joe".',
+    tip: "Esse lick é PERFEITO pra blues lento (slow shuffle). Não acelere: toque com swing pesado.",
   },
 ];
 
@@ -632,14 +632,14 @@ export default function ClichesBlues() {
   const { markLesson, isComplete } = useProgress();
   const cliche =
     BLUES_CLICHES.find((c) => c.id === clicheId) ?? BLUES_CLICHES[0];
-  const color = "#a78bfa";
+  const color = "#2563eb";
 
   return (
     <div>
       <PageHeader
         chip="Vocabulário"
         title="Clichês do Blues"
-        description="10 frases atemporais que TODO blueseiro precisa saber de cor. Não são de um artista específico — são licks que aparecem em centenas de músicas, em todas as tonalidades, em todos os estilos."
+        description="10 frases atemporais que TODO blueseiro precisa saber de cor. Não são de um artista específico: são licks que aparecem em centenas de músicas, em todas as tonalidades, em todos os estilos."
       />
 
       <Section title="Por que decorar clichês?">
@@ -647,14 +647,14 @@ export default function ClichesBlues() {
           <Step>
             <p>
               Um <b>clichê do blues</b> é uma frase tão difundida que virou
-              "domínio público" — todos os blueseiros tocam, ouvintes esperam, e
+              "domínio público": todos os blueseiros tocam, ouvintes esperam, e
               fica perfeitamente em qualquer música do gênero. Decorar esses
               licks é como aprender o "abecedário" do blues.
             </p>
           </Step>
           <Step>
             <p>
-              Pode parecer pejorativo dizer "clichê" — mas no blues, os clichês
+              Pode parecer pejorativo dizer "clichê": mas no blues, os clichês
               SÃO a linguagem. B.B. King usava licks-padrão. Eric Clapton
               também. SRV idem. A originalidade vem de COMO você combina, não de
               evitá-los.

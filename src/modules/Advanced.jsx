@@ -37,19 +37,19 @@ const MODES = [
     chord: "maj7",
     chordLabel: "Imaj7",
     practiceTip:
-      'O modo "neutro" — qualquer nota cai bem na tônica maior. Use para entender resolução.',
+      'O modo "neutro": qualquer nota cai bem na tônica maior. Use para entender resolução.',
   },
   {
     key: "dorian",
     label: "Dórico",
     degree: "ii",
-    desc: "Menor com 6ª maior. Cor sofisticada — usado em jazz, funk e MPB.",
+    desc: "Menor com 6ª maior. Cor sofisticada: usado em jazz, funk e MPB.",
     charDegree: 5,
     charLabel: "6ª maior (♮6)",
     chord: "min7",
     chordLabel: "im7",
     practiceTip:
-      'Foque na 6ª maior — é o que diferencia do menor natural. Toque a nota lentamente sobre o drone para "ouvir" a tensão única.',
+      'Foque na 6ª maior: é o que diferencia do menor natural. Toque a nota lentamente sobre o drone para "ouvir" a tensão única.',
   },
   {
     key: "phrygian",
@@ -73,13 +73,13 @@ const MODES = [
     chord: "maj7",
     chordLabel: "Imaj7♯11",
     practiceTip:
-      'A ♯4 é a magia do Lídio — soa "elevada". Pause nela sobre o drone e ouça o efeito flutuante.',
+      'A ♯4 é a magia do Lídio: soa "elevada". Pause nela sobre o drone e ouça o efeito flutuante.',
   },
   {
     key: "mixolydian",
     label: "Mixolídio",
     degree: "V",
-    desc: "Maior com 7ª menor. Som dominante — blues, rock, gospel.",
+    desc: "Maior com 7ª menor. Som dominante: blues, rock, gospel.",
     charDegree: 6,
     charLabel: "7ª menor (♭7)",
     chord: "7",
@@ -97,19 +97,19 @@ const MODES = [
     chord: "min7",
     chordLabel: "Im7",
     practiceTip:
-      "A ♭6 é o que diferencia do Dórico — dá o tom melancólico ao Eólio.",
+      "A ♭6 é o que diferencia do Dórico: dá o tom melancólico ao Eólio.",
   },
   {
     key: "locrian",
     label: "Lócrio",
     degree: "VII°",
-    desc: "Diminuto, com 5ª bemol. Tenso, instável — raro como tonalidade.",
+    desc: "Diminuto, com 5ª bemol. Tenso, instável: raro como tonalidade.",
     charDegree: 4,
     charLabel: "5ª diminuta (♭5)",
     chord: "m7b5",
     chordLabel: "Im7♭5",
     practiceTip:
-      'A ♭5 (trítono) define o Lócrio. É praticamente impossível ter uma "tônica" estável — Lócrio é usado mais sobre acordes meio-diminutos.',
+      'A ♭5 (trítono) define o Lócrio. É praticamente impossível ter uma "tônica" estável: Lócrio é usado mais sobre acordes meio-diminutos.',
   },
 ];
 
@@ -422,7 +422,7 @@ export default function Advanced() {
       <PageHeader
         chip="Modos Gregos"
         title="Modos Gregos"
-        description="Sete modos derivados da escala maior, cada um começando em um grau diferente — e por que isso muda a sonoridade por completo."
+        description="Sete modos derivados da escala maior, cada um começando em um grau diferente: e por que isso muda a sonoridade por completo."
       />
 
       <Section title="1. O que são os modos?">
@@ -431,7 +431,7 @@ export default function Advanced() {
             <p>
               Pegue a escala de C maior (C-D-E-F-G-A-B). Comece a tocá-la a
               partir do <b>D</b>, sem mudar nenhuma nota: D-E-F-G-A-B-C. Isto é
-              o modo <b>Dórico</b>. As mesmas notas, mas o "centro" mudou — e a
+              o modo <b>Dórico</b>. As mesmas notas, mas o "centro" mudou: e a
               sonoridade muda completamente.
             </p>
           </Step>
@@ -447,7 +447,7 @@ export default function Advanced() {
               <span style={{ color: CHAR_COLOR, fontWeight: 700 }}>
                 laranja
               </span>{" "}
-              aqui no app) — é a nota que define seu sabor único. Treinar o
+              aqui no app): é a nota que define seu sabor único. Treinar o
               ouvido para reconhecer essa nota sobre o drone é a forma mais
               rápida de "internalizar" o modo.
             </p>
@@ -526,7 +526,7 @@ export default function Advanced() {
                   }}
                   title={
                     isChar
-                      ? `Nota característica — ${mode.charLabel}`
+                      ? `Nota característica: ${mode.charLabel}`
                       : undefined
                   }
                 >

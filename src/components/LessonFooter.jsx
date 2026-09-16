@@ -113,7 +113,7 @@ export default function LessonFooter({
             Iniciar Quiz
           </Link>
 
-          {/* Completed — solid blue → green when done.
+          {/* Completed: solid blue → green when done.
               In light theme the "pending" state is a white outline button.
               When marked, navigates to the next subject automatically. */}
           <button

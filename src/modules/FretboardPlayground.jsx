@@ -6,10 +6,10 @@ import { buildScale, buildChord, SCALE_LABELS, CHORDS } from '../lib/theory.js'
 const COLORS = [
   { value: '#3b82f6', label: 'Azul' },
   { value: '#60a5fa', label: 'Céu' },
-  { value: '#818cf8', label: 'Índigo' },
-  { value: '#a78bfa', label: 'Violeta' },
-  { value: '#c084fc', label: 'Lavanda' },
-  { value: '#f472b6', label: 'Rosa' },
+  { value: '#2563eb', label: 'Índigo' },
+  { value: '#2563eb', label: 'Violeta' },
+  { value: '#eab308', label: 'Lavanda' },
+  { value: '#eab308', label: 'Rosa' },
   { value: '#FFFFFF', label: 'Branco' }
 ]
 
@@ -169,9 +169,9 @@ function Metronome() {
           onClick={() => setRunning(v => !v)}
           className="shrink-0 w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold transition"
           style={{
-            background: running ? 'rgba(244,114,182,0.15)' : 'rgba(59,130,246,0.15)',
-            border: `2px solid ${running ? '#f472b660' : '#3b82f660'}`,
-            color: running ? '#f472b6' : '#60a5fa',
+            background: running ? 'rgba(234,179,8,0.15)' : 'rgba(59,130,246,0.15)',
+            border: `2px solid ${running ? '#eab30860' : '#3b82f660'}`,
+            color: running ? '#eab308' : '#60a5fa',
           }}
           title={running ? 'Parar' : 'Iniciar'}
         >
@@ -224,7 +224,7 @@ export default function FretboardPlayground() {
       <PageHeader
         chip="Ferramenta"
         title="Braço do Violão"
-        description="Explore o braço livremente. Marque casas, troque cores, sobreponha escalas e acordes — uma prancheta digital para a sua prática."
+        description="Explore o braço livremente. Marque casas, troque cores, sobreponha escalas e acordes: uma prancheta digital para a sua prática."
       />
 
       <Section title="Configuração">

@@ -24,9 +24,9 @@ const TRACKS = [
       { key: 'pentatonicMajor', label: 'G Pentatônica Maior', notes: 'G – A – B – D – E' },
     ],
     tips: [
-      'Padrão I7–IV7–V7 — qualquer arpejo dominante funciona em cima de qualquer um dos três.',
+      'Padrão I7–IV7–V7: qualquer arpejo dominante funciona em cima de qualquer um dos três.',
       'Toque a pentatônica menor em G mas adicione a 3ª maior (B) em momentos chave para o "swing" do blues.',
-      'Use a blue note (Db) como nota de passagem rápida — nunca pare nela por muito tempo.',
+      'Use a blue note (Db) como nota de passagem rápida: nunca pare nela por muito tempo.',
     ],
   },
   {
@@ -36,7 +36,7 @@ const TRACKS = [
     key: 'A',
     bpm: 75,
     file: '/audio/neo-soul-am.mp3',
-    color: '#a78bfa',
+    color: '#2563eb',
     chords: ['Am7', 'Dm7', 'Em7', 'FM7'],
     scales: [
       { key: 'minorNatural',    label: 'A Menor Natural',     notes: 'A – B – C – D – E – F – G' },
@@ -44,7 +44,7 @@ const TRACKS = [
       { key: 'pentatonicMinor', label: 'A Pentatônica Menor', notes: 'A – C – D – E – G' },
     ],
     tips: [
-      'O Dórico (com F# no lugar de F) acrescenta cor jazzística — use sobre o Am7 para soar mais sofisticado.',
+      'O Dórico (com F# no lugar de F) acrescenta cor jazzística: use sobre o Am7 para soar mais sofisticado.',
       'Em cima do Dm7, pense em D dórico (mesmas notas de A menor natural). Sobre Em7, E frígio.',
       'Neo-soul ama síncopes e ghost notes. Aplique os padrões 5 (não-sequencial) e 8 (com salto) da pentatônica.',
     ],
@@ -59,12 +59,12 @@ const TRACKS = [
     color: '#60a5fa',
     chords: ['Cmaj7', 'Fmaj7', 'Bbmaj7', 'Ebmaj7', 'Abmaj7', 'Dbmaj7', 'Gbmaj7', 'Bmaj7', 'Emaj7', 'Amaj7', 'Dmaj7', 'Gmaj7'],
     scales: [
-      { key: 'major',  label: 'Maior (Jônico) — siga a tônica', notes: 'Mude a escala a cada acorde.' },
-      { key: 'lydian', label: 'Lídio — todos os maj7', notes: 'Lídio funciona como cor extra em qualquer maj7.' },
+      { key: 'major',  label: 'Maior (Jônico): siga a tônica', notes: 'Mude a escala a cada acorde.' },
+      { key: 'lydian', label: 'Lídio: todos os maj7', notes: 'Lídio funciona como cor extra em qualquer maj7.' },
     ],
     tips: [
-      'Backing track para PRATICAR mudança de tonalidade — cada acorde dura ~2 compassos.',
-      'Comece tocando apenas tônica + 3ª maior + 7ª maior de cada acorde — vai treinando o ouvido para a mudança.',
+      'Backing track para PRATICAR mudança de tonalidade: cada acorde dura ~2 compassos.',
+      'Comece tocando apenas tônica + 3ª maior + 7ª maior de cada acorde: vai treinando o ouvido para a mudança.',
       'Quando dominar a tônica, adicione a 9ª e a 13ª. Quando dominar essas, troque o jônico pelo lídio.',
     ],
   },

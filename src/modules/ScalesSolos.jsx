@@ -27,7 +27,7 @@ const SCALES = [
     key: "pentatonicMajor",
     label: "Pentatônica Maior",
     formula: "1 – 2 – 3 – 5 – 6",
-    desc: 'Cinco notas, sem o 4º e 7º graus — quase sempre "soa certo". Usada em country, pop, rock melódico e blues feliz.',
+    desc: 'Cinco notas, sem o 4º e 7º graus: quase sempre "soa certo". Usada em country, pop, rock melódico e blues feliz.',
     tips: [
       "Toque sobre progressões com I, IV e V maiores.",
       "Comece e termine na tônica para sentir a resolução.",
@@ -38,7 +38,7 @@ const SCALES = [
     key: "pentatonicMinor",
     label: "Pentatônica Menor",
     formula: "1 – b3 – 4 – 5 – b7",
-    desc: "A escala mais usada em rock e blues. Robusta, poderosa — pode tocar sobre I7, IV7 e V7 em blues sem errar.",
+    desc: "A escala mais usada em rock e blues. Robusta, poderosa: pode tocar sobre I7, IV7 e V7 em blues sem errar.",
     tips: [
       "Toque com vibrato e bends na 4ª e 5ª casa do shape 1.",
       "Deslize entre dois shapes para criar frases maiores.",
@@ -51,7 +51,7 @@ const SCALES = [
     formula: "1 – b3 – 4 – b5 – 5 – b7",
     desc: 'A pentatônica menor + a b5 (trítono / "blue note"). O b5 cria a tensão característica do blues. Eric Clapton, SRV e BB King usam esta escala como base de 90% dos solos.',
     tips: [
-      "A b5 é uma nota de passagem — não fique nela por muito tempo.",
+      "A b5 é uma nota de passagem: não fique nela por muito tempo.",
       "Toque a b5 antes da 5ª justa para um bend clássico de blues.",
       "Sobre o V7, acentue a b5 para reforçar a tensão antes da resolução.",
     ],
@@ -60,7 +60,7 @@ const SCALES = [
     key: "bluesMajor",
     label: "Blues Maior",
     formula: "1 – 2 – b3 – 3 – 5 – 6",
-    desc: 'A versão feliz do blues. Tem a "blue note" (b3) mas também a 3ª maior — cria uma ambiguidade maior/menor que é a assinatura do R&B e soul clássico. T-Bone Walker e BB King a usavam muito.',
+    desc: 'A versão feliz do blues. Tem a "blue note" (b3) mas também a 3ª maior: cria uma ambiguidade maior/menor que é a assinatura do R&B e soul clássico. T-Bone Walker e BB King a usavam muito.',
     tips: [
       "Alterne entre o b3 e o 3 natural com bends para criar tensão vocal.",
       "Perfeita sobre o I7 de um blues maior.",
@@ -75,7 +75,7 @@ const MINOR_PENTA_SHAPES = [
   {
     label: "Shape 1",
     fretLabel: "5ª–8ª casa",
-    desc: "Posição raiz — origem de quase todo solo de rock e blues",
+    desc: "Posição raiz: origem de quase todo solo de rock e blues",
     tip: "Aprenda este shape de cor primeiro. A maioria dos solos clássicos começa aqui.",
     strings: [
       [5, 8],
@@ -90,7 +90,7 @@ const MINOR_PENTA_SHAPES = [
   {
     label: "Shape 2",
     fretLabel: "7ª–10ª casa",
-    desc: "Conecta o Shape 1 ao Shape 3 — excelente para frases descendentes",
+    desc: "Conecta o Shape 1 ao Shape 3: excelente para frases descendentes",
     tip: "Estenda um lick do Shape 1 deslizando para este shape na mesma corda.",
     strings: [
       [8, 10],
@@ -105,7 +105,7 @@ const MINOR_PENTA_SHAPES = [
   {
     label: "Shape 3",
     fretLabel: "9ª–13ª casa",
-    desc: "Região do alto do braço — pouco explorada por iniciantes",
+    desc: "Região do alto do braço: pouco explorada por iniciantes",
     tip: 'Misture com o Shape 4 para frases no "topo do braço".',
     strings: [
       [10, 12],
@@ -120,8 +120,8 @@ const MINOR_PENTA_SHAPES = [
   {
     label: "Shape 4",
     fretLabel: "12ª–15ª casa",
-    desc: "Posição da oitava — a digitação é idêntica à do Shape 1",
-    tip: "Note que este shape tem a mesma digitação que o Shape 1 — apenas uma oitava acima!",
+    desc: "Posição da oitava: a digitação é idêntica à do Shape 1",
+    tip: "Note que este shape tem a mesma digitação que o Shape 1: apenas uma oitava acima!",
     strings: [
       [12, 15],
       [12, 15],
@@ -219,7 +219,7 @@ function MiniShape({ shape }) {
                 cx={x}
                 cy={y}
                 r={6}
-                fill={isRoot ? "#f472b6" : "#818cf8"}
+                fill={isRoot ? "#eab308" : "#2563eb"}
                 opacity={0.9}
               />
               {isRoot && (
@@ -228,7 +228,7 @@ function MiniShape({ shape }) {
                   cy={y}
                   r={6}
                   fill="none"
-                  stroke="#f472b6"
+                  stroke="#eab308"
                   strokeWidth={1.5}
                   opacity={0.6}
                 />
@@ -290,7 +290,7 @@ export default function ScalesSolos() {
           <Step n={1}>
             <p>
               A escala maior tem 7 notas. A pentatônica retira as duas notas que
-              geram mais tensão — a <b>4ª justa</b> e a <b>7ª maior</b>. O que
+              geram mais tensão: a <b>4ª justa</b> e a <b>7ª maior</b>. O que
               sobra é um conjunto que encaixa suavemente sobre quase qualquer
               acorde do campo harmônico.
             </p>
@@ -298,14 +298,14 @@ export default function ScalesSolos() {
           <Step n={2}>
             <p>
               A pentatônica <b>menor</b> retira a 2ª maior e a 6ª menor da
-              escala menor natural. É mais escura e agressiva — por isso domina
+              escala menor natural. É mais escura e agressiva: por isso domina
               o rock e o blues elétrico.
             </p>
           </Step>
           <Step n={3}>
             <p>
               A <b>blue note</b> (b5) adicionada à pentatônica menor cria a
-              escala blues — essa nota "errada" que soa certa é o coração da
+              escala blues: essa nota "errada" que soa certa é o coração da
               expressividade do blues.
             </p>
           </Step>
@@ -314,7 +314,7 @@ export default function ScalesSolos() {
 
       {/* ── Section 2: Scale explorer ────────────────────────────────────── */}
       <Section
-        title={`${root} ${sc.label} — ${sc.formula}`}
+        title={`${root} ${sc.label}: ${sc.formula}`}
         action={
           <div className="flex flex-wrap gap-2">
             <button
@@ -352,12 +352,12 @@ export default function ScalesSolos() {
               className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all"
               style={{
                 background: showBlueNote
-                  ? "rgba(244,114,182,0.2)"
+                  ? "rgba(234,179,8,0.2)"
                   : "var(--ink-05)",
                 border: `1px solid ${
-                  showBlueNote ? "#f472b660" : "var(--border-card)"
+                  showBlueNote ? "#eab30860" : "var(--border-card)"
                 }`,
-                color: showBlueNote ? "#f472b6" : "var(--text-muted)",
+                color: showBlueNote ? "#eab308" : "var(--text-muted)",
               }}
             >
               {showBlueNote ? "● Blue Note ligada" : "○ + Blue Note"}
@@ -379,14 +379,14 @@ export default function ScalesSolos() {
                   className="px-3 py-2 rounded-lg text-sm font-bold"
                   style={{
                     background: isBlue
-                      ? "rgba(244,114,182,0.18)"
+                      ? "rgba(234,179,8,0.18)"
                       : i === 0
                       ? "rgba(37,99,235,0.18)"
                       : "rgba(226,232,240,0.07)",
-                    color: isBlue ? "#f472b6" : i === 0 ? "#3b82f6" : "#cbd5e1",
+                    color: isBlue ? "#eab308" : i === 0 ? "#3b82f6" : "#cbd5e1",
                     border: `1px solid ${
                       isBlue
-                        ? "#f472b640"
+                        ? "#eab30840"
                         : i === 0
                         ? "rgba(37,99,235,0.3)"
                         : "rgba(226,232,240,0.1)"
@@ -460,8 +460,8 @@ export default function ScalesSolos() {
               Os diagramas abaixo usam <b>Am pentatônica</b> como referência
               (raiz no 5º traste da 6ª corda). Mude para qualquer raiz
               simplesmente deslocando o padrão.{" "}
-              <span style={{ color: "#f472b6" }}>Rosa = raiz</span>,{" "}
-              <span style={{ color: "#818cf8" }}>roxo = demais notas</span>.
+              <span style={{ color: "#eab308" }}>Rosa = raiz</span>,{" "}
+              <span style={{ color: "#2563eb" }}>roxo = demais notas</span>.
             </p>
           </Step>
         </TheoryBlock>
@@ -475,11 +475,11 @@ export default function ScalesSolos() {
               className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all"
               style={{
                 background:
-                  shapeIdx === i ? "rgba(129,140,248,0.22)" : "var(--ink-05)",
+                  shapeIdx === i ? "rgba(37,99,235,0.22)" : "var(--ink-05)",
                 border: `1px solid ${
-                  shapeIdx === i ? "#818cf860" : "var(--border-card)"
+                  shapeIdx === i ? "#2563eb60" : "var(--border-card)"
                 }`,
-                color: shapeIdx === i ? "#818cf8" : "var(--text-muted)",
+                color: shapeIdx === i ? "#2563eb" : "var(--text-muted)",
               }}
             >
               {s.label}
@@ -507,7 +507,7 @@ export default function ScalesSolos() {
                 <div className="flex-1">
                   <div
                     className="text-lg font-bold mb-1"
-                    style={{ color: "#818cf8" }}
+                    style={{ color: "#2563eb" }}
                   >
                     {shape.label}
                   </div>
@@ -561,11 +561,11 @@ export default function ScalesSolos() {
                   style={{
                     background:
                       shapeIdx === i
-                        ? "rgba(129,140,248,0.2)"
+                        ? "rgba(37,99,235,0.2)"
                         : "var(--ink-05)",
-                    color: shapeIdx === i ? "#818cf8" : "var(--text-muted)",
+                    color: shapeIdx === i ? "#2563eb" : "var(--text-muted)",
                     border: `1px solid ${
-                      shapeIdx === i ? "#818cf860" : "transparent"
+                      shapeIdx === i ? "#2563eb60" : "transparent"
                     }`,
                   }}
                   onClick={() => setShapeIdx(i)}
@@ -591,7 +591,7 @@ export default function ScalesSolos() {
 
       {/* ── Section 4: Horizontalidade ──────────────────────────────────── */}
       <Section
-        title="3. Visão Horizontal — Todos os Shapes Juntos"
+        title="3. Visão Horizontal: Todos os Shapes Juntos"
         action={
           <CompleteToggle
             done={isComplete("scales", "horizontalidade")}
@@ -623,7 +623,7 @@ export default function ScalesSolos() {
             className="text-sm font-semibold mb-2"
             style={{ color: "var(--text-base)" }}
           >
-            {root} Pentatônica Menor — braço completo (15 trastes)
+            {root} Pentatônica Menor: braço completo (15 trastes)
           </div>
           <Fretboard
             frets={17}

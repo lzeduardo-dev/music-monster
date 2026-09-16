@@ -13,7 +13,7 @@ const AVOID_NOTES = [
     chord: 'Maior (X)',
     symbol: 'X',
     avoid: ['4ª justa (F em C)'],
-    reason: 'A 4ª fica a meio tom acima da 3ª maior — cria choque de 2ª menor com o harmônico mais importante do acorde.',
+    reason: 'A 4ª fica a meio tom acima da 3ª maior: cria choque de 2ª menor com o harmônico mais importante do acorde.',
     safe: ['1', '2', '3', '5', '6', '7M'],
     color: '#3b82f6',
   },
@@ -21,9 +21,9 @@ const AVOID_NOTES = [
     chord: 'Dominante (X7)',
     symbol: 'X7',
     avoid: ['7ª maior (B em C7)'],
-    reason: 'A 7ª maior contradiz a b7 do acorde dominante — tensão que não resolve bem.',
+    reason: 'A 7ª maior contradiz a b7 do acorde dominante: tensão que não resolve bem.',
     safe: ['1', '2/9', '3', '5', '6/13', 'b7', 'b9', '#9', 'b5/#11'],
-    color: '#c084fc',
+    color: '#eab308',
   },
   {
     chord: 'Menor (Xm7)',
@@ -31,7 +31,7 @@ const AVOID_NOTES = [
     avoid: ['6ª maior se usar Eólio'],
     reason: 'Sobre Dórico a 6ª é uma das notas mais bonitas. Sobre Eólio/Frígio ela pode soar fora do contexto.',
     safe: ['1', 'b3', '4', '5', 'b7', '9'],
-    color: '#f472b6',
+    color: '#eab308',
   },
 ]
 
@@ -41,8 +41,8 @@ const RELATIVE_SCALES = [
     over: 'Acorde Maior (ex: Cmaj)',
     scales: [
       { name: 'Pentatônica maior de C', key: 'pentatonicMajor', shift: 0, why: 'As 5 notas mais seguras do acorde maior.' },
-      { name: 'Pentatônica menor de Am', key: 'pentatonicMinor', shift: 9, why: 'Am é a relativa menor de C — soa blues/rock sobre Cmaj.' },
-      { name: 'Dórico de D', key: 'dorian', shift: 2, why: 'Traz a 9ª e a 6ª — som mais colorido sobre CMaj.' },
+      { name: 'Pentatônica menor de Am', key: 'pentatonicMinor', shift: 9, why: 'Am é a relativa menor de C: soa blues/rock sobre Cmaj.' },
+      { name: 'Dórico de D', key: 'dorian', shift: 2, why: 'Traz a 9ª e a 6ª: som mais colorido sobre CMaj.' },
     ],
     color: '#3b82f6',
     root: 'C',
@@ -50,21 +50,21 @@ const RELATIVE_SCALES = [
   {
     over: 'Acorde Dominante (ex: G7)',
     scales: [
-      { name: 'Mixolídio de G', key: 'mixolydian', shift: 0, why: 'A escala do dominante por excelência — mesma que a maior mas com b7.' },
-      { name: 'Pentatônica menor de G', key: 'pentatonicMinor', shift: 0, why: 'Traz o b3 e b7 — o som blues no dominante.' },
+      { name: 'Mixolídio de G', key: 'mixolydian', shift: 0, why: 'A escala do dominante por excelência: mesma que a maior mas com b7.' },
+      { name: 'Pentatônica menor de G', key: 'pentatonicMinor', shift: 0, why: 'Traz o b3 e b7: o som blues no dominante.' },
       { name: 'Alterada de G', key: 'altered', shift: 0, why: 'Máxima tensão jazz: b9, #9, b5, b13 sobre V7alt.' },
     ],
-    color: '#c084fc',
+    color: '#eab308',
     root: 'G',
   },
   {
     over: 'Acorde Menor (ex: Am)',
     scales: [
-      { name: 'Pentatônica menor de A', key: 'pentatonicMinor', shift: 0, why: 'As 5 notas mais seguras do acorde menor — sempre funciona.' },
-      { name: 'Dórico de A', key: 'dorian', shift: 0, why: 'Adiciona a 6ª natural — som mais suave e jazzístico.' },
-      { name: 'Eólio de A', key: 'aeolian', shift: 0, why: 'Menor natural — mais escuro, ideal para baladas e rock.' },
+      { name: 'Pentatônica menor de A', key: 'pentatonicMinor', shift: 0, why: 'As 5 notas mais seguras do acorde menor: sempre funciona.' },
+      { name: 'Dórico de A', key: 'dorian', shift: 0, why: 'Adiciona a 6ª natural: som mais suave e jazzístico.' },
+      { name: 'Eólio de A', key: 'aeolian', shift: 0, why: 'Menor natural: mais escuro, ideal para baladas e rock.' },
     ],
-    color: '#f472b6',
+    color: '#eab308',
     root: 'A',
   },
 ]
@@ -104,7 +104,7 @@ export default function Tecnicas() {
       <PageHeader
         chip="Técnicas"
         title="Técnicas de Guitarra & Improviso"
-        description="Notas de repouso, notas a evitar, approach notes e o mapa de escalas sobre acordes — o guia prático para improvisar com inteligência."
+        description="Notas de repouso, notas a evitar, approach notes e o mapa de escalas sobre acordes: o guia prático para improvisar com inteligência."
       />
 
       {/* ── 1. Notas de repouso ────────────────────────────────────────── */}
@@ -118,14 +118,14 @@ export default function Tecnicas() {
           </Step>
           <Step n={2}>
             <p>
-              O conceito de <b>target note</b> (nota alvo) é central no jazz: você não impõe a escala ao acorde —
+              O conceito de <b>target note</b> (nota alvo) é central no jazz: você não impõe a escala ao acorde:
               você encaminha cada frase <em>em direção</em> à nota alvo (geralmente a 3ª ou 7ª) no momento exato da batida.
             </p>
           </Step>
           <Step n={3}>
             <p>
               <b>Hierarquia:</b> Tônica (mais estável) › 5ª › 3ª › 7ª (mais colorida, menos repouso puro).
-              Notas de passagem da escala (2ª, 4ª, 6ª) conectam as notas de repouso — mas <em>não parem nelas</em> nos tempos fortes.
+              Notas de passagem da escala (2ª, 4ª, 6ª) conectam as notas de repouso: mas <em>não parem nelas</em> nos tempos fortes.
             </p>
           </Step>
         </TheoryBlock>
@@ -141,9 +141,9 @@ export default function Tecnicas() {
             <div className="flex gap-2 flex-wrap">
               {[
                 { interval: '1ª (tônica)', note: root, color: '#3b82f6', weight: 'Mais estável' },
-                { interval: '3ª maior', note: noteName((noteIndex(root) + 4) % 12), color: '#c084fc', weight: 'Caráter maior' },
-                { interval: '5ª justa', note: noteName((noteIndex(root) + 7) % 12), color: '#818cf8', weight: 'Estável' },
-                { interval: '7ª maior', note: noteName((noteIndex(root) + 11) % 12), color: '#f472b6', weight: 'Cor jazzística' },
+                { interval: '3ª maior', note: noteName((noteIndex(root) + 4) % 12), color: '#eab308', weight: 'Caráter maior' },
+                { interval: '5ª justa', note: noteName((noteIndex(root) + 7) % 12), color: '#2563eb', weight: 'Estável' },
+                { interval: '7ª maior', note: noteName((noteIndex(root) + 11) % 12), color: '#eab308', weight: 'Cor jazzística' },
               ].map((item) => (
                 <div key={item.interval} className="card px-4 py-3 flex flex-col items-center"
                   style={{ border: `1px solid ${item.color}40` }}>
@@ -184,7 +184,7 @@ export default function Tecnicas() {
               </div>
               <div className="mb-2">
                 <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-ultra)' }}>Nota(s) a evitar: </span>
-                <span className="font-semibold" style={{ color: '#f472b6' }}>{item.avoid.join(', ')}</span>
+                <span className="font-semibold" style={{ color: '#eab308' }}>{item.avoid.join(', ')}</span>
               </div>
               <p className="text-sm mb-3" style={{ color: 'var(--text-muted)' }}>{item.reason}</p>
               <div>
@@ -209,7 +209,7 @@ export default function Tecnicas() {
       </Section>
 
       {/* ── 3. Approach notes ─────────────────────────────────────────── */}
-      <Section title="3. Approach Notes — Como encaminhar frases">
+      <Section title="3. Approach Notes: Como encaminhar frases">
         <TheoryBlock>
           <p>
             Uma <b>approach note</b> é uma nota que antecipa a nota alvo por meio tom (ou tom) e cria a sensação
@@ -225,7 +225,7 @@ export default function Tecnicas() {
                 <span className="font-bold" style={{ color: 'var(--text-base)' }}>{a.name}</span>
               </div>
               <p className="text-sm mb-2" style={{ color: 'var(--text-muted)' }}>{a.desc}</p>
-              <div className="text-xs font-mono px-3 py-2 rounded-lg" style={{ background: 'rgba(99,102,241,0.1)', color: '#818cf8' }}>
+              <div className="text-xs font-mono px-3 py-2 rounded-lg" style={{ background: 'rgba(99,102,241,0.1)', color: '#2563eb' }}>
                 {a.example}
               </div>
             </div>
@@ -331,16 +331,16 @@ export default function Tecnicas() {
             <tbody className="space-y-1">
               {[
                 { chord: 'CMaj / CMaj7', penta: 'C maior (= A menor)', result: 'Limpo, brilhante, sem tensão' },
-                { chord: 'CMaj7', penta: 'E menor (sobre C)', result: 'Adiciona a 9ª e 6ª — sound Dorian-esque' },
+                { chord: 'CMaj7', penta: 'E menor (sobre C)', result: 'Adiciona a 9ª e 6ª: sound Dorian-esque' },
                 { chord: 'G7 (dominante)', penta: 'G menor (blues sobre G7)', result: 'Som blues direto e cru' },
-                { chord: 'G7 (jazz)', penta: 'Bb maior (= G Dórico up)', result: 'Mais sofisticado — traz b7 e 9' },
-                { chord: 'Am / Am7', penta: 'A menor (raiz)', result: 'O mais direto — seguro' },
+                { chord: 'G7 (jazz)', penta: 'Bb maior (= G Dórico up)', result: 'Mais sofisticado: traz b7 e 9' },
+                { chord: 'Am / Am7', penta: 'A menor (raiz)', result: 'O mais direto: seguro' },
                 { chord: 'Am7 (Dorian)', penta: 'E menor (5ª acima)', result: 'Traz a 9ª e 13ª do Dórico' },
-                { chord: 'Dm7b5', penta: 'F menor', result: 'Meio-diminuto — traz b5 e b7' },
+                { chord: 'Dm7b5', penta: 'F menor', result: 'Meio-diminuto: traz b5 e b7' },
               ].map((row, i) => (
                 <tr key={i} style={{ background: i % 2 === 0 ? 'var(--ink-03)' : 'transparent' }}>
                   <td className="px-3 py-2 font-mono font-bold" style={{ color: '#60a5fa' }}>{row.chord}</td>
-                  <td className="px-3 py-2 font-semibold" style={{ color: '#c084fc' }}>{row.penta}</td>
+                  <td className="px-3 py-2 font-semibold" style={{ color: '#eab308' }}>{row.penta}</td>
                   <td className="px-3 py-2 text-xs" style={{ color: 'var(--text-muted)' }}>{row.result}</td>
                 </tr>
               ))}

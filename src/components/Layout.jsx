@@ -458,29 +458,6 @@ function RoadmapIcon({ size = 14 }) {
   );
 }
 
-function MagicWandIcon({ size = 14 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 16 16" fill="none">
-      {/* Wand handle */}
-      <path
-        d="M9 4l3 3M3.5 12.5l6.5-6.5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      {/* Star tip */}
-      <path
-        d="M12.5 1.5l.5 1.4 1.4.5-1.4.5-.5 1.4-.5-1.4-1.4-.5 1.4-.5.5-1.4z"
-        fill="currentColor"
-      />
-      {/* Sparkles */}
-      <circle cx="6" cy="3" r="0.7" fill="currentColor" />
-      <circle cx="14" cy="8" r="0.7" fill="currentColor" />
-      <circle cx="3" cy="7" r="0.7" fill="currentColor" />
-    </svg>
-  );
-}
-
 function Chevron({ open }) {
   return (
     <svg
@@ -513,7 +490,6 @@ export default function Layout({ children }) {
   const [searchFocused, setSearchFocused] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const [aiModalOpen, setAiModalOpen] = useState(false);
   const { progress } = useProgress();
   const { isDark, toggle } = useTheme();
   const { user, logout } = useAuth();
@@ -526,7 +502,7 @@ export default function Layout({ children }) {
   );
 
   // Routes that render without sidebar (full-width centered content)
-  const FULLSCREEN_ROUTES = ["/planos", "/roadmap"];
+  const FULLSCREEN_ROUTES = ["/roadmap"];
   const hideSidebar = FULLSCREEN_ROUTES.includes(pathname);
 
   // Search results — filter all nav items by label
@@ -606,7 +582,7 @@ export default function Layout({ children }) {
           borderBottom: "1px solid var(--border-header)",
         }}
       >
-        <div className="flex items-center gap-3 px-4 md:px-6 h-14">
+        <div className="flex items-center gap-3 px-4 md:px-6" style={{ height: 60 }}>
           {/* Mobile menu trigger */}
           <button
             className="md:hidden p-2 rounded-lg transition"
@@ -666,120 +642,27 @@ export default function Layout({ children }) {
             <Breadcrumbs />
           </div>
 
-          <div className="ml-auto flex items-center gap-1.5">
-            {/* Progress chip */}
+          <div className="ml-auto flex items-center gap-2">
+            {/* Contador de progresso — bolinha verde + X / Y */}
             <Link
               to="/progresso"
-              className="hidden sm:inline-flex items-center gap-1.5 px-2.5 h-9 rounded-lg text-[11px] font-semibold transition-colors"
+              className="hidden sm:inline-flex items-center gap-2 px-3 rounded-lg text-[12.5px] font-semibold transition-colors"
               style={{
+                height: 36,
                 background: "var(--nav-hover-bg)",
                 border: "1px solid var(--border-card)",
-                color: "var(--text-muted)",
+                color: "var(--text-base)",
               }}
               title="Meu progresso"
             >
               <span
-                className="inline-block w-1.5 h-1.5 rounded-full"
-                style={{ background: "#3b82f6" }}
+                className="inline-block w-2 h-2 rounded-full"
+                style={{ background: "var(--brand-progress)" }}
               />
-              {totalCompleted}/{TOTAL_LESSONS}
-              <span className="hidden xl:inline opacity-60">
-                · {progressPct}%
+              <span className="tabular-nums">
+                {totalCompleted} / {TOTAL_LESSONS}
               </span>
             </Link>
-
-            {/* Trilha de Estudos (Roadmap) — moved from sidebar */}
-            <Link
-              to="/roadmap"
-              title="Trilha de Estudos"
-              className="hidden sm:inline-flex items-center gap-2 px-3 h-9 rounded-lg font-semibold text-[12px] transition-colors"
-              style={{
-                background:
-                  pathname === "/roadmap"
-                    ? "rgba(59,130,246,0.12)"
-                    : "var(--nav-hover-bg)",
-                color: pathname === "/roadmap" ? "#3b82f6" : "var(--text-base)",
-                border: `1px solid ${
-                  pathname === "/roadmap"
-                    ? "rgba(59,130,246,0.35)"
-                    : "var(--border-card)"
-                }`,
-              }}
-            >
-              <RoadmapIcon size={14} />
-              <span className="hidden lg:inline">Trilha de Estudos</span>
-            </Link>
-
-            {/* Ask AI button (magic wand) */}
-            <button
-              onClick={() => setAiModalOpen(true)}
-              title="Pergunte a IA"
-              className="hidden sm:inline-flex items-center gap-2 px-3 h-9 rounded-lg font-semibold text-[12px] transition-colors"
-              style={{
-                background: "var(--nav-hover-bg)",
-                color: "var(--text-base)",
-                border: "1px solid var(--border-card)",
-              }}
-            >
-              <MagicWandIcon size={14} />
-              <span className="hidden lg:inline">Pergunte a IA</span>
-            </button>
-
-            {/* Notifications bell */}
-            <div className="relative">
-              <button
-                onClick={() => {
-                  setNotifOpen((o) => !o);
-                  setUserMenuOpen(false);
-                }}
-                title="Notificações"
-                className="grid place-items-center w-9 h-9 rounded-lg transition relative"
-                style={{
-                  background: notifOpen ? "var(--nav-hover-bg)" : "transparent",
-                  border: "1px solid transparent",
-                  color: "var(--text-muted)",
-                }}
-              >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path
-                    d="M3.5 11.5h9l-1.2-1.6V6.8a3.3 3.3 0 0 0-6.6 0v3.1l-1.2 1.6Z M6.4 12.8a1.6 1.6 0 0 0 3.2 0"
-                    stroke="currentColor"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                {unreadCount > 0 && (
-                  <span
-                    className="absolute top-1 right-1 grid place-items-center text-[8px] font-bold rounded-full text-white"
-                    style={{
-                      background: "#ef4444",
-                      minWidth: 14,
-                      height: 14,
-                      padding: "0 3px",
-                    }}
-                  >
-                    {unreadCount}
-                  </span>
-                )}
-              </button>
-              {notifOpen && (
-                <NotifPopover
-                  items={notifications}
-                  onClose={() => setNotifOpen(false)}
-                />
-              )}
-            </div>
-
-            {/* Theme toggle */}
-            <button
-              onClick={toggle}
-              title={isDark ? "Tema claro" : "Tema escuro"}
-              className="hidden sm:grid place-items-center w-9 h-9 rounded-lg transition"
-              style={{ background: "transparent", color: "var(--text-muted)" }}
-            >
-              <span style={{ fontSize: 13 }}>{isDark ? "☀" : "◑"}</span>
-            </button>
 
             {/* User menu */}
             <div className="relative ml-1">
@@ -798,9 +681,11 @@ export default function Layout({ children }) {
                 title={user?.name ?? "Perfil"}
               >
                 <span
-                  className="grid place-items-center w-7 h-7 rounded-full text-[11px] font-bold text-white"
+                  className="grid place-items-center rounded-full text-[12px] font-bold text-white"
                   style={{
-                    background: "linear-gradient(135deg, #3b82f6, #1d4ed8)",
+                    width: 32,
+                    height: 32,
+                    background: "var(--brand-primary)",
                   }}
                 >
                   {(user?.name ?? "U").charAt(0).toUpperCase()}
@@ -853,7 +738,7 @@ export default function Layout({ children }) {
                   : ""
               }`}
               style={{
-                width: sidebarCollapsed ? 0 : 252,
+                width: sidebarCollapsed ? 0 : 238,
                 top: 56,
                 height: "calc(100vh - 56px)",
                 transition: "width 0.25s ease, transform 0.25s ease",
@@ -969,13 +854,16 @@ export default function Layout({ children }) {
                         to={item.to}
                         end={item.to === "/"}
                         onClick={() => setMobileOpen(false)}
-                        className="sidebar-item relative flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-[13px] transition-all"
+                        className="sidebar-item relative flex items-center gap-3 px-3 rounded-lg text-[13.5px] transition-all"
                         style={({ isActive }) => ({
+                          height: 32,
                           background: isActive
                             ? "var(--nav-active-bg)"
                             : "transparent",
-                          color: isActive ? "#3b82f6" : "var(--nav-inactive)",
-                          fontWeight: isActive ? 700 : 600,
+                          color: isActive
+                            ? "var(--nav-active-fg)"
+                            : "var(--nav-inactive)",
+                          fontWeight: isActive ? 700 : 500,
                         })}
                       >
                         {({ isActive }) => (
@@ -983,24 +871,18 @@ export default function Layout({ children }) {
                             <span
                               className="sidebar-bullet"
                               style={{
-                                width: 8,
-                                height: 8,
+                                width: 5,
+                                height: 5,
                                 borderRadius: "50%",
                                 flexShrink: 0,
                                 background: isComplete
-                                  ? "#22c55e"
-                                  : isActive
-                                  ? "#3b82f6"
+                                  ? "var(--brand-progress)"
                                   : "transparent",
-                                border:
-                                  isComplete || isActive
-                                    ? "none"
-                                    : "1.5px solid var(--bullet-border)",
-                                boxShadow: isComplete
-                                  ? "0 0 0 3px rgba(34,197,94,0.18)"
-                                  : "none",
+                                border: isComplete
+                                  ? "none"
+                                  : "1.5px solid var(--bullet-border)",
                                 transition:
-                                  "background 0.2s, border 0.2s, box-shadow 0.2s",
+                                  "background 0.2s, border 0.2s",
                               }}
                             />
                             {item.label}
@@ -1026,13 +908,14 @@ export default function Layout({ children }) {
                         }}
                       >
                         <span
-                          className="flex items-center gap-2 text-[13px] font-bold"
+                          className="uppercase"
                           style={{
-                            fontFamily: "'Poppins', 'Inter', sans-serif",
-                            letterSpacing: "0.005em",
+                            fontSize: 10.5,
+                            fontWeight: 700,
+                            letterSpacing: "0.14em",
+                            color: "var(--text-subtle)",
                           }}
                         >
-                          <NavIcon name={group.icon} size={14} />
                           {group.label}
                         </span>
                         <span
@@ -1087,119 +970,48 @@ export default function Layout({ children }) {
                 style={{ borderTop: "1px solid var(--border-card)" }}
               >
                 {/* Compact progress card */}
+                {/* Seu progresso — barra verde sólida (sem gradiente) */}
                 <Link
                   to="/progresso"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors"
+                  className="block rounded-lg transition-colors"
                   style={{
-                    background: "var(--nav-hover-bg)",
-                    border: "1px solid var(--border-card)",
+                    padding: "10px 4px 4px",
                     textDecoration: "none",
                   }}
                 >
-                  {/* Avatar placeholder */}
+                  <div className="flex items-center justify-between mb-2">
+                    <span
+                      className="text-[12px] font-semibold"
+                      style={{ color: "var(--text-subtle)" }}
+                    >
+                      Seu progresso
+                    </span>
+                    <span
+                      className="text-[12px] font-bold tabular-nums"
+                      style={{ color: "var(--brand-progress)" }}
+                    >
+                      {progressPct}%
+                    </span>
+                  </div>
                   <div
-                    className="shrink-0 flex items-center justify-center rounded-full text-xs font-bold"
                     style={{
-                      width: 30,
-                      height: 30,
-                      background: "rgba(59,130,246,0.15)",
-                      color: "#60a5fa",
-                      border: "1px solid rgba(59,130,246,0.25)",
+                      background: "var(--ink-08)",
+                      borderRadius: 999,
+                      height: 4,
+                      overflow: "hidden",
                     }}
                   >
-                    {user?.name?.[0]?.toUpperCase() ?? "?"}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between mb-1">
-                      <span
-                        className="text-[11px] font-semibold truncate"
-                        style={{ color: "var(--text-muted)" }}
-                      >
-                        {user?.name ?? "Usuário"}
-                      </span>
-                      <span
-                        className="text-[10px] font-bold ml-2 shrink-0"
-                        style={{ color: "#60a5fa" }}
-                      >
-                        {progressPct}%
-                      </span>
-                    </div>
-                    {/* Thin progress bar */}
                     <div
+                      className="progress-bar-fill"
                       style={{
-                        background: "rgba(255,255,255,0.08)",
+                        width: `${progressPct}%`,
+                        height: "100%",
                         borderRadius: 999,
-                        height: 3,
-                        overflow: "hidden",
+                        transition: "width 0.5s ease",
                       }}
-                    >
-                      <div
-                        style={{
-                          width: `${progressPct}%`,
-                          height: "100%",
-                          background:
-                            "linear-gradient(90deg, #3b82f6, #a78bfa)",
-                          borderRadius: 999,
-                          transition: "width 0.5s ease",
-                        }}
-                      />
-                    </div>
+                    />
                   </div>
-                </Link>
-
-                {/* Upgrade CTA */}
-                <Link
-                  to="/planos"
-                  onClick={() => setMobileOpen(false)}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    padding: "8px 12px",
-                    borderRadius: 10,
-                    background:
-                      "linear-gradient(135deg, rgba(59,130,246,0.15), rgba(167,139,250,0.15))",
-                    border: "1px solid rgba(167,139,250,0.3)",
-                    textDecoration: "none",
-                    transition: "all 0.15s",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background =
-                      "linear-gradient(135deg, rgba(59,130,246,0.25), rgba(167,139,250,0.25))";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background =
-                      "linear-gradient(135deg, rgba(59,130,246,0.15), rgba(167,139,250,0.15))";
-                  }}
-                >
-                  <div
-                    style={{ display: "flex", alignItems: "center", gap: 8 }}
-                  >
-                    <span style={{ fontSize: 14 }}>✨</span>
-                    <div>
-                      <div
-                        style={{
-                          fontSize: 11,
-                          fontWeight: 700,
-                          color: "var(--text-base)",
-                          lineHeight: 1,
-                        }}
-                      >
-                        Upgrade para Pro
-                      </div>
-                      <div
-                        style={{
-                          fontSize: 9,
-                          color: "var(--text-ultra)",
-                          marginTop: 2,
-                        }}
-                      >
-                        7 dias grátis
-                      </div>
-                    </div>
-                  </div>
-                  <span style={{ fontSize: 11, color: "#a78bfa" }}>→</span>
                 </Link>
 
                 {/* Theme + logout */}
@@ -1326,305 +1138,9 @@ export default function Layout({ children }) {
       </div>
 
       {/* ── Ask AI modal (placeholder) ─────────────────────────────── */}
-      {aiModalOpen && <AskAIModal onClose={() => setAiModalOpen(false)} />}
     </div>
   );
 }
-
-// ─── Ask AI chat panel (floating bottom-right) ──────────────────────────────
-
-function AskAIModal({ onClose }) {
-  const { pathname } = useLocation();
-
-  const [messages, setMessages] = useState([
-    {
-      role: "ai",
-      text: "Olá! Sou seu tutor de teoria musical. Posso te ajudar com escalas, acordes, modos, harmonia, técnicas de improviso… o que quiser. Como posso ajudar hoje?",
-    },
-  ]);
-  const [input, setInput] = useState("");
-  const [pending, setPending] = useState(false);
-  const scrollerRef = useRef(null);
-
-  useEffect(() => {
-    if (scrollerRef.current) {
-      scrollerRef.current.scrollTop = scrollerRef.current.scrollHeight;
-    }
-  }, [messages, pending]);
-
-  // Página atual → rótulo legível (sidebar nav). Usado como contexto pelo backend.
-  const currentPageLabel =
-    ALL_NAV.find((n) => n.to === pathname)?.label || undefined;
-
-  const send = async () => {
-    const text = input.trim();
-    if (!text || pending) return;
-
-    const nextMessages = [...messages, { role: "user", text }];
-    setMessages(nextMessages);
-    setInput("");
-    setPending(true);
-
-    try {
-      const { reply } = await api.post("/ai/chat", {
-        messages: nextMessages,
-        currentRoute: pathname,
-        currentPageLabel,
-      });
-      setMessages((m) => [...m, { role: "ai", text: reply }]);
-    } catch (err) {
-      const friendly =
-        err?.status === 401
-          ? "Sua sessão expirou — faça login de novo para continuar conversando."
-          : err?.status === 429
-          ? "Você mandou muitas mensagens seguidas. Tenta de novo em um minutinho."
-          : // 402 (sem créditos), 502 (chave revogada / OpenAI fora), 503 (não configurado):
-          // backend controla o texto exato.
-          err?.status === 402 || err?.status === 502 || err?.status === 503
-          ? err.message
-          : err?.message ||
-            "Não consegui responder agora. Tenta de novo em alguns segundos.";
-      setMessages((m) => [...m, { role: "ai", text: `⚠️ ${friendly}` }]);
-    } finally {
-      setPending(false);
-    }
-  };
-
-  const onKeyDown = (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      send();
-    }
-  };
-
-  const suggestions = [
-    "Diferença entre dórico e menor natural?",
-    "O que é o trítono?",
-    "Como montar uma cadência ii–V–I?",
-  ];
-
-  return (
-    <div
-      className="fixed z-50 flex flex-col"
-      style={{
-        right: "clamp(12px, 3vw, 28px)",
-        bottom: "clamp(12px, 3vw, 28px)",
-        width: "min(380px, calc(100vw - 24px))",
-        height: "min(560px, calc(100vh - 100px))",
-        background: "var(--bg-card)",
-        border: "1px solid var(--border-card)",
-        borderRadius: 18,
-        boxShadow:
-          "0 24px 60px rgba(15,23,42,0.30), 0 0 0 1px rgba(99,102,241,0.18)",
-        animation: "aiPanelIn 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
-      }}
-    >
-      {/* Header */}
-      <div
-        className="flex items-center gap-3 px-4 py-3 rounded-t-[18px]"
-        style={{
-          background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-          color: "#fff",
-        }}
-      >
-        <span
-          className="grid place-items-center w-9 h-9 rounded-xl"
-          style={{ background: "rgba(255,255,255,0.18)" }}
-        >
-          <MagicWandIcon size={16} />
-        </span>
-        <div className="flex-1 min-w-0">
-          <div className="text-[14px] font-extrabold leading-tight">
-            Pergunte a IA
-          </div>
-          <div className="text-[10.5px] opacity-90 flex items-center gap-1.5 mt-0.5">
-            <span
-              className="inline-block w-1.5 h-1.5 rounded-full"
-              style={{ background: "#34d399", boxShadow: "0 0 6px #34d399" }}
-            />
-            tutor de teoria musical
-          </div>
-        </div>
-        <button
-          onClick={onClose}
-          aria-label="Fechar chat"
-          className="grid place-items-center w-7 h-7 rounded-md text-[14px] font-bold transition"
-          style={{ background: "rgba(255,255,255,0.15)", color: "#fff" }}
-        >
-          ×
-        </button>
-      </div>
-
-      {/* Messages */}
-      <div
-        ref={scrollerRef}
-        className="flex-1 overflow-y-auto px-4 py-4 space-y-3"
-        style={{ background: "var(--bg-body)" }}
-      >
-        {messages.map((m, i) => (
-          <ChatBubble key={i} role={m.role} text={m.text} />
-        ))}
-        {pending && <TypingBubble />}
-
-        {/* Quick suggestions only at the start */}
-        {messages.length === 1 && (
-          <div className="pt-2">
-            <div
-              className="text-[10px] font-bold uppercase tracking-wider mb-2"
-              style={{ color: "var(--text-ultra)" }}
-            >
-              Sugestões
-            </div>
-            <div className="flex flex-col gap-1.5">
-              {suggestions.map((s) => (
-                <button
-                  key={s}
-                  onClick={() => setInput(s)}
-                  className="text-left text-[12.5px] px-3 py-2 rounded-lg transition-colors"
-                  style={{
-                    background: "var(--bg-card)",
-                    border: "1px solid var(--border-card)",
-                    color: "var(--text-base)",
-                  }}
-                >
-                  {s}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Composer */}
-      <div
-        className="p-3 rounded-b-[18px]"
-        style={{
-          background: "var(--bg-card)",
-          borderTop: "1px solid var(--border-card)",
-        }}
-      >
-        <div
-          className="flex items-end gap-2 px-3 py-2 rounded-xl"
-          style={{
-            background: "var(--ink-05)",
-            border: "1px solid var(--border-card)",
-          }}
-        >
-          <textarea
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={onKeyDown}
-            placeholder="Pergunte algo sobre teoria musical…"
-            rows={1}
-            className="flex-1 bg-transparent outline-none resize-none text-[13px] py-1"
-            style={{
-              color: "var(--text-base)",
-              fontFamily: "inherit",
-              maxHeight: 96,
-              lineHeight: 1.4,
-            }}
-          />
-          <button
-            onClick={send}
-            disabled={!input.trim() || pending}
-            aria-label="Enviar"
-            className="grid place-items-center w-8 h-8 rounded-lg transition-transform hover:scale-105 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
-            style={{
-              background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-              color: "#fff",
-              border: "none",
-            }}
-          >
-            <SendIcon size={14} />
-          </button>
-        </div>
-        <p
-          className="text-[10px] mt-1.5 text-center"
-          style={{ color: "var(--text-ultra)" }}
-        >
-          🚧 Modo demo — backend será ligado em breve
-        </p>
-      </div>
-
-      <style>{`
-        @keyframes aiPanelIn {
-          from { opacity: 0; transform: translateY(12px) scale(0.98); }
-          to   { opacity: 1; transform: translateY(0) scale(1); }
-        }
-      `}</style>
-    </div>
-  );
-}
-
-// ─── Chat bubbles ──────────────────────────────────────────────────────────
-
-function ChatBubble({ role, text }) {
-  const isUser = role === "user";
-  return (
-    <div
-      className="flex"
-      style={{ justifyContent: isUser ? "flex-end" : "flex-start" }}
-    >
-      <div
-        className="max-w-[85%] px-3 py-2 text-[13px] leading-relaxed"
-        style={{
-          background: isUser
-            ? "linear-gradient(135deg, #6366f1, #8b5cf6)"
-            : "var(--bg-card)",
-          color: isUser ? "#fff" : "var(--text-base)",
-          border: isUser ? "none" : "1px solid var(--border-card)",
-          borderRadius: isUser ? "14px 14px 4px 14px" : "14px 14px 14px 4px",
-          whiteSpace: "pre-wrap",
-          wordBreak: "break-word",
-        }}
-      >
-        {text}
-      </div>
-    </div>
-  );
-}
-
-function TypingBubble() {
-  return (
-    <div className="flex">
-      <div
-        className="px-3 py-2.5 inline-flex gap-1 items-center"
-        style={{
-          background: "var(--bg-card)",
-          border: "1px solid var(--border-card)",
-          borderRadius: "14px 14px 14px 4px",
-        }}
-      >
-        {[0, 0.15, 0.3].map((delay, i) => (
-          <span
-            key={i}
-            className="inline-block w-1.5 h-1.5 rounded-full"
-            style={{
-              background: "var(--text-muted)",
-              animation: `typingDot 1.2s ${delay}s infinite ease-in-out`,
-            }}
-          />
-        ))}
-      </div>
-      <style>{`
-        @keyframes typingDot {
-          0%, 100% { transform: translateY(0); opacity: 0.4; }
-          50%      { transform: translateY(-3px); opacity: 1; }
-        }
-      `}</style>
-    </div>
-  );
-}
-
-function SendIcon({ size = 14 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 14 14" fill="none">
-      <path d="M1 13l12-6L1 1l2 6-2 6z" fill="currentColor" />
-    </svg>
-  );
-}
-
-// ─── Notifications popover ──────────────────────────────────────────────────
 
 function NotifPopover({ items, onClose }) {
   return (
@@ -1747,19 +1263,6 @@ function UserMenuPopover({ user, onClose, onLogout, isDark, toggleTheme }) {
           }
         >
           <span style={{ fontSize: 14 }}>📊</span> Meu progresso
-        </Link>
-        <Link
-          to="/planos"
-          onClick={onClose}
-          style={itemStyle}
-          onMouseEnter={(e) =>
-            (e.currentTarget.style.background = "var(--nav-hover-bg)")
-          }
-          onMouseLeave={(e) =>
-            (e.currentTarget.style.background = "transparent")
-          }
-        >
-          <span style={{ fontSize: 14 }}>✨</span> Planos
         </Link>
         <button
           onClick={() => {

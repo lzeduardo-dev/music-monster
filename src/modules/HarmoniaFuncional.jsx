@@ -29,15 +29,15 @@ const FUNC = {
   },
   S: {
     label: "Subdominante",
-    color: "#c084fc",
-    bg: "rgba(192,132,252,0.12)",
-    border: "rgba(192,132,252,0.28)",
+    color: "#eab308",
+    bg: "rgba(234,179,8,0.12)",
+    border: "rgba(234,179,8,0.28)",
   },
   D: {
     label: "Dominante",
-    color: "#f472b6",
-    bg: "rgba(244,114,182,0.12)",
-    border: "rgba(244,114,182,0.28)",
+    color: "#eab308",
+    bg: "rgba(234,179,8,0.12)",
+    border: "rgba(234,179,8,0.28)",
   },
 };
 
@@ -102,7 +102,7 @@ const PROGRESSIONS = [
     subtitle: "Blues / Rock & Roll",
     degrees: [0, 3, 4, 0],
     description:
-      "T → S → D → T em sua forma mais direta. O esqueleto do blues de 12 compassos — simples, poderosa e infalível.",
+      "T → S → D → T em sua forma mais direta. O esqueleto do blues de 12 compassos: simples, poderosa e infalível.",
     songs: [
       "Johnny B. Goode – Chuck Berry",
       "La Bamba – Ritchie Valens",
@@ -130,7 +130,7 @@ const PROGRESSIONS = [
     subtitle: "Pop emocional / Indie",
     degrees: [5, 3, 0, 4],
     description:
-      "Começa no VI (relativa menor) para uma sensação introspectiva. Mesmos acordes da Axis, mas com um centro tonal diferente — mais melancólico.",
+      "Começa no VI (relativa menor) para uma sensação introspectiva. Mesmos acordes da Axis, mas com um centro tonal diferente: mais melancólico.",
     songs: [
       "Demons – Imagine Dragons",
       "Clocks – Coldplay",
@@ -144,7 +144,7 @@ const PROGRESSIONS = [
     subtitle: "Rock Mixolídio",
     degrees: null,
     description:
-      "O bVII é emprestado do modo Mixolídio — mesmo tônico, mas com a 7ª abaixada. Soa épico e grandioso, marca do hard rock e do southern rock.",
+      "O bVII é emprestado do modo Mixolídio: mesmo tônico, mas com a 7ª abaixada. Soa épico e grandioso, marca do hard rock e do southern rock.",
     songs: [
       "Sweet Home Alabama – Lynyrd Skynyrd",
       "Hey Jude – The Beatles",
@@ -197,7 +197,7 @@ export default function HarmoniaFuncional() {
       <PageHeader
         chip="Harmonia Funcional"
         title="Campo Harmônico & Progressões"
-        description="Como cada acorde de uma tonalidade exerce uma função — e como as progressões mais famosas do pop, rock e blues exploram essas funções para criar emoção e movimento."
+        description="Como cada acorde de uma tonalidade exerce uma função: e como as progressões mais famosas do pop, rock e blues exploram essas funções para criar emoção e movimento."
       />
 
       {/* ── 1. Campo Harmônico ─────────────────────────────────────────── */}
@@ -232,10 +232,10 @@ export default function HarmoniaFuncional() {
                     style={{ color: "var(--text-subtle)" }}
                   >
                     {k === "T"
-                      ? "repouso — I, iii, vi"
+                      ? "repouso: I, iii, vi"
                       : k === "S"
-                      ? "movimento — ii, IV"
-                      : "tensão — V, vii°"}
+                      ? "movimento: ii, IV"
+                      : "tensão: V, vii°"}
                   </span>
                 </div>
               ))}
@@ -246,7 +246,7 @@ export default function HarmoniaFuncional() {
               A cadência{" "}
               <span
                 className="font-mono font-bold"
-                style={{ color: "#f472b6" }}
+                style={{ color: "#eab308" }}
               >
                 V7 → I
               </span>{" "}
@@ -306,7 +306,7 @@ export default function HarmoniaFuncional() {
       <Section title="2. Funções e Substituições">
         <TheoryBlock>
           <p>
-            Acordes com a mesma função podem se <b>substituir</b> — compartilham
+            Acordes com a mesma função podem se <b>substituir</b>: compartilham
             ao menos duas notas e produzem efeito harmônico similar:
           </p>
           <div className="grid sm:grid-cols-3 gap-3 mt-3">
@@ -321,16 +321,16 @@ export default function HarmoniaFuncional() {
                 className="font-bold text-sm mb-2"
                 style={{ color: FUNC.T.color }}
               >
-                Tônica — I, III, VI
+                Tônica: I, III, VI
               </div>
               <p
                 className="text-xs leading-relaxed"
                 style={{ color: "var(--text-muted)" }}
               >
-                <b>vi</b> (relativa menor) substitui o I — mesmas notas, centro
+                <b>vi</b> (relativa menor) substitui o I: mesmas notas, centro
                 diferente. Cria emoção sem abandonar a tonalidade.
                 <br />
-                <b>iii</b> age como tônica ou como ponte entre T e D — tem notas
+                <b>iii</b> age como tônica ou como ponte entre T e D: tem notas
                 do I e do V.
               </p>
             </div>
@@ -345,13 +345,13 @@ export default function HarmoniaFuncional() {
                 className="font-bold text-sm mb-2"
                 style={{ color: FUNC.S.color }}
               >
-                Subdominante — II, IV
+                Subdominante: II, IV
               </div>
               <p
                 className="text-xs leading-relaxed"
                 style={{ color: "var(--text-muted)" }}
               >
-                <b>ii</b> substitui o IV — compartilham duas notas. No jazz, a
+                <b>ii</b> substitui o IV: compartilham duas notas. No jazz, a
                 cadência <span className="font-mono">II7→V7→I</span> é a
                 subdominante mais refinada. ii7 tem "mais cor" que o IV simples.
               </p>
@@ -367,14 +367,14 @@ export default function HarmoniaFuncional() {
                 className="font-bold text-sm mb-2"
                 style={{ color: FUNC.D.color }}
               >
-                Dominante — V, VII°
+                Dominante: V, VII°
               </div>
               <p
                 className="text-xs leading-relaxed"
                 style={{ color: "var(--text-muted)" }}
               >
                 <b>V7</b> contém um trítono (3ª↔7ª) que resolve por semitom na
-                tônica. <b>VII°</b> tem três das quatro notas do V7 — funciona
+                tônica. <b>VII°</b> tem três das quatro notas do V7: funciona
                 como dominante sem a fundamental.
               </p>
             </div>
@@ -397,7 +397,7 @@ export default function HarmoniaFuncional() {
           <span className="font-bold" style={{ color: "var(--text-muted)" }}>
             {root} maior
           </span>
-          {" — "}altere no Campo Harmônico acima para transpor todas as
+          {": "}altere no Campo Harmônico acima para transpor todas as
           progressões.
         </p>
 
@@ -503,7 +503,7 @@ export default function HarmoniaFuncional() {
         <TheoryBlock>
           <Step n={1}>
             <p>
-              O <b>II–V–I</b> é a cadência mais importante do jazz — e também
+              O <b>II–V–I</b> é a cadência mais importante do jazz: e também
               uma das mais usadas no pop sofisticado e no bossa nova. Substitui
               o clássico IV–V–I usando um acorde de 7ª menor como subdominante,
               gerando mais tensão e cor:
@@ -514,19 +514,19 @@ export default function HarmoniaFuncional() {
                   numeral: "ii7",
                   label: triads[1] ? `${triads[1].root}m7` : "Dm7",
                   fn: "S",
-                  desc: "Subdominante — cria movimento",
+                  desc: "Subdominante: cria movimento",
                 },
                 {
                   numeral: "V7",
                   label: triads[4] ? `${triads[4].root}7` : "G7",
                   fn: "D",
-                  desc: "Dominante — cria tensão",
+                  desc: "Dominante: cria tensão",
                 },
                 {
                   numeral: "Imaj7",
                   label: triads[0] ? `${triads[0].root}M7` : "CM7",
                   fn: "T",
-                  desc: "Tônica — resolução",
+                  desc: "Tônica: resolução",
                 },
               ].map((c, i) => (
                 <div key={i} className="flex items-center gap-3">
@@ -574,7 +574,7 @@ export default function HarmoniaFuncional() {
           </Step>
           <Step n={2}>
             <p>
-              <b>Conceito de rotação</b> — o ii–V–I pode começar em qualquer
+              <b>Conceito de rotação</b>: o ii–V–I pode começar em qualquer
               grau do campo harmônico. Em jazz, é comum "girar" o centro tonal:
               primeiro II–V–I em {root}, depois em{" "}
               {triads[3] ? triads[3].root : "F"} (IV), criando um "movimento de
@@ -584,7 +584,7 @@ export default function HarmoniaFuncional() {
           </Step>
           <Step n={3}>
             <p>
-              <b>Tritone substitution</b> — o dominante V7 pode ser substituído
+              <b>Tritone substitution</b>: o dominante V7 pode ser substituído
               pelo acorde cujo trítono é enarmônico ao V7. Para{" "}
               {triads[4] ? `${triads[4].root}7` : "G7"}: a substituição é{" "}
               {triads[4]
@@ -602,7 +602,7 @@ export default function HarmoniaFuncional() {
             {
               label: "Jazz básico",
               keys: ["ii7", "V7", "Imaj7"],
-              note: "A célula fundamental — memorize essa tríade de acordes.",
+              note: "A célula fundamental: memorize essa tríade de acordes.",
             },
             {
               label: "ii–V–I com extensões",
@@ -612,12 +612,12 @@ export default function HarmoniaFuncional() {
             {
               label: "Turnaround I–vi–ii–V",
               keys: ["I", "vi7", "ii7", "V7"],
-              note: 'A cadência de "turnaround" — retorna à tônica com movimento.',
+              note: 'A cadência de "turnaround": retorna à tônica com movimento.',
             },
             {
               label: "Bird Blues",
               keys: ["I7", "IV7", "II7", "V7"],
-              note: "Blues de Charlie Parker — mistura campo harmônico com blues.",
+              note: "Blues de Charlie Parker: mistura campo harmônico com blues.",
             },
           ].map((ex, i) => (
             <div key={i} className="card p-4">
@@ -635,7 +635,7 @@ export default function HarmoniaFuncional() {
                     style={{
                       background: "rgba(99,102,241,0.12)",
                       border: "1px solid rgba(99,102,241,0.25)",
-                      color: "#818cf8",
+                      color: "#2563eb",
                     }}
                   >
                     {k}
@@ -654,7 +654,7 @@ export default function HarmoniaFuncional() {
       <Section title="5. Intercâmbio Modal e Dominantes Secundárias">
         <TheoryBlock>
           <p>
-            <b>Intercâmbio Modal</b> — emprestamos acordes de modos paralelos
+            <b>Intercâmbio Modal</b>: emprestamos acordes de modos paralelos
             (mesma tônica, modo diferente). Em <b>{root} maior</b>:
           </p>
 
@@ -686,13 +686,13 @@ export default function HarmoniaFuncional() {
                 key={item.numeral}
                 className="flex-1 min-w-[160px] p-4 rounded-xl"
                 style={{
-                  background: "rgba(129,140,248,0.08)",
-                  border: "1px solid rgba(129,140,248,0.22)",
+                  background: "rgba(37,99,235,0.08)",
+                  border: "1px solid rgba(37,99,235,0.22)",
                 }}
               >
                 <div
                   className="font-extrabold text-lg leading-none"
-                  style={{ color: "#818cf8" }}
+                  style={{ color: "#2563eb" }}
                 >
                   {chordLabel(item.chordRoot, item.quality)}
                 </div>
@@ -721,7 +721,7 @@ export default function HarmoniaFuncional() {
           </div>
 
           <p>
-            <b>Dominantes Secundárias</b> — aplicar um V7 antes de qualquer grau
+            <b>Dominantes Secundárias</b>: aplicar um V7 antes de qualquer grau
             (exceto VII°) intensifica a resolução para aquele acorde. Notação:{" "}
             <span className="font-mono">V/X</span> = "dominante de X". Em{" "}
             <b>{root} maior</b>:
@@ -733,13 +733,13 @@ export default function HarmoniaFuncional() {
                 key={sd.numeral}
                 className="px-3 py-1.5 rounded-lg"
                 style={{
-                  background: "rgba(244,114,182,0.08)",
-                  border: "1px solid rgba(244,114,182,0.20)",
+                  background: "rgba(234,179,8,0.08)",
+                  border: "1px solid rgba(234,179,8,0.20)",
                 }}
               >
                 <span
                   className="font-mono font-bold text-xs"
-                  style={{ color: "#f472b6" }}
+                  style={{ color: "#eab308" }}
                 >
                   V/{sd.numeral}
                 </span>
@@ -761,7 +761,7 @@ export default function HarmoniaFuncional() {
             {noteName((noteIndex(root) + 14) % 12)}7 →{" "}
             {noteName((noteIndex(root) + 7) % 12)} → {root}. No blues, o I7 e o
             IV7 são tecnicamente dominantes secundárias da IV e da I,
-            respectivamente — daí a "sujeira" característica do blues.
+            respectivamente: daí a "sujeira" característica do blues.
           </p>
         </TheoryBlock>
       </Section>

@@ -1,4 +1,7 @@
-const BASE = '/api'
+// Em dev usa o proxy do Vite ("/api" → localhost:3002).
+// Em prod aponta pra URL absoluta do backend no Railway via env var
+// (ex: VITE_API_URL=https://music-monster-api.up.railway.app/api).
+const BASE = import.meta.env.VITE_API_URL || '/api'
 
 async function request(method, path, body) {
   const headers = { 'Content-Type': 'application/json' }

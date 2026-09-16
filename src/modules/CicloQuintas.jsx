@@ -47,9 +47,9 @@ function AccidentalChip({ label, isNew }) {
     <span
       className="px-2 py-0.5 rounded-md text-xs font-bold"
       style={{
-        background: isNew ? 'rgba(251,113,133,0.18)' : 'rgba(99,102,241,0.14)',
-        color: isNew ? '#f472b6' : '#a78bfa',
-        border: `1px solid ${isNew ? '#f472b640' : '#a78bfa30'}`,
+        background: isNew ? 'rgba(234,179,8,0.18)' : 'rgba(99,102,241,0.14)',
+        color: isNew ? '#eab308' : '#2563eb',
+        border: `1px solid ${isNew ? '#eab30840' : '#2563eb30'}`,
       }}
     >
       {label}
@@ -132,7 +132,7 @@ export default function CicloQuintas() {
                   : isHov
                   ? 'rgba(96,165,250,0.18)'
                   : k.flats > 0
-                  ? 'rgba(167,139,250,0.08)'
+                  ? 'rgba(37,99,235,0.08)'
                   : ink(0.05)
                 const strokeColor = isSelected
                   ? '#60a5fa'
@@ -198,7 +198,7 @@ export default function CicloQuintas() {
                     {kData.label} Maior
                   </div>
                   <div className="text-xs mt-0.5" style={{ color: 'var(--text-ultra)' }}>
-                    Relativa menor: <b style={{ color: '#a78bfa' }}>{kData.rel}</b>
+                    Relativa menor: <b style={{ color: '#2563eb' }}>{kData.rel}</b>
                   </div>
                 </div>
                 <button
@@ -216,9 +216,9 @@ export default function CicloQuintas() {
                     key={i}
                     className="px-2.5 py-1 rounded-lg text-sm font-bold"
                     style={{
-                      background: i === 0 ? 'rgba(244,114,182,0.2)' : 'rgba(99,102,241,0.14)',
-                      color: i === 0 ? '#f472b6' : '#a78bfa',
-                      border: `1px solid ${i === 0 ? '#f472b640' : '#a78bfa30'}`,
+                      background: i === 0 ? 'rgba(234,179,8,0.2)' : 'rgba(99,102,241,0.14)',
+                      color: i === 0 ? '#eab308' : '#2563eb',
+                      border: `1px solid ${i === 0 ? '#eab30840' : '#2563eb30'}`,
                     }}
                   >
                     {n}
@@ -245,7 +245,7 @@ export default function CicloQuintas() {
                   </div>
                   {kData.newAcc && (
                     <div className="mt-2 text-xs" style={{ color: 'var(--text-muted)' }}>
-                      Novo acidente: <b style={{ color: '#f472b6' }}>{kData.newAcc}</b>
+                      Novo acidente: <b style={{ color: '#eab308' }}>{kData.newAcc}</b>
                       {' '}—{' '}
                       {kData.flats > 0
                         ? `4ª justa de ${kData.label}`
@@ -255,14 +255,14 @@ export default function CicloQuintas() {
                 </div>
               ) : (
                 <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                  Dó maior não tem acidentes — a tonalidade de referência.
+                  Dó maior não tem acidentes: a tonalidade de referência.
                 </div>
               )}
             </div>
 
             {/* Guitar tip card */}
-            <div className="card p-4" style={{ borderLeft: '2px solid #818cf850' }}>
-              <div className="text-xs font-semibold mb-1" style={{ color: '#818cf8' }}>
+            <div className="card p-4" style={{ borderLeft: '2px solid #2563eb50' }}>
+              <div className="text-xs font-semibold mb-1" style={{ color: '#2563eb' }}>
                 No braço do violão/guitarra
               </div>
               <div className="text-sm" style={{ color: 'var(--text-muted)' }}>
@@ -317,7 +317,7 @@ export default function CicloQuintas() {
               ].map((r, i) => (
                 <div key={i} className="card px-3 py-2 text-xs">
                   <span style={{ color: 'var(--text-muted)' }}>{r.from} → {r.to}: </span>
-                  <span style={{ color: '#f472b6' }}>{r.newSharp}</span>
+                  <span style={{ color: '#eab308' }}>{r.newSharp}</span>
                   <span style={{ color: 'var(--text-ultra)' }}> ({r.rule})</span>
                 </div>
               ))}
@@ -336,7 +336,7 @@ export default function CicloQuintas() {
               ].map((r, i) => (
                 <div key={i} className="card px-3 py-2 text-xs">
                   <span style={{ color: 'var(--text-muted)' }}>{r.from} → {r.to}: </span>
-                  <span style={{ color: '#a78bfa' }}>{r.newFlat}</span>
+                  <span style={{ color: '#2563eb' }}>{r.newFlat}</span>
                   <span style={{ color: 'var(--text-ultra)' }}> ({r.rule})</span>
                 </div>
               ))}
@@ -344,7 +344,7 @@ export default function CicloQuintas() {
           </Step>
           <Step n={3}>
             <p>
-              <b>Relativa menor</b> — cada tonalidade maior tem uma menor natural com as mesmas notas.
+              <b>Relativa menor</b>: cada tonalidade maior tem uma menor natural com as mesmas notas.
               A relativa menor está sempre 3 semitônios <em>abaixo</em> da tônica maior (ou 9 acima).
               Por isso C maior e Lá menor compartilham as mesmas teclas/trastes.
             </p>
@@ -389,17 +389,17 @@ export default function CicloQuintas() {
                     <td className="px-4 py-2.5 font-bold" style={{ color: selectedKey === k.key ? '#60a5fa' : 'var(--text-base)' }}>
                       {k.label} {k.sharps > 0 ? `(${k.sharps}#)` : k.flats > 0 ? `(${k.flats}b)` : ''}
                     </td>
-                    <td className="px-4 py-2.5" style={{ color: '#a78bfa' }}>{k.rel}</td>
+                    <td className="px-4 py-2.5" style={{ color: '#2563eb' }}>{k.rel}</td>
                     <td className="px-4 py-2.5">
                       {k.acc.length === 0 ? (
                         <span style={{ color: 'var(--text-ultra)' }}>—</span>
                       ) : (
-                        <span style={{ color: k.flats > 0 ? '#a78bfa' : '#818cf8' }}>
+                        <span style={{ color: k.flats > 0 ? '#2563eb' : '#2563eb' }}>
                           {k.acc.join(', ')}
                         </span>
                       )}
                     </td>
-                    <td className="px-4 py-2.5" style={{ color: '#f472b6' }}>
+                    <td className="px-4 py-2.5" style={{ color: '#eab308' }}>
                       {k.newAcc ?? '—'}
                     </td>
                   </tr>
