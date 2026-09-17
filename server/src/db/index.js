@@ -19,4 +19,8 @@ export async function initDb() {
   await db.read()
   db.data ??= defaultData
   await db.write()
+  console.log(
+    `[db] pronto em ${file} — users=${db.data.users?.length ?? 0}, ` +
+    `progress=${db.data.progress?.length ?? 0}`
+  )
 }
