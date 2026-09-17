@@ -37,8 +37,14 @@ import PadroesPentatonica from "./modules/PadroesPentatonica.jsx";
 import Improviso from "./modules/Improviso.jsx";
 import VocabularioLicks from "./modules/VocabularioLicks.jsx";
 import ClichesBlues from "./modules/ClichesBlues.jsx";
+import { initAudioUnlock } from "./lib/audio.js";
 
 export default function App() {
+  useEffect(() => {
+    // Destrava o AudioContext no 1º gesto do usuário (fix Chrome/Windows).
+    initAudioUnlock();
+  }, []);
+
   return (
     <>
       <ScrollToTop />

@@ -58,6 +58,36 @@ async function ensureStarted() {
   if (!synth) buildSynth()
 }
 
+/**
+ * Destrava o AudioContext no PRIMEIRO gesto do usuário na página.
+ * Chrome no Windows exige isso: se o AudioContext foi criado no page
+ * load (como o Tone.js faz no import), qualquer play depois só funciona
+ * se um `Tone.start()` já rodou dentro de um user gesture prévio.
+ *
+ * Chame uma vez, cedo (App.jsx useEffect). Os listeners se
+ * removem sozinhos depois do primeiro unlock.
+ */
+export function initAudioUnlock() {
+  if (typeof window === 'undefined') return
+  if (started) return
+
+  const unlock = async () => {
+    try {
+      await Tone.start()
+      started = true
+    } catch {
+      // silencioso — se falhar, o ensureStarted() tenta de novo no play
+    }
+    window.removeEventListener('pointerdown', unlock)
+    window.removeEventListener('keydown', unlock)
+    window.removeEventListener('touchstart', unlock)
+  }
+
+  window.addEventListener('pointerdown', unlock, { once: false })
+  window.addEventListener('keydown', unlock, { once: false })
+  window.addEventListener('touchstart', unlock, { once: false, passive: true })
+}
+
 export function setInstrument(key) {
   currentPreset = key
   if (typeof localStorage !== 'undefined') localStorage.setItem('hh_instrument', key)
