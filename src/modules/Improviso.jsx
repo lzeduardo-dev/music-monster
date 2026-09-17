@@ -129,8 +129,14 @@ export default function Improviso() {
       audio.pause()
       setPlaying(false)
     } else {
-      audio.play()
-      setPlaying(true)
+      audio
+        .play()
+        .then(() => setPlaying(true))
+        .catch((err) => {
+          console.error('[improviso] play falhou:', err)
+          console.log('audio src:', audio.currentSrc, 'readyState:', audio.readyState, 'error:', audio.error)
+          setPlaying(false)
+        })
     }
   }
 

@@ -64,28 +64,37 @@ async function ensureStarted() {
  * load (como o Tone.js faz no import), qualquer play depois só funciona
  * se um `Tone.start()` já rodou dentro de um user gesture prévio.
  *
- * Chame uma vez, cedo (App.jsx useEffect). Os listeners se
- * removem sozinhos depois do primeiro unlock.
+ * Usa capture=true pra rodar ANTES de qualquer outro handler
+ * (não perde o user-gesture flag).
  */
 export function initAudioUnlock() {
   if (typeof window === 'undefined') return
   if (started) return
 
-  const unlock = async () => {
+  const unlock = (e) => {
+    // Não usar await antes do resume — perde o flag de user gesture.
     try {
-      await Tone.start()
-      started = true
-    } catch {
-      // silencioso — se falhar, o ensureStarted() tenta de novo no play
+      const ctx = Tone.getContext().rawContext
+      if (ctx && ctx.state !== 'running') {
+        ctx.resume().catch((err) => console.warn('[audio] resume falhou:', err))
+      }
+      Tone.start()
+        .then(() => {
+          started = true
+          console.log('[audio] Tone.start OK, ctx=', ctx?.state)
+        })
+        .catch((err) => console.warn('[audio] Tone.start falhou:', err))
+    } catch (err) {
+      console.warn('[audio] unlock err:', err)
     }
-    window.removeEventListener('pointerdown', unlock)
-    window.removeEventListener('keydown', unlock)
-    window.removeEventListener('touchstart', unlock)
+    window.removeEventListener('pointerdown', unlock, true)
+    window.removeEventListener('keydown', unlock, true)
+    window.removeEventListener('touchstart', unlock, true)
   }
 
-  window.addEventListener('pointerdown', unlock, { once: false })
-  window.addEventListener('keydown', unlock, { once: false })
-  window.addEventListener('touchstart', unlock, { once: false, passive: true })
+  window.addEventListener('pointerdown', unlock, { capture: true })
+  window.addEventListener('keydown', unlock, { capture: true })
+  window.addEventListener('touchstart', unlock, { capture: true, passive: true })
 }
 
 export function setInstrument(key) {
