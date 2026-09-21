@@ -50,29 +50,39 @@ function buildSynth() {
   synth.volume.value = p.volume
 }
 
-async function ensureStarted() {
+/**
+ * Sync fallback: se algum play foi chamado antes do primeiro gesto ter
+ * destravado o áudio, ainda tentamos resume() + build inline. iOS Safari
+ * exige que isso rode no MESMO tick síncrono do user gesture, sem await.
+ */
+function ensureStartedSync() {
   if (!started) {
-    await Tone.start()
-    started = true
+    try {
+      const ctx = Tone.getContext().rawContext
+      if (ctx && ctx.state !== 'running') ctx.resume().catch(() => {})
+      Tone.start().catch(() => {})
+      started = true
+    } catch {}
   }
   if (!synth) buildSynth()
 }
 
 /**
  * Destrava o AudioContext no PRIMEIRO gesto do usuário na página.
- * Chrome no Windows exige isso: se o AudioContext foi criado no page
- * load (como o Tone.js faz no import), qualquer play depois só funciona
- * se um `Tone.start()` já rodou dentro de um user gesture prévio.
+ * Chrome no Windows + iOS Safari + Chrome Android exigem isso: se o
+ * AudioContext foi criado no page load (como o Tone.js faz no import),
+ * qualquer play depois só funciona se um `Tone.start()` já rodou dentro
+ * de um user gesture prévio.
  *
  * Usa capture=true pra rodar ANTES de qualquer outro handler
- * (não perde o user-gesture flag).
+ * (não perde o user-gesture flag). Também constrói o synth eager —
+ * senão o primeiro play em mobile perde o gesto no lazy build.
  */
 export function initAudioUnlock() {
   if (typeof window === 'undefined') return
   if (started) return
 
-  const unlock = (e) => {
-    // Não usar await antes do resume — perde o flag de user gesture.
+  const unlock = () => {
     try {
       const ctx = Tone.getContext().rawContext
       if (ctx && ctx.state !== 'running') {
@@ -81,6 +91,7 @@ export function initAudioUnlock() {
       Tone.start()
         .then(() => {
           started = true
+          if (!synth) buildSynth()  // constrói agora, evita lazy build
           console.log('[audio] Tone.start OK, ctx=', ctx?.state)
         })
         .catch((err) => console.warn('[audio] Tone.start falhou:', err))
@@ -107,18 +118,22 @@ export function getCurrentInstrument() {
   return currentPreset
 }
 
-export async function playNote(note, durationSec = 0.7) {
-  await ensureStarted()
-  synth.triggerAttackRelease(note, durationSec)
+// Todas as funções de play são SÍNCRONAS — qualquer await perde o
+// contexto de user-gesture em mobile (iOS Safari especialmente).
+
+export function playNote(note, durationSec = 0.7) {
+  ensureStartedSync()
+  if (synth) synth.triggerAttackRelease(note, durationSec)
 }
 
-export async function playChord(notes, durationSec = 1.2) {
-  await ensureStarted()
-  synth.triggerAttackRelease(notes, durationSec)
+export function playChord(notes, durationSec = 1.2) {
+  ensureStartedSync()
+  if (synth) synth.triggerAttackRelease(notes, durationSec)
 }
 
-export async function playSequence(notes, perNoteSec = 0.32, chordAtEnd = false) {
-  await ensureStarted()
+export function playSequence(notes, perNoteSec = 0.32, chordAtEnd = false) {
+  ensureStartedSync()
+  if (!synth) return
   const now = Tone.now()
   notes.forEach((n, i) => synth.triggerAttackRelease(n, perNoteSec * 0.95, now + i * perNoteSec))
   if (chordAtEnd) {
@@ -126,16 +141,18 @@ export async function playSequence(notes, perNoteSec = 0.32, chordAtEnd = false)
   }
 }
 
-export async function playChordSequence(chordPitchArrays, perChordSec = 1.2) {
-  await ensureStarted()
+export function playChordSequence(chordPitchArrays, perChordSec = 1.2) {
+  ensureStartedSync()
+  if (!synth) return
   const now = Tone.now()
   chordPitchArrays.forEach((notes, i) => {
     synth.triggerAttackRelease(notes, perChordSec * 0.85, now + i * perChordSec)
   })
 }
 
-export async function playInterval(rootNote, semitones) {
-  await ensureStarted()
+export function playInterval(rootNote, semitones) {
+  ensureStartedSync()
+  if (!synth) return
   const second = transpose(rootNote, semitones)
   const now = Tone.now()
   synth.triggerAttackRelease(rootNote, 0.55, now)

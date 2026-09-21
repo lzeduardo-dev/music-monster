@@ -14,18 +14,18 @@ const useInk = () => {
   return (alpha) => isDark ? `rgba(255,255,255,${alpha})` : `rgba(15,23,42,${alpha})`
 }
 const CIRCLE_KEYS = [
-  { key: 'C',  label: 'C',  sharps: 0, flats: 0, acc: [],                                    rel: 'Lám', newAcc: null,        idx: 0 },
-  { key: 'G',  label: 'G',  sharps: 1, flats: 0, acc: ['F#'],                                 rel: 'Mim', newAcc: 'F#',        idx: 1 },
-  { key: 'D',  label: 'D',  sharps: 2, flats: 0, acc: ['F#','C#'],                            rel: 'Sim', newAcc: 'C#',        idx: 2 },
+  { key: 'C',  label: 'C',  sharps: 0, flats: 0, acc: [],                                    rel: 'Am',  newAcc: null,        idx: 0 },
+  { key: 'G',  label: 'G',  sharps: 1, flats: 0, acc: ['F#'],                                 rel: 'Em',  newAcc: 'F#',        idx: 1 },
+  { key: 'D',  label: 'D',  sharps: 2, flats: 0, acc: ['F#','C#'],                            rel: 'Bm',  newAcc: 'C#',        idx: 2 },
   { key: 'A',  label: 'A',  sharps: 3, flats: 0, acc: ['F#','C#','G#'],                       rel: 'F#m', newAcc: 'G#',        idx: 3 },
   { key: 'E',  label: 'E',  sharps: 4, flats: 0, acc: ['F#','C#','G#','D#'],                  rel: 'C#m', newAcc: 'D#',        idx: 4 },
   { key: 'B',  label: 'B',  sharps: 5, flats: 0, acc: ['F#','C#','G#','D#','A#'],             rel: 'G#m', newAcc: 'A#',        idx: 5 },
   { key: 'F#', label: 'F#', sharps: 6, flats: 0, acc: ['F#','C#','G#','D#','A#','E#'],        rel: 'D#m', newAcc: 'E#',        idx: 6 },
   { key: 'Db', label: 'Db', sharps: 0, flats: 5, acc: ['Bb','Eb','Ab','Db','Gb'],             rel: 'Bbm', newAcc: 'Gb',        idx: 7 },
-  { key: 'Ab', label: 'Ab', sharps: 0, flats: 4, acc: ['Bb','Eb','Ab','Db'],                  rel: 'Fám', newAcc: 'Db',        idx: 8 },
-  { key: 'Eb', label: 'Eb', sharps: 0, flats: 3, acc: ['Bb','Eb','Ab'],                       rel: 'Dóm', newAcc: 'Ab',        idx: 9 },
-  { key: 'Bb', label: 'Bb', sharps: 0, flats: 2, acc: ['Bb','Eb'],                            rel: 'Solm',newAcc: 'Eb',        idx: 10 },
-  { key: 'F',  label: 'F',  sharps: 0, flats: 1, acc: ['Bb'],                                 rel: 'Rém', newAcc: 'Bb',        idx: 11 },
+  { key: 'Ab', label: 'Ab', sharps: 0, flats: 4, acc: ['Bb','Eb','Ab','Db'],                  rel: 'Fm',  newAcc: 'Db',        idx: 8 },
+  { key: 'Eb', label: 'Eb', sharps: 0, flats: 3, acc: ['Bb','Eb','Ab'],                       rel: 'Cm',  newAcc: 'Ab',        idx: 9 },
+  { key: 'Bb', label: 'Bb', sharps: 0, flats: 2, acc: ['Bb','Eb'],                            rel: 'Gm',  newAcc: 'Eb',        idx: 10 },
+  { key: 'F',  label: 'F',  sharps: 0, flats: 1, acc: ['Bb'],                                 rel: 'Dm',  newAcc: 'Bb',        idx: 11 },
 ]
 
 const FLAT_KEYS = new Set(['F', 'Bb', 'Eb', 'Ab', 'Db', 'Gb'])
@@ -255,7 +255,7 @@ export default function CicloQuintas() {
                 </div>
               ) : (
                 <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                  Dó maior não tem acidentes: a tonalidade de referência.
+                  C maior não tem acidentes: a tonalidade de referência.
                 </div>
               )}
             </div>
@@ -346,7 +346,7 @@ export default function CicloQuintas() {
             <p>
               <b>Relativa menor</b>: cada tonalidade maior tem uma menor natural com as mesmas notas.
               A relativa menor está sempre 3 semitônios <em>abaixo</em> da tônica maior (ou 9 acima).
-              Por isso C maior e Lá menor compartilham as mesmas teclas/trastes.
+              Por isso C maior e A menor compartilham as mesmas teclas/trastes.
             </p>
           </Step>
           <Step n={4}>
