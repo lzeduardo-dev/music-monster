@@ -503,6 +503,7 @@ function AuthModal({ onClose }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [fieldErrors, setFieldErrors] = useState({});
   const [serverError, setServerError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -518,8 +519,24 @@ function AuthModal({ onClose }) {
     if (mode === "register" && name.trim().length < 2)
       errs.name = "Nome deve ter ao menos 2 caracteres.";
     if (!email.includes("@")) errs.email = "Informe um e-mail válido.";
-    if (password.length < 8)
-      errs.password = "Senha deve ter ao menos 8 caracteres.";
+
+    if (mode === "register") {
+      // No cadastro: exige força completa.
+      if (password.length < 8)
+        errs.password = "Senha deve ter ao menos 8 caracteres.";
+      else if (!/[A-Z]/.test(password))
+        errs.password = "Senha deve ter ao menos uma letra maiúscula.";
+      else if (!/[^A-Za-z0-9]/.test(password))
+        errs.password = "Senha deve ter ao menos um caractere especial.";
+
+      if (!passwordConfirm)
+        errs.passwordConfirm = "Confirme sua senha.";
+      else if (password !== passwordConfirm)
+        errs.passwordConfirm = "As senhas não conferem.";
+    } else {
+      // No login: só exige preenchido (a validação real é no back).
+      if (!password) errs.password = "Senha é obrigatória.";
+    }
     return errs;
   };
 
@@ -681,6 +698,32 @@ function AuthModal({ onClose }) {
                 mode === "register" ? "new-password" : "current-password"
               }
             />
+            {mode === "register" && !fieldErrors.password && (
+              <div
+                style={{
+                  fontSize: 11.5,
+                  color: "#6b7482",
+                  marginTop: -4,
+                  lineHeight: 1.4,
+                }}
+              >
+                Ao menos 8 caracteres, com uma letra maiúscula e um caractere
+                especial (ex: <b>!@#$?%</b>).
+              </div>
+            )}
+
+            {mode === "register" && (
+              <AuthInput
+                label="Confirmar senha"
+                id="auth-password-confirm"
+                type="password"
+                value={passwordConfirm}
+                onChange={setPasswordConfirm}
+                placeholder="Repita a senha"
+                error={fieldErrors.passwordConfirm}
+                autoComplete="new-password"
+              />
+            )}
 
             {serverError && (
               <div
@@ -744,6 +787,7 @@ function AuthModal({ onClose }) {
                 setMode(mode === "login" ? "register" : "login");
                 setServerError("");
                 setFieldErrors({});
+                setPasswordConfirm("");
               }}
               style={{
                 background: "transparent",

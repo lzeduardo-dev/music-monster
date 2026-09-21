@@ -15,13 +15,13 @@ const TRILHAS = [
         to: "/fundamentos",
         moduleId: "fundamentals",
         title: "Fundamentos",
-        desc: "Som, escala maior, intervalos e a fórmula T-T-st.",
+        desc: "Som, escala maior, intervalos e a fórmula T-T-st-T-T-T-st.",
       },
       {
         to: "/ciclo-das-quintas",
         moduleId: "ciclo_quintas",
         title: "Ciclo das Quintas",
-        desc: "O mapa da harmonia: 12 tonalidades e relações de quinta.",
+        desc: "O mapa da harmonia: 12 tonalidades e relações de quinta e quarta.",
       },
       {
         to: "/harmonia",

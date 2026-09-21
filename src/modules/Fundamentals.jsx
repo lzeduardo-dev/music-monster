@@ -286,11 +286,10 @@ const SOUND_PROPERTIES = [
     summary:
       'O "sotaque" de cada instrumento: por que o violão soa diferente do piano.',
     content: [
-      "Quando uma corda vibra, ela não produz apenas uma frequência: produz a fundamental E seus harmônicos (múltiplos inteiros da frequência base).",
+      "Quando uma corda vibra, ela não produz apenas uma frequência, produz a fundamental E seus harmônicos (múltiplos inteiros da frequência base).",
       "C4 no piano = 261 Hz + 522 Hz + 784 Hz + 1046 Hz + … cada um em proporção diferente.",
       "A mistura e intensidade relativa desses harmônicos define o timbre. Violão, piano e violino tocando C4 têm a mesma fundamental mas perfis de harmônicos completamente distintos.",
-      "No violão, o ponto de ataque (ponte vs. escala vs. boca) muda o timbre: mais brilhante perto da ponte (harmônicos agudos em destaque), mais encorpado perto da boca.",
-      "Na música eletrônica, síntese aditiva constrói sons combinando harmônicos; síntese subtrativa parte de um som rico e filtra frequências.",
+      "No violão, o ponto de ataque (ponte vs. escala vs. boca) muda o timbre: mais brilhante perto da ponte (harmônicos agudos em destaque) e mais encorpado perto da boca.",
     ],
     extra: null,
   },
@@ -317,7 +316,7 @@ const SOUND_PROPERTIES = [
     ),
     summary: "Por quanto tempo uma nota soa: o ritmo da música.",
     content: [
-      "A duração das notas cria o ritmo. Sem ritmo não há música: apenas frequências.",
+      "A duração das notas cria o ritmo. Sem ritmo não há música, apenas frequências.",
       "Notação: Semibreve (4 tempos) → Mínima (2) → Semínima (1) → Colcheia (½) → Semicolcheia (¼).",
       "Tempo: medido em BPM (batidas por minuto). 60 BPM = 1 batida por segundo.",
       "Compasso: agrupa batidas em unidades repetíveis. 4/4 = 4 batidas por compasso, semínima = 1 tempo.",
@@ -385,14 +384,6 @@ export default function Fundamentals() {
 
       {/* ── Sound properties — texto corrido ──────────────────────────── */}
       <Section title="As quatro propriedades do som">
-        <TheoryBlock>
-          <p>
-            O som tem quatro propriedades fundamentais que definem tudo o que
-            ouvimos. Entender cada uma é o primeiro passo pra qualquer decisão
-            musical consciente.
-          </p>
-        </TheoryBlock>
-
         {SOUND_PROPERTIES.map((p) => (
           <div key={p.key} style={{ marginTop: 28 }}>
             <h3

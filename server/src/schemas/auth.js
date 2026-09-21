@@ -14,7 +14,13 @@ export const registerSchema = z.object({
   password: z
     .string({ required_error: 'Senha é obrigatória.' })
     .min(8, 'Senha deve ter ao menos 8 caracteres.')
-    .max(100, 'Senha muito longa.'),
+    .max(100, 'Senha muito longa.')
+    .refine((v) => /[A-Z]/.test(v), {
+      message: 'Senha deve ter ao menos uma letra maiúscula.',
+    })
+    .refine((v) => /[^A-Za-z0-9]/.test(v), {
+      message: 'Senha deve ter ao menos um caractere especial.',
+    }),
 })
 
 export const loginSchema = z.object({
