@@ -48,7 +48,34 @@ export default function Landing() {
             gap: 6,
           }}
         >
-          <NavPill onClick={() => setAuthOpen(true)}>Entrar</NavPill>
+          <button
+            type="button"
+            onClick={() => setAuthOpen(true)}
+            style={{
+              padding: "10px 22px",
+              fontSize: 14.5,
+              fontWeight: 700,
+              color: "#0f172a",
+              background:
+                "linear-gradient(90deg, #fde68a 0%, #fcd34d 45%, #93c5fd 100%)",
+              border: "none",
+              borderRadius: 999,
+              cursor: "pointer",
+              fontFamily: "inherit",
+              boxShadow: "0 2px 8px rgba(15, 23, 42, 0.12)",
+              transition: "transform 0.15s ease, box-shadow 0.15s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-1px)";
+              e.currentTarget.style.boxShadow = "0 4px 14px rgba(15, 23, 42, 0.18)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 2px 8px rgba(15, 23, 42, 0.12)";
+            }}
+          >
+            Entrar
+          </button>
         </nav>
       </header>
 
@@ -331,10 +358,143 @@ export default function Landing() {
         </div>
       </section>
 
+      <Footer />
+
       {authOpen && <AuthModal onClose={() => setAuthOpen(false)} />}
     </div>
   );
 }
+
+function Footer() {
+  const year = new Date().getFullYear();
+  return (
+    <footer
+      style={{
+        borderTop: "1px solid #e5e7eb",
+        background: "#f3f4f6",
+        color: "#4b5563",
+        padding: "48px clamp(20px, 5vw, 72px) 28px",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 1180,
+          margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gap: 40,
+        }}
+      >
+        <div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              marginBottom: 12,
+              color: "#17202b",
+            }}
+          >
+            <LogoMark height={26} />
+            <MusicMonsterWordmark fontSize={22} ink="#17202b" hole="#f3f4f6" />
+          </div>
+          <p style={{ fontSize: 13.5, lineHeight: 1.6, margin: 0, color: "#6b7280" }}>
+            Plataforma de educação musical para guitarristas — do iniciante ao
+            avançado, com teoria, harmonia e prática no braço.
+          </p>
+        </div>
+
+        <div>
+          <div
+            style={{
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "#17202b",
+              marginBottom: 12,
+            }}
+          >
+            Plataforma
+          </div>
+          <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
+            <li><Link to="/fundamentos" style={footerLink}>Fundamentos</Link></li>
+            <li><Link to="/harmonia" style={footerLink}>Harmonia</Link></li>
+            <li><Link to="/caged" style={footerLink}>Sistema CAGED</Link></li>
+            <li><Link to="/roadmap" style={footerLink}>Trilha completa</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <div
+            style={{
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "#17202b",
+              marginBottom: 12,
+            }}
+          >
+            Ferramentas
+          </div>
+          <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
+            <li><Link to="/braco-violao" style={footerLink}>Braço da Guitarra</Link></li>
+            <li><Link to="/maquina-acordes" style={footerLink}>Máquina de Acordes</Link></li>
+            <li><Link to="/ear-lab" style={footerLink}>Lab Auditivo</Link></li>
+            <li><Link to="/quiz" style={footerLink}>Quiz Musical</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <div
+            style={{
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "#17202b",
+              marginBottom: 12,
+            }}
+          >
+            Desenvolvedor
+          </div>
+          <p style={{ fontSize: 13.5, lineHeight: 1.6, margin: "0 0 10px", color: "#6b7280" }}>
+            Feito por <strong style={{ color: "#17202b" }}>Luiz Eduardo</strong>
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            <a href="mailto:lzeduardo.dev@gmail.com" style={footerLink}>lzeduardo.dev@gmail.com</a>
+            <a href="https://github.com/lzeduardo-dev" target="_blank" rel="noreferrer" style={footerLink}>GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style={{
+          maxWidth: 1180,
+          margin: "36px auto 0",
+          paddingTop: 20,
+          borderTop: "1px solid #d1d5db",
+          display: "flex",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: 10,
+          fontSize: 12.5,
+          color: "#6b7280",
+        }}
+      >
+        <span>© {year} MusicMonster. Todos os direitos reservados.</span>
+        <span>Feito com café, guitarra e React.</span>
+      </div>
+    </footer>
+  );
+}
+
+const footerLink = {
+  fontSize: 13.5,
+  color: "#4b5563",
+  textDecoration: "none",
+};
 
 // ─── Sub-componentes da Landing ────────────────────────────────────────────
 
