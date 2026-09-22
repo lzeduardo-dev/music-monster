@@ -71,7 +71,7 @@ export default function CicloQuintas() {
 
   function handleKeyClick(k) {
     setSelectedKey(k.key)
-    playSequence(scaleWithOctaves(k.key, 'major', 3), 0.22).catch(() => {})
+    playSequence(scaleWithOctaves(k.key, 'major', 3), 0.22)
   }
 
   const displayKey = hovered ?? selectedKey
@@ -202,7 +202,7 @@ export default function CicloQuintas() {
                   </div>
                 </div>
                 <button
-                  className="btn btn-primary text-sm"
+                  className="btn btn-primary text-sm hide-mobile"
                   onClick={() => playSequence(scalePitches, 0.22)}
                 >
                   ▶ Tocar

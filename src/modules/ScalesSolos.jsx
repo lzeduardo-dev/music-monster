@@ -318,7 +318,7 @@ export default function ScalesSolos() {
         action={
           <div className="flex flex-wrap gap-2">
             <button
-              className="btn btn-primary"
+              className="btn btn-primary hide-mobile"
               onClick={() => playSequence(scalePitches, 0.27)}
             >
               ▶ Tocar

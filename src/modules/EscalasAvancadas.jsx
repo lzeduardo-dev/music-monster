@@ -343,7 +343,7 @@ export default function EscalasAvancadas() {
         action={
           <div className="flex gap-2 flex-wrap">
             <button
-              className="btn btn-primary"
+              className="btn btn-primary hide-mobile"
               onClick={() => playSequence(scalePitches, 0.35)}
             >
               ▶ Tocar escala

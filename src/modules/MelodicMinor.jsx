@@ -122,7 +122,7 @@ export default function MelodicMinor() {
         title={`${root} ${mode.label}: ${mode.formula}`}
         action={
           <div className="flex flex-wrap gap-2">
-            <button className="btn btn-primary" onClick={() => playSequence(pitches, 0.28, true)}>▶ Tocar</button>
+            <button className="btn btn-primary hide-mobile" onClick={() => playSequence(pitches, 0.28, true)}>▶ Tocar</button>
             <CompleteToggle
               done={isComplete('melodic-minor', modeKey)}
               onClick={() => markLesson('melodic-minor', modeKey)}

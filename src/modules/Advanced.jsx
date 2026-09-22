@@ -460,7 +460,7 @@ export default function Advanced() {
         action={
           <div className="flex flex-wrap gap-2">
             <button
-              className="btn btn-primary"
+              className="btn btn-primary hide-mobile"
               onClick={() => playSequence(pitches, 0.3, true)}
             >
               ▶ Tocar modo

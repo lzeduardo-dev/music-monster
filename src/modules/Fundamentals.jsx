@@ -473,7 +473,7 @@ export default function Fundamentals() {
         action={
           <div className="flex flex-wrap gap-2">
             <button
-              className="btn btn-primary"
+              className="btn btn-primary hide-mobile"
               onClick={() => playSequence(scalePitches, 0.32, true)}
             >
               Tocar escala
