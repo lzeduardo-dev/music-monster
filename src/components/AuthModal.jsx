@@ -93,7 +93,13 @@ export default function AuthModal({ onClose, initialMode = "login" }) {
           from { opacity: 0; transform: scale(.96) translateY(6px); }
           to   { opacity: 1; transform: scale(1) translateY(0); }
         }
-        @media (max-width: 720px) {
+        .auth-input:-webkit-autofill,
+        .auth-input:-webkit-autofill:hover,
+        .auth-input:-webkit-autofill:focus {
+          -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+          -webkit-text-fill-color: #17202b;
+          caret-color: #17202b;
+          transition: background-color 9999s ease-out;
         }
       `}</style>
       <div
@@ -346,6 +352,7 @@ function AuthInput({
       </label>
       <input
         id={id}
+        className="auth-input"
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
