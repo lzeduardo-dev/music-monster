@@ -29,7 +29,7 @@ import Historia from "./modules/Historia.jsx";
 import MaquinaAcordes from "./modules/MaquinaAcordes.jsx";
 import Quiz from "./modules/Quiz.jsx";
 import Roadmap from "./modules/Roadmap.jsx";
-import Landing from "./modules/Landing.jsx";
+import Landing from "./modules/landing/Landing";
 import CicloQuintas from "./modules/CicloQuintas.jsx";
 import FigurasRitmicas from "./modules/FigurasRitmicas.jsx";
 import LaboratorioGroove from "./modules/LaboratorioGroove.jsx";

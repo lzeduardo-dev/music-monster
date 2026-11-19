@@ -11,21 +11,27 @@
     "dev:server": "node --watch server/src/app.js",
     "dev:all": "npm run dev:server & npm run dev",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@tombatossals/chords-db": "^0.5.1",
     "@tombatossals/react-chords": "^0.2.10",
+    "gsap": "^3.15.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
     "tone": "^15.0.4"
   },
   "devDependencies": {
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
+    "typescript": "^7.0.2",
     "vite": "^5.4.8"
   }
 }
